@@ -1,6 +1,7 @@
 import React  from 'react'
 import Rating from '../components/Rating'
 import data from '../data';
+import {Link} from 'react-router-dom'
 
 
 const ProductScreen = (props) => {
@@ -10,7 +11,8 @@ const ProductScreen = (props) => {
     }
     return (
         <div>
-          <div className='row'>
+            <Link to='/'>Back To Result</Link>
+          <div className='row top'>
               <div className='col-2'>
                   <img className='large' src={product.image} alt={product.name}/>
               </div>
