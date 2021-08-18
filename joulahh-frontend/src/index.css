@@ -153,10 +153,12 @@ img.medium {
 .rating span:last-child {
   color: #203040;
 }
+/*alert*/ 
+
 .success {
   color: green;
 }
-.error {
+.danger {
   color: red;
 }
 .alert{
