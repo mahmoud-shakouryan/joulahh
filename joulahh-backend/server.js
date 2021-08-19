@@ -17,21 +17,26 @@ app.use((req, res, next) => {
  
 
 app.get('/api/products/:id', (req, res) => {
-    console.log('id tooye server :>> ', req.params.id);
     const product = data.products.find(product => product._id === req.params.id);
-    console.log('product :>> ', product);
+    console.log(product)
     if(product){
-        res.status(201).json(product);
+       res.status(201).json({product, message:'product found'})
     }
     else{
-        res.status(404).send({message:'Product Not Found!'});
+       
+       res.status(404).json({message:'Product Not Found!'})
     }
 })
+
+
+
 app.get('/', (req, res) => {
-    res.send(data.products);
-    console.log('data.products',data.products)
-    console.log('miw"e /')
+    const products = data.products;
+    res.status(201).json(products);
 })
+
+
+
 // app.get('/api/products', (req, res) => {
 //     res.send(data.products);
 // })

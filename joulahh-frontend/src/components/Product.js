@@ -5,7 +5,7 @@ const Product = ({product}) => {
     return (
         <div>
             <div key={product._id} className="card">
-                <a href={`http://localhost:3000/product/${product._id}`}>
+                <a href={`http://localhost:3000/product/${product._id}`}>  
                   <img
                     className="medium"
                     src={product.image}
@@ -13,7 +13,7 @@ const Product = ({product}) => {
                   />
                 </a>
                 <div className="card-body">
-                  <a href={`http://localhost:3000/api/products/${product._id}`}>
+                  <a href={`http://localhost:3000/product/${product._id}`}>
                     <h2>{product.name}</h2>
                   </a>
                   <Rating rating={product.rating} numReviews={product.numReviews}/>

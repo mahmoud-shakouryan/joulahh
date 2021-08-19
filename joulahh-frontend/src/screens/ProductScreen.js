@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "../components/Rating";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,15 +14,20 @@ const ProductScreen = (props) => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  
+  const [qty, setQty] = useState(1);
 
+  
   useEffect(() => {
     dispatch(detailsProduct(id));
-  }, []);
+  }, [dispatch,id]);
 
   if (!product) {
     return <div>product not found!</div>;
   }
+
+  const addToCartHandler = () => {
+    props.history.push(`/cart/${id}?qty=${qty}`);       //ba in mirim tooye CartScreen.js pas param va search parameter ro tooye CartScreen dar vaghe az inja migirim.
+  } 
 
   return (
       <div>
@@ -68,9 +73,26 @@ const ProductScreen = (props) => {
                         )}
                       </div>
                     </li>
-                    <li>
-                      <button className="primaty block">Add To Cart</button>
-                    </li>
+                    { product.countInStock > 0 && (
+                      <> 
+                      <div className='row'>
+                        <div>Qty</div>
+                        <div>
+                          <select value={qty} onChange={e=>setQty(e.target.value)}>
+                            {
+                              
+                              [...Array(product.countInStock).keys()].map((x,i)=>{
+                                return <option key={i} value={i+1}>{i+1}</option>
+                              })
+                            }
+                          </select>
+                        </div>
+                      </div>
+                      <li>
+                      <button className="primaty block" onClick={addToCartHandler}>Add To Cart</button>
+                      </li>
+                    </>
+                    )}
                   </ul>
                 </div>
               </div>
