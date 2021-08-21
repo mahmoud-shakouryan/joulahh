@@ -18,9 +18,8 @@ app.use((req, res, next) => {
 
 app.get('/api/products/:id', (req, res) => {
     const product = data.products.find(product => product._id === req.params.id);
-    console.log(product)
     if(product){
-       res.status(201).json({product, message:'product found'})
+       res.status(201).json({product})
     }
     else{
        

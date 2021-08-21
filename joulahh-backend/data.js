@@ -47,31 +47,7 @@ const data = {
         rating: 4.5,
         numReviews: 14,
         description: 'high quality product',
-      },
-      {
-        _id: '5',
-        name: 'Puma Slim Pant',
-        category: 'Pants',
-        image: '/images/d1.jpg',
-        price: 65,
-        countInStock:10,
-        brand: 'Puma',
-        rating: 4.5,
-        numReviews: 10,
-        description: 'high quality product',
-      },
-      {
-        _id: '6',
-        name: 'Adidas Fit Pant',
-        category: 'Pants',
-        image: '/images/d1.jpg',
-        price: 139,
-        countInStock:0,
-        brand: 'Adidas',
-        rating: 4.5,
-        numReviews: 15,
-        description: 'high quality product',
-      },
+      }
     ],
   };
   export default data;

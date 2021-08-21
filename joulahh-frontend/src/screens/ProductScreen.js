@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Rating from "../components/Rating";
-import { Link, useParams } from "react-router-dom";
+import { Link, Redirect, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct } from "../store/actions/productDetailsAction";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 const ProductScreen = (props) => {
+  console.log('rendering ProductScreen.js')
   const productDetailsReducer = useSelector(
     (state) => state.productDetailsReducer
   );
   const { error, loading, product } = productDetailsReducer;
-  const { id } = useParams();
+  const { id } = useParams();          // in id az click kardan bar rooye <a> haye axe mahsool ya esme mahsool too safheye avavl(Product.js) be dast miad
   const dispatch = useDispatch();
 
   const [qty, setQty] = useState(1);
@@ -26,7 +27,8 @@ const ProductScreen = (props) => {
   }
 
   const addToCartHandler = () => {
-    props.history.push(`/cart/${id}?qty=${qty}`);       //ba in mirim tooye CartScreen.js pas param va search parameter ro tooye CartScreen dar vaghe az inja migirim.
+    console.log('addToCartHandler')
+     props.history.push(`/cart/${id}?qty=${qty}`);       //ba in mirim tooye CartScreen.js pas param va search parameter ro tooye CartScreen dar vaghe az inja migirim.
   } 
 
   return (

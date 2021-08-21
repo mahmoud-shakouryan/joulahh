@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -8,20 +8,20 @@ function App() {
     <div className="grid-container">
       <header className="row">
         <div>
-          <a className="brand" href="/">
+          <Link className="brand" to="/">
             amazona
-          </a>
+          </Link>
         </div>
         <div>
-          <a href="/cart">Cart</a>
-          <a href="/signin">Sign In</a>
+          <Link to="/cart">Cart</Link>
+          <Link to="/signin">Sign In</Link>
         </div>
       </header>
       <main>
         <Switch>
-        <Route path='/' exact component={HomeScreen}></Route>
-        <Route path='/product/:id' exact component={ProductScreen}></Route>
-        <Route path='/cart/:id?' component={CartScreen}></Route>  {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
+        <Route path='/' exact component={HomeScreen}/>
+        <Route path='/product/:id' exact component={ProductScreen}/>
+        <Route path='/cart/:id' component={CartScreen}/>  {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
         </Switch>
       </main>
       <footer className="row center">All right reserved</footer>
