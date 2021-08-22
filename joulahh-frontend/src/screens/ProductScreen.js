@@ -7,7 +7,6 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 const ProductScreen = (props) => {
-  console.log('rendering ProductScreen.js')
   const productDetailsReducer = useSelector(
     (state) => state.productDetailsReducer
   );
@@ -27,7 +26,6 @@ const ProductScreen = (props) => {
   }
 
   const addToCartHandler = () => {
-    console.log('addToCartHandler')
      props.history.push(`/cart/${id}?qty=${qty}`);       //ba in mirim tooye CartScreen.js pas param va search parameter ro tooye CartScreen dar vaghe az inja migirim.
   } 
 

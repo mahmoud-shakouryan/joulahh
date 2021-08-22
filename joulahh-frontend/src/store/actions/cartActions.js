@@ -1,7 +1,9 @@
 import axios from "axios";
 import * as actions from "./actionTypes";
 
+
 export const addToCart = (productId, qty) => {
+    
   return async (dispatch) => {
     try {
       const result = await axios.get(
@@ -17,7 +19,7 @@ export const addToCart = (productId, qty) => {
           countInStock: product.countInStock,
           product: product._id,
           qty: qty,
-        },
+        }
       });
     } catch (error) {
       console.log("error :>> ", error);

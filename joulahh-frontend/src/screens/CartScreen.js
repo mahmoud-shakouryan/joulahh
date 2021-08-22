@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addToCart } from '../store/actions/cartActions';
 

@@ -7,7 +7,6 @@ export const detailsProduct = (productId) => {
     axios
       .get(`http://localhost:5000/api/products/${productId}`)
       .then((result) => {
-        console.log(result);
         if (!result.data.product) {
           return dispatch({
             type: actions.PRODUCT_Details_FAIL,
