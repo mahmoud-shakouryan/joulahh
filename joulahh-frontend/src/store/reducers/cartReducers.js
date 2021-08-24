@@ -19,6 +19,10 @@ export const cartReducer = (state = initialState , action) => {
         localStorage.setItem('cartItems',JSON.stringify(updatedState))
         return updatedState;
       }
+      case actions.CART_REMOVE_ITEM:
+        const updatedFilteredState = {...state, cartItems : state.cartItems.filter(cartItem => cartItem.product !== action.payload)};
+        localStorage.setItem('cartItems',JSON.stringify(updatedFilteredState));
+        return updatedFilteredState;
 
     default:
       return state;

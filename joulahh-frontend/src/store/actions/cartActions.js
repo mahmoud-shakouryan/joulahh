@@ -27,24 +27,8 @@ export const addToCart = (productId, qty) => {
   };
 };
 
-// axios
-// .get(`http://localhost:5000/api/products/${productId}`)
-// .then((result) => {
-//     console.log(result)
-//   const { product } = result.data;
-//   console.log(product)
-//   dispatch({
-//     type: actions.CART_ADD_ITEM,
-//     payload: {
-//       name: product.name,
-//       image: product.image,
-//       price: product.price,
-//       countInStock: product.countInStock,
-//       product: product._id,
-//       qty: qty
-//     }
-//   });
-// })
-// .catch(error => {
-//     console.log('error :>> ', error);
-// })
+export const removeFromCart = productId => {
+  return (dispatch,getState) => {
+    dispatch({type:actions.CART_REMOVE_ITEM,payload:productId});
+  }
+}
