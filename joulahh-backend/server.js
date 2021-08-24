@@ -1,11 +1,12 @@
 import express from "express";
-import data from "./data.js";
+// import data from "./data.js";
 import mongoose from "mongoose";
 import userRouter from "./routes/userRouter.js";
+import productRouter from "./routes/productRouter.js";
 // import path from 'path';
 
 const app = express();
-const MONGODB_URI = "mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGODB_URI = "mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/joulahh?retryWrites=true&w=majority";
 
 // const __dirname = path.resolve();         //baraye inke modele import taghir karder
 // app.use('/images',express.static(path.join(__dirname,'images')));
@@ -16,23 +17,30 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find(
-    (product) => product._id === req.params.id
-  );
-  if (product) {
-    res.status(201).json({ product });
-  } else {
-    res.status(404).json({ message: "Product Not Found!" });
-  }
-});
+// app.get("/api/products/:id", (req, res) => {
+//   const product = data.products.find(
+//     (product) => product._id === req.params.id
+//   );
+//   if (product) {
+//     res.status(201).json({ product });
+//   } else {
+//     res.status(404).json({ message: "Product Not Found!" });
+//   }
+// });
 
-app.get("/", (req, res) => {
-  const products = data.products;
-  res.status(201).json(products);
-});
+// app.get("/", (req, res) => {
+//   const products = data.products;
+//   res.status(201).json(products);
+// });
 
 app.use('/api/users',userRouter); 
+app.use('/api/products',productRouter);
+
+
+
+app.use((err, req, res, next) => {   //age router'e tooye expressAsyncHandler be error resid express miare inja va khob maloome ke error ro be front end mifreste
+    res.status(500).send({message : err.message})
+})
 
 let port = process.env.PORT || 5000;
 mongoose
