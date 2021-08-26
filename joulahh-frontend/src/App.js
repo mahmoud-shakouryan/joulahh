@@ -3,6 +3,7 @@ import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigninScreen from './screens/SigninScreen';
 const  App = () => {
   
   const cartItems = useSelector(state => state.cartReducer).cartItems;
@@ -30,6 +31,7 @@ const  App = () => {
         <Route path='/' exact component={HomeScreen}/>
         <Route path='/product/:id' exact component={ProductScreen}/>
         <Route path='/cart/:id' component={CartScreen}/>  {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
+        <Route path='/signin' component={SigninScreen}/>
         </Switch>
       </main>
       <footer className="row center">All right reserved</footer>

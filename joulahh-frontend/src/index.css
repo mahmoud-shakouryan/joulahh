@@ -212,3 +212,29 @@ align-items: center;
  width: 100px;
  
 }
+
+/* form */
+.form{
+  width: 30rem;
+  margin: 0 auto;
+}
+.form > div{
+  width: 50rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.form > div > input{
+  width: 50%;
+  padding:1rem 0 ;
+  border: 1px solid black;
+}
+.form > div > button {
+  width: 50%;
+  background-color: rgb(192, 146, 18);
+  border: 1px solid black;
+}
+.form label{
+  margin: 1rem 0;
+  display: block;
+}
