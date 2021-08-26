@@ -1,11 +1,15 @@
 import express from "express";
 // import data from "./data.js";
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 import userRouter from "./routes/userRouter.js";
 import productRouter from "./routes/productRouter.js";
 // import path from 'path';
 
+dotenv.config();
 const app = express();
+app.use(express.json()); 
+app.use(express.urlencoded({extended : true}));
 const MONGODB_URI = "mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/joulahh?retryWrites=true&w=majority";
 
 // const __dirname = path.resolve();         //baraye inke modele import taghir karder

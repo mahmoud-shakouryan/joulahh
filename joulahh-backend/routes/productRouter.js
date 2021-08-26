@@ -6,7 +6,6 @@ import Product from "../models/productModel.js";
 const productRouter = express.Router();
 
 productRouter.get('/', expressAsyncHandler(async (req, res) =>{
-    console.log('raft hamoonja ke doos dashti bere')
     const products = await Product.find({}); // {} >> all
     res.json(products);
 }));
