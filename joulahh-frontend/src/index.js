@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import { productListReducer } from './store/reducers/productReducer';
 import { productDetailsReducer } from './store/reducers/productDetailsReducer';
 import { cartReducer } from './store/reducers/cartReducers';
+import { userSigninReducer } from './store/reducers/userReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -19,7 +20,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const reducer = combineReducers({
   productListReducer: productListReducer,
   productDetailsReducer : productDetailsReducer,
-  cartReducer : cartReducer
+  cartReducer : cartReducer,
+  userSigninReducer : userSigninReducer
 })
 const store = createStore(reducer,composeEnhancers(applyMiddleware(thunk)));
 

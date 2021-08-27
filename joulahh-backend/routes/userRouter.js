@@ -14,9 +14,12 @@ userRouter.get('/seed', expressAsyncHandler(async(req, res)=>{
 
 userRouter.post('/signin', expressAsyncHandler(async (req, res)=>{
     console.log('oomad too /signin')
+    console.log(req.body.email)
     const user = await User.findOne({email : req.body.email})
-    console.log('user',user)
+    console.log('user.isAdmin >>>',user.isAdmin)
+    console.log('user >>>',user)
     if(user){
+        console.log('back user',user.isAdmin)
         const token = jwt.sign({_id:user._id,name:user.name,email:user.email,isAdimn:user.isAdmin}, process.env.JWT_SECRET || 'somethingsupersecret',{expiresIn:'30d'})    // oon || 'somethingsuper..' baraye ine ke chon onn variable too github nist age ye nafar dige clone kard error nade.
         if(bcrypt.compareSync(req.body.password,user.password)){
           return  res.send({

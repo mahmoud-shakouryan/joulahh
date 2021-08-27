@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { signin } from "../store/actions/userActions";
 
 const SigninScreen = () => {
 
-const [email, setEmail] = useState('initialState');
+
+
+const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
+const dispatch = useDispatch();
 const submitHandler = (e) => {
-    e.preventDefautl();        //no auto refresh
-    //to do action
+    e.preventDefault();        //no auto refresh
+    dispatch(signin(email, password));
 }
 
 
@@ -36,7 +41,7 @@ const submitHandler = (e) => {
             id="password"
             placeholder="Enter Password"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>
