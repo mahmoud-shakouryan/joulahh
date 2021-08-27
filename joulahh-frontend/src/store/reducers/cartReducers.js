@@ -4,7 +4,6 @@ import * as actions from "../actions/actionTypes";
 
 
 export const cartReducer = (state = initialState , action) => {
-    console.log('state',state)
   switch (action.type) {
     case actions.CART_ADD_ITEM:
       const item = action.payload; // item >>oon objecti az data haye mokhtalef ke hamin alan az server gerftim

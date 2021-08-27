@@ -1,12 +1,12 @@
 import * as actions from "../actions/actionTypes";
 
-const initialState = {};
+const initialState = localStorage.getItem('userInfo') ? { userInfo : JSON.parse(localStorage.getItem('userInfo')) } : {};
 export const userSigninReducer = (state = initialState, action) => {
+
   switch (action.type) {
     case actions.USER_SIGNIN_REQUEST:
-      return { loading: true };
+      return { ...state, loading: true };
     case actions.USER_SIGNIN_SUCCESS:
-        console.log('oomad too success')
       const updatedState = {
         ...state,
         loading: false,
@@ -16,7 +16,10 @@ export const userSigninReducer = (state = initialState, action) => {
       return updatedState;
     case actions.USER_SIGNIN_FAIL:
       return { loading: false, error: action.payload };
-    case actions.USER_SIGNOUT:
+    case actions.SIGNOUT:
+        console.log('oomad to reducer')
+        localStorage.removeItem('userInfo');
+        localStorage.removeItem('cartItems');
       return {};
     default:
       return state;

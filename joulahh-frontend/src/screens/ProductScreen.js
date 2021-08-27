@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Rating from "../components/Rating";
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct } from "../store/actions/productDetailsAction";
 import LoadingBox from "../components/LoadingBox";

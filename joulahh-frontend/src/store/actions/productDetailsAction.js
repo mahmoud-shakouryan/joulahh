@@ -27,19 +27,3 @@ export const detailsProduct = (productId) => {
   };
 };
 
-// async (dispatch) => {
-//   dispatch({ type : actions.PRODUCT_Details_REQUEST });
-//   try {
-//     const data = await axios.get(`http://localhost:5000/api/products/${productId}`);
-//     console.log(data)
-//       dispatch({ type: actions.PRODUCT_Details_SUCCESS, payload: data.data.product });
-//   } catch (error) {
-//     dispatch({
-//       type: actions.PRODUCT_Details_FAIL,
-//       payload:
-//         error.response && error.response.data.message
-//           ? error.response.data.message
-//           : error.message,
-//     });
-//   }
-// };

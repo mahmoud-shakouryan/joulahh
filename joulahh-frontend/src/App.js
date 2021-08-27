@@ -1,13 +1,20 @@
-import { useSelector} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import SigninScreen from './screens/SigninScreen';
+import * as actions from './store/actions/actionTypes';
 const  App = () => {
   
   const cartItems = useSelector(state => state.cartReducer).cartItems;
+  const userSignin = useSelector(state=>state.userSigninReducer);
+  const { userInfo } = userSignin;
   
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch({type : actions.SIGNOUT});       //?? ajiibe chetra borde boodam ino too userActions ba dispatch amal nakard?
+  }                                            // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
   
   return (
     <BrowserRouter>
@@ -23,7 +30,17 @@ const  App = () => {
           {cartItems.length > 0 && (
             <span className='badge'>{cartItems.length}</span>
           )}
-          <Link to="/signin">Sign In</Link>
+          {
+            userInfo ? (
+              <div className='dropdown'>
+              <Link to='#'>{userInfo.name}<i className='fa fa-caret-down'></i></Link>
+              <ul className='dropdown-content'>
+                <Link to='#' onClick={signoutHandler} >Sign Out</Link>
+              </ul>
+              </div>
+            ) 
+          :<Link to="/signin">Sign In</Link>
+          }
         </div>
       </header>
       <main>
