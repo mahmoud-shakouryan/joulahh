@@ -22,7 +22,9 @@ export const cartReducer = (state = initialState , action) => {
         const updatedFilteredState = {...state, cartItems : state.cartItems.filter(cartItem => cartItem.product !== action.payload)};
         localStorage.setItem('cartItems',JSON.stringify(updatedFilteredState));
         return updatedFilteredState;
-
+      case actions.CART_SAVE_SHIPPING_ADDRESS:
+        localStorage.setItem('shippingAddress',JSON.stringify(action.payload));
+        return {...state, shippingAddress : action.payload}
     default:
       return state;
   }

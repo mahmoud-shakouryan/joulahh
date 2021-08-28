@@ -28,7 +28,14 @@ export const addToCart = (productId, qty) => {
 };
 
 export const removeFromCart = productId => {
-  return (dispatch,getState) => {
+  return (dispatch) => {
     dispatch({type:actions.CART_REMOVE_ITEM,payload:productId});
+  }
+}
+
+export const saveShippingAddress = (data) =>{        // ye object migire dige chera sholughesh mikoni?
+  return dispatch => {       // in dispatch ro redux-thuk mide
+    dispatch({type : actions.CART_SAVE_SHIPPING_ADDRESS, payload: data})
+    //
   }
 }
