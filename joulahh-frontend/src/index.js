@@ -8,11 +8,11 @@ import thunk from 'redux-thunk';
 import { productListReducer } from './store/reducers/productReducer';
 import { productDetailsReducer } from './store/reducers/productDetailsReducer';
 import { cartReducer } from './store/reducers/cartReducers';
-import { userSigninReducer } from './store/reducers/userReducer';
+import { userRegisterReducer, userSigninReducer } from './store/reducers/userReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const initialState = {
+// const initialState = {  ino bejaye inke inja bezaram bordam too hamoon file'e cartReducer
 //   cartReducer : {
 //     cartItems : localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 //   }
@@ -21,7 +21,8 @@ const reducer = combineReducers({
   productListReducer: productListReducer,
   productDetailsReducer : productDetailsReducer,
   cartReducer : cartReducer,
-  userSigninReducer : userSigninReducer
+  userSigninReducer : userSigninReducer,
+  userRegisterReducer : userRegisterReducer
 })
 const store = createStore(reducer,composeEnhancers(applyMiddleware(thunk)));
 

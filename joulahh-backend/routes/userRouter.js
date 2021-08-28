@@ -26,6 +26,21 @@ userRouter.post('/signin', expressAsyncHandler(async (req, res)=>{
         }
     }
     res.status(401).json({message : 'invalid password or email'});
+}));
+
+userRouter.post('/register', expressAsyncHandler(async(req, res) => {
+    const user = new User({name:req.body.name, email: req.body.email, password: bcrypt.hashSync(req.body.password, 8)});
+    // alan in bala user shode ye mongoose object ke az kelase User , instance gereftim.
+    const createdUser = await user.save();   // in promise return mikone yani result pas mide yadet bashe pas mishe masalan be _id access dasht ba inke hamin alan too db dorost karde.
+    const token = jwt.sign({_id:createdUser._id,name:createdUser.name,email:createdUser.email,isAdmin:createdUser.isAdmin}, process.env.JWT_SECRET || 'somethingsupersecret',{expiresIn:'30d'}) 
+    res.send({
+        _id:createdUser.id,
+        name:createdUser.name,
+        email:createdUser.email,
+        isAdmin:createdUser.isAdmin,
+        token:token
+    })
+
 }))
 
 export default userRouter;

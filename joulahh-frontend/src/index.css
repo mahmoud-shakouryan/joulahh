@@ -173,6 +173,9 @@ img.medium {
   color: #203040;
 }
 /*alert*/ 
+.loading{
+  display: block !important;
+}
 
 .success {
   color: green;
