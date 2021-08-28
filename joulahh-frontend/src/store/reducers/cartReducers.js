@@ -1,6 +1,6 @@
 import * as actions from "../actions/actionTypes";
 
- const initialState = { cartItems :  localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')).cartItems : [] }
+ const initialState = { cartItems :  localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')).cartItems : [], shippingAddress : localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {}}
 
 
 export const cartReducer = (state = initialState , action) => {
