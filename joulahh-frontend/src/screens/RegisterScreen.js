@@ -28,7 +28,9 @@ const submitHandler = (e) => {
 
 
 const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
-useEffect(()=>{
+useEffect(()=>{     //register ke ok shod chon dobare in component render mishe pas dobare ueEffect va indafe chon userInfo darim mire to if...
+  console.log('oomad to useEffect registerScreen')
+    console.log('props.location.search',props.location.search)
     if(userInfo){
         props.history.push(redirect);
     }
@@ -38,7 +40,7 @@ return (
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Register</h1>
+          <h1>Create Account</h1>
         </div>
         {loading && <LoadingBox>loading</LoadingBox>}
         {error && <MessageBox variant='danger' >{error}</MessageBox> }
@@ -90,7 +92,8 @@ return (
             <label/>
             <div>
                 Already Have An Account? {' '} 
-                <Link to='/signin'>Sign In</Link>
+                {/* <Link to={`/signin?redirect=${redirect}`}>Sign In</Link> */}
+                <Link to={'/signin?redirect='+{redirect}}>Sign In</Link>
 
             </div>
         </div>

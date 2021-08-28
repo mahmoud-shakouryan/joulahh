@@ -6,7 +6,7 @@ import MessageBox from "../components/MessageBox";
 import { signin } from "../store/actions/userActions";
 
 const SigninScreen = (props) => {
-
+console.log('rendering Signin.js')
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const userSignin = useSelector(state=>state.userSigninReducer);
@@ -22,6 +22,8 @@ const submitHandler = (e) => {
 
 const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
 useEffect(()=>{
+  console.log('oomad to useEffect signinScreen >>> props.loaction.search>>',props.location.search)
+  
     if(userInfo){
         props.history.push(redirect);
     }
@@ -63,7 +65,7 @@ return (
             <label/>
             <div>
                 New Customer? {' '} 
-                <Link to='/register'>Create Your Account</Link>
+                <Link to={`/register?redirect=${redirect}`}>Create Your Account</Link>
 
             </div>
         </div>
