@@ -6,6 +6,7 @@ import ProductScreen from './screens/ProductScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen'
 import * as actions from './store/actions/actionTypes';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
 const  App = (props) => {
   
   const cartItems = useSelector(state => state.cartReducer).cartItems;
@@ -51,6 +52,7 @@ const  App = (props) => {
         <Route path='/cart/:id' component={CartScreen}/>  {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
         <Route path='/signin' component={SigninScreen}/>
         <Route path='/register' component={RegisterScreen}/>
+        <Route path='/shipping' component={ShippingAddressScreen}/>
         </Switch>
       </main>
       <footer className="row center">All right reserved</footer>

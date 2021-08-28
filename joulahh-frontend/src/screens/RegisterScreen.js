@@ -18,7 +18,7 @@ const { userInfo, loading, error } = userRegister;
 const dispatch = useDispatch();
 const submitHandler = (e) => {
     e.preventDefault();        //no auto refresh
-    if(password !== confirmPassword){
+    if(password !== confirmPassword){ 
      alert('password and cofirm password does not match')
     }
     else{

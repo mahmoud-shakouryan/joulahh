@@ -263,3 +263,16 @@ align-items: center;
  .dropdown:hover .dropdown-content{
    display: block;
  }
+/* checkoutSteps */
+.checkout-steps > div{
+  border-top: .3rem #c0c0c0 solid;
+  flex:1;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.checkout-steps > div.active{
+  border-top-color: orange;
+  color:orange;
+
+}
