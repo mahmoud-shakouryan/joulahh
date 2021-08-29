@@ -1,6 +1,6 @@
 import * as actions from "../actions/actionTypes";
 
- const initialState = { cartItems :  localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')).cartItems : [], shippingAddress : localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {}}
+ const initialState = { cartItems :  localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')).cartItems : [], shippingAddress : localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {}, paymentMethod:'PayPal'}
 
 
 export const cartReducer = (state = initialState , action) => {
@@ -25,6 +25,8 @@ export const cartReducer = (state = initialState , action) => {
       case actions.CART_SAVE_SHIPPING_ADDRESS:
         localStorage.setItem('shippingAddress',JSON.stringify(action.payload));
         return {...state, shippingAddress : action.payload}
+      case actions.CART_SAVE_PAYMENT_METHOD:
+        return {...state, paymentMethod : action.payload};
     default:
       return state;
   }

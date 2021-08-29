@@ -231,15 +231,16 @@ align-items: center;
   width: 50%;
   padding:1rem 0 ;
   border: 1px solid black;
+  background-color: rgb(133, 47, 47);
 }
+
 .form > div > button {
   width: 50%;
   background-color: rgb(192, 146, 18);
   border: 1px solid black;
 }
 .form label{
-  margin: 1rem 0;
-  display: block;
+  margin: 1rem 1rem;
 }
 
 /* dropdown*/

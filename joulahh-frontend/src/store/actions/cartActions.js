@@ -36,6 +36,12 @@ export const removeFromCart = productId => {
 export const saveShippingAddress = (data) =>{        // ye object migire dige chera sholughesh mikoni?
   return dispatch => {       // in dispatch ro redux-thuk mide
     dispatch({type : actions.CART_SAVE_SHIPPING_ADDRESS, payload: data})
-    //
+    
   }
 }
+
+// export const savePaymentMethod = (data) => {
+//   return dispatch => {
+//     dispatch({ type :  actions.CART_SAVE_PAYMENT_METHOD, payload : data})
+//   }
+// }
