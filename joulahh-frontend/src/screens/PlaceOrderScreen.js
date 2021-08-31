@@ -28,7 +28,7 @@ const placeOrderHandler = () => {
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
       <div className="row top">
-        <div className="col-2">
+        <div className="recipt-summary">
           <ul>
             <li>
               <div className="card card-body">
@@ -77,7 +77,7 @@ const placeOrderHandler = () => {
             </li>
           </ul>
         </div>
-        <div className="colo-1">
+        <div className="price-summary">
           <div className="card card-body">
             <ul>
               <li>
@@ -112,7 +112,7 @@ const placeOrderHandler = () => {
               <li>
                 <button
                   type="button"
-                  className="primary block"
+                  className="primary block submit-placeOrder"
                   onClick={placeOrderHandler}
                   disabled={cart.cartItems.length === 0}
                 >
