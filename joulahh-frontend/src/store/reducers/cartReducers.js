@@ -26,6 +26,7 @@ export const cartReducer = (state = initialState , action) => {
         localStorage.setItem('shippingAddress',JSON.stringify(action.payload));
         return {...state, shippingAddress : action.payload}
       case actions.CART_SAVE_PAYMENT_METHOD:
+        console.log({...state, paymentMethod : action.payload})
         return {...state, paymentMethod : action.payload};
     default:
       return state;

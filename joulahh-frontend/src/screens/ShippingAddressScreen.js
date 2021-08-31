@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { saveShippingAddress } from "../store/actions/cartActions";
 import { useDispatch, useSelector} from 'react-redux';
@@ -7,23 +7,28 @@ import { useDispatch, useSelector} from 'react-redux';
 const ShippingAddressScreen = (props) => {
     const userSignin = useSelector(state => state.userSigninReducer);
     const { userInfo } = userSignin;
-    if(!userInfo) {
-        props.history.push('/signin')
-    }
+    // if(!userInfo) {
+    //     props.history.push('/signin')
+    // }
     const cart = useSelector(state => state.cartReducer);
     const {shippingAddress} = cart;
     console.log('shippingAddress',shippingAddress)
-    const [fullName, setFullName] = useState(shippingAddress.fullName);
-    const [address, setAddress] = useState(shippingAddress.address);
-    const [city, setCity] = useState(shippingAddress.city);
-    const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-    const [country, setCountry] = useState(shippingAddress.country);
+    const [fullName, setFullName] = useState(shippingAddress.fullName ? shippingAddress.fullName : '');
+    const [address, setAddress] = useState(shippingAddress.address ? shippingAddress.address : '');
+    const [city, setCity] = useState(shippingAddress.city ? shippingAddress.city : '');
+    const [postalCode, setPostalCode] = useState(shippingAddress.postalCode ? shippingAddress.postalCode : '');
+    const [country, setCountry] = useState(shippingAddress.country ? shippingAddress.country : '');
      const dispatch = useDispatch();
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveShippingAddress({fullName : fullName,address : address, city : city, postalCode : postalCode, country : country }));
+         dispatch(saveShippingAddress({fullName : fullName,address : address, city : city, postalCode : postalCode, country : country }));
         props.history.push('/payment');
     }
+    useEffect(()=>{
+      if(!userInfo) {
+        props.history.push('/signin')
+    }
+    },[props.history, userInfo])
     
   return (
     <div>

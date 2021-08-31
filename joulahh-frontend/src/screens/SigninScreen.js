@@ -22,7 +22,6 @@ const submitHandler = (e) => {
 
 const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
 useEffect(()=>{
-  console.log('oomad to useEffect signinScreen >>> props.loaction.search>>',props.location.search)
   
     if(userInfo){
         props.history.push(redirect);

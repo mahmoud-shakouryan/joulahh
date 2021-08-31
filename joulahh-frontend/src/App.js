@@ -1,5 +1,5 @@
 import { useDispatch, useSelector} from 'react-redux';
-import {BrowserRouter, Link, Redirect, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -8,7 +8,7 @@ import RegisterScreen from './screens/RegisterScreen'
 import * as actions from './store/actions/actionTypes';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
-const  App = (props) => {
+const  App = () => {
   
   const cartItems = useSelector(state => state.cartReducer).cartItems;
   const userSignin = useSelector(state=>state.userSigninReducer);
@@ -16,7 +16,7 @@ const  App = (props) => {
   
   const dispatch = useDispatch();
   const signoutHandler = () => {
-    dispatch({type:actions.SIGNOUT})     //?? ajiibe chetra borde boodam ino too userActions ba dispatch amal nakard?
+      dispatch({type:actions.SIGNOUT})     //?? ajiibe chetra borde boodam ino too userActions ba dispatch amal nakard?
   }                                            // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
   
   return (
@@ -30,7 +30,7 @@ const  App = (props) => {
         </div>
         <div>
           <Link to="/cart">Cart</Link>
-          {cartItems.length > 0 && (
+          {cartItems.length > 0 && userInfo &&(
             <span className='badge'>{cartItems.length}</span>
           )}
           {

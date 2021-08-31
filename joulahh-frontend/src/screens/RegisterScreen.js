@@ -29,8 +29,6 @@ const submitHandler = (e) => {
 
 const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
 useEffect(()=>{     //register ke ok shod chon dobare in component render mishe pas dobare ueEffect va indafe chon userInfo darim mire to if...
-  console.log('oomad to useEffect registerScreen')
-    console.log('props.location.search',props.location.search)
     if(userInfo){
         props.history.push(redirect);
     }
