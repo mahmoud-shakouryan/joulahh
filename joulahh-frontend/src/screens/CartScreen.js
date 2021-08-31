@@ -25,7 +25,6 @@ const CartScreen = (props) => {
   };
 
   const checkoutHandler = () => {
-    console.log('oomad ro checkout handler')
     props.history.push('/signin?redirect=shipping'); //??? after signin user must be redirection?
   };
 

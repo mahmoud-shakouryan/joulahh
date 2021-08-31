@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 
 
 const ShippingAddressScreen = (props) => {
+    console.log('ShippingAddressScreen.js')
     const userSignin = useSelector(state => state.userSigninReducer);
     const { userInfo } = userSignin;
     // if(!userInfo) {
@@ -12,7 +13,6 @@ const ShippingAddressScreen = (props) => {
     // }
     const cart = useSelector(state => state.cartReducer);
     const {shippingAddress} = cart;
-    console.log('shippingAddress',shippingAddress)
     const [fullName, setFullName] = useState(shippingAddress.fullName ? shippingAddress.fullName : '');
     const [address, setAddress] = useState(shippingAddress.address ? shippingAddress.address : '');
     const [city, setCity] = useState(shippingAddress.city ? shippingAddress.city : '');

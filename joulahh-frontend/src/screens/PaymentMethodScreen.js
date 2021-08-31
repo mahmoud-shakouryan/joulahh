@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../store/actions/actionTypes";
 
 const PaymentMethodScreen = (props) => {
+  console.log('PaymentMethodScreen.js')
 
     const [paymentMethod, setPaymentMethod] = useState("PayPal");
     const dispatch = useDispatch();
     
      const cart = useSelector(state => state.cartReducer);
      const { shippingAddress } = cart;
-     console.log('shippingAddress',Boolean(shippingAddress))
      
      
 
@@ -21,7 +21,7 @@ const PaymentMethodScreen = (props) => {
           type: actions.CART_SAVE_PAYMENT_METHOD,
           payload: paymentMethod,
         });
-        props.history.push("/placeholder");
+        props.history.push("/placeorder");
       };
 
       useEffect(() => {

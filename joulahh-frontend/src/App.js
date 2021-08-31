@@ -8,6 +8,7 @@ import RegisterScreen from './screens/RegisterScreen'
 import * as actions from './store/actions/actionTypes';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 const  App = () => {
   
   const cartItems = useSelector(state => state.cartReducer).cartItems;
@@ -55,6 +56,7 @@ const  App = () => {
         <Route path='/register' component={RegisterScreen}/>
         <Route path='/shipping' component={ShippingAddressScreen}/>
         <Route path='/payment' component={PaymentMethodScreen}/>
+        <Route path='/placeorder' component={PlaceOrderScreen}/>
         </Switch>
       </main>
       <footer className="row center">All right reserved</footer>

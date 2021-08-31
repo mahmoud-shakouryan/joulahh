@@ -17,7 +17,6 @@ export const userSigninReducer = (state = signinInitialState, action) => {
     case actions.USER_SIGNIN_FAIL:
       return { loading: false, error: action.payload };
     case actions.SIGNOUT:          //in mostaghim az tu app.js miad
-        console.log('oomad to reducer')
         localStorage.removeItem('userInfo');
         // localStorage.removeItem('cartItems');
         localStorage.removeItem('shippingAddress');

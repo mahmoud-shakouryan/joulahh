@@ -6,7 +6,6 @@ import MessageBox from "../components/MessageBox";
 import { signin } from "../store/actions/userActions";
 
 const SigninScreen = (props) => {
-console.log('rendering Signin.js')
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const userSignin = useSelector(state=>state.userSigninReducer);
