@@ -1,27 +1,29 @@
 // should fetch order data from backend & show it in the front
 // ?? chera hala hatman bayad az backend begireim?
 import React, { useEffect } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { detailesOrder } from "../store/actions/orderActions";
 
 const OrderScreen = (props) => {
+  const orderId = props.match.params.id;
+  const orderDetails = useSelector((state) => state.orderDetails);
+  const { order, loading, error } = orderDetails;
 
-const orderId = props.match.params.id;
-const orderDetails = useSelector(state => state.orderDetails);
-const { order, loading, error } = orderDetails;
-
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailesOrder(orderId));
-  }, [dispatch, orderId]);      // ???? dispatch bayad bashe tu dependency ya na ?
-  
-  return loading ? <LoadingBox/> : error ? <MessageBox variant='danger'>{error}</MessageBox> :
-  (
+  }, [dispatch, orderId]); // ???? dispatch bayad bashe tu dependency ya na ?
+
+  return loading ? (
+    <LoadingBox />
+  ) : error ? (
+    <MessageBox variant="danger">{error}</MessageBox>
+  ) : (
     <div>
-        <h1>Order {order._id}</h1>
+      <h1>Order {order._id}</h1>
       <div className="row top">
         <div className="recipt-summary">
           <ul>
@@ -33,9 +35,17 @@ const dispatch = useDispatch();
                   {order.shippingAddress.fullName}
                   <br />
                   <strong>Address : </strong> {order.shippingAddress.address},
-                  {order.shippingAddress.city}, {order.shippingAddress.postalCode}
-                  ,{order.shippingAddress.country}
+                  {order.shippingAddress.city},{" "}
+                  {order.shippingAddress.postalCode},
+                  {order.shippingAddress.country}
                 </p>
+                {order.isDelivered ? (
+                  <MessageBox varian="success">
+                    Delivered at {order.deliveredAt}
+                  </MessageBox>
+                ) : (
+                  <MessageBox variant="danger">Not Delivered</MessageBox>
+                )}
               </div>
             </li>
             <li>
@@ -45,6 +55,13 @@ const dispatch = useDispatch();
                   <strong>Method : </strong>
                   {order.paymentMethod}
                 </p>
+                {order.isPaid ? (
+                  <MessageBox varian="success">
+                    paid at {order.deliveredAt}
+                  </MessageBox>
+                ) : (
+                  <MessageBox variant="danger">Not paid</MessageBox>
+                )}
               </div>
             </li>
             <li>
