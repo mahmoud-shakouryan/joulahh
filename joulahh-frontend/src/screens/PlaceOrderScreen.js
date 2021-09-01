@@ -5,6 +5,7 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { createOrder } from "../store/actions/orderActions";
+import * as actions from '../store/actions/actionTypes';
 
 const PlaceOrderScreen = (props) => {
   console.log("PlaceOrderScreen.js");
@@ -32,9 +33,10 @@ const placeOrderHandler = () => {
       return props.history.push("/payment");
     }
     if(success){
+      dispatch({ type: actions.ORDER_CREATE_RESET })           //faghat state'e orderCreate ro khali kardim
       return props.history.push(`/order/${order._id}`);
     }
-  }, [props.history, cart.paymentMethod, success, order]);
+  }, [ dispatch, props.history, cart.paymentMethod, success, order]);
   
   return (
     <div>
