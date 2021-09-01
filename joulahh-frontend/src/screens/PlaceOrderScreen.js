@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { createOrder } from "../store/actions/orderActions";
 
 const PlaceOrderScreen = (props) => {
   console.log("PlaceOrderScreen.js");
   const cart = useSelector((state) => state.cartReducer);
+
+  const orderCreate = useSelector(state => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
+
 
   const toPrice = (num) => Number(num.toFixed(2)); //5.122323 >> "5.12" >> 5.12
   cart.itemsPrice = toPrice(
@@ -15,15 +22,20 @@ const PlaceOrderScreen = (props) => {
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice); //mohasebe maliat az kole gheymate kalaha
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
+const dispatch = useDispatch();
 const placeOrderHandler = () => {
-    //dispatch Actions
+    dispatch(createOrder({ ...cart, orderItems : cart.cartItems})) //kare khasi nakardim faghat chon baraye order ma orderItems mikhaim na cartItems vali mohtaviateshoon yekie, esmeshoon ro taghir dadim.
 }
 
   useEffect(() => {
     if (!cart.paymentMethod) {
-      props.history.push("/payment");
+      return props.history.push("/payment");
     }
-  }, [props.history, cart.paymentMethod]);
+    if(success){
+      return props.history.push(`/order/${order._id}`);
+    }
+  }, [props.history, cart.paymentMethod, success, order]);
+  
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4 />
@@ -119,6 +131,8 @@ const placeOrderHandler = () => {
                   Place Order
                 </button>
               </li>
+              { loading && <LoadingBox/>}
+              { error && <MessageBox variant='danger'>{error}</MessageBox> }
             </ul>
           </div>
         </div>

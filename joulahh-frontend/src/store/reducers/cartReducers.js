@@ -27,6 +27,9 @@ export const cartReducer = (state = initialState , action) => {
         return {...state, shippingAddress : action.payload}
       case actions.CART_SAVE_PAYMENT_METHOD:
         return {...state, paymentMethod : action.payload};
+      case actions.CART_EMPTY:
+        localStorage.removeItem('cartItems');
+        return {...state, cartItems : []};
     default:
       return state;
   }

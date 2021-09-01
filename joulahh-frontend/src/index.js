@@ -9,6 +9,7 @@ import { productListReducer } from './store/reducers/productReducer';
 import { productDetailsReducer } from './store/reducers/productDetailsReducer';
 import { cartReducer } from './store/reducers/cartReducers';
 import { userRegisterReducer, userSigninReducer } from './store/reducers/userReducer';
+import { orderCreateReducer } from './store/reducers/orderReducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -22,7 +23,8 @@ const reducer = combineReducers({
   productDetailsReducer : productDetailsReducer,
   cartReducer : cartReducer,
   userSigninReducer : userSigninReducer,
-  userRegisterReducer : userRegisterReducer
+  userRegisterReducer : userRegisterReducer,
+  orderCreate: orderCreateReducer,
 })
 const store = createStore(reducer,composeEnhancers(applyMiddleware(thunk)));
 

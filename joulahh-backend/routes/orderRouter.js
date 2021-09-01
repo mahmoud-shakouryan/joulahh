@@ -16,13 +16,13 @@ orderRouter.post('/',isAuth ,expressAsyncHandler(async(req,res)=>{
             orderItems : req.body.orderItems,
             shippingAddress : req.body.shippingAddress,
             paymentMethod : req.body.paymentMethod,
-            itemsPrice : req.body.itemsPrice,
+            itemsPrice : req.body.itemsPrice,   
             shippingPrice : req.body.shippingPrice,
             taxPrice : req.body.taxPrice,
             totalPrice : req.body.totalPrice,
             user : req.user._id,             //in ghesmat ba komake isAuth va file'e util.
         });
-        const createdOrder = await order.save();
+        const createdOrder = await order.save();  // on object'e orderi ke to db dorost mikone ro bad az anjamesh mizarim tooye createdOrder, bekhatere hamin toosh masalan _id hast.
         res.status(201).send({message : 'new order created', order : createdOrder})
     }
 }))
