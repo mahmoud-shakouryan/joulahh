@@ -7,7 +7,7 @@ import productRouter from "./routes/productRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 // import path from 'path';
 
-dotenv.config();
+dotenv.config();     
 const app = express();
 app.use(express.json()); 
 app.use(express.urlencoded({extended : true}));
@@ -21,22 +21,6 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-
-// app.get("/api/products/:id", (req, res) => {
-//   const product = data.products.find(
-//     (product) => product._id === req.params.id
-//   );
-//   if (product) {
-//     res.status(201).json({ product });
-//   } else {
-//     res.status(404).json({ message: "Product Not Found!" });
-//   }
-// });
-
-// app.get("/", (req, res) => {
-//   const products = data.products;
-//   res.status(201).json(products);
-// });
 
 app.use('/api/users',userRouter); 
 app.use('/api/products',productRouter);

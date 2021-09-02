@@ -1,14 +1,21 @@
+/* black : #131313 
+    pink : #fd794f
+    white: f8fafb
+    green : 3f8a89 */
+/*@font-face {
+  font-family: lalezar;
+  src: url(./fonts/lalezar.ttf);
+}*/
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
 }
 body {
+  background-color: #f8fafb;
   margin: 0;
   height: 100vh;
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 #root {
   height: 100%;
@@ -146,12 +153,17 @@ img.medium {
 /* Card */
 .card {
   border: 0.1rem #c0c0c0 solid;
-  background-color: #f8f8f8;
+  background-color: #3f8a89 ;
+  font-weight: 100;
   border-radius: 0.5rem;
   margin: 1rem;
 }
 .card-body {
   padding: 1rem;
+  
+}
+.product-name{
+  color: #131313;
 }
 .card-body ul{
   padding: 0;
@@ -163,11 +175,15 @@ img.medium {
   font-size: 2rem;
 }
 /* Rating */
+.rating{
+  display: flex;
+  justify-content: space-between;
+}
 .rating span {
   color: #f0c040;
   margin: 0.1rem;
 }
-.rating span:last-child {
+.rating span:first-child {
   color: #203040;
 }
 /*alert*/ 
