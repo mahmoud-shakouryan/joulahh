@@ -16,6 +16,9 @@ export const orderCreateReducer = (state = initialState, action) => {
   }
 };
 
+
+
+//baraye safheye orderScreen.js
 export const orderDetailsReducer = (state = { loading: true, order: {} }, action) => {       //order:{} ro too ghesmate paypal bardasht
     //loading true baraye inke hamin ke raftim tu safheye orderScreen bayad fetching data from backend dashte bashim
 
@@ -29,4 +32,20 @@ export const orderDetailsReducer = (state = { loading: true, order: {} }, action
         default:
             return state;
     }
+}
+
+
+
+// baraye orderHistory
+export const orderMineListReducer = (state = { orders: []}, action) => {
+  switch(action.type){
+    case actions.ORDER_MINE_LIST_REQUEST:
+      return { loading: true };
+    case actions.ORDER_MINE_LIST_SUCCESS:
+      return { loading: false, orders: action.payload };
+    case actions.ORDER_MINE_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
 }

@@ -25,10 +25,10 @@ app.use((req, res, next) => {
 app.use('/api/users',userRouter); 
 app.use('/api/products',productRouter);
 app.use('/api/orders', orderRouter);
-app.get('/api/config/paypal', (req, res) => {          //paypal
-  console.log('oomad tu api')
-  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
-})
+// app.get('/api/config/paypal', (req, res) => {          //paypal
+//   console.log('oomad tu api')
+//   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+// })
 
 
 

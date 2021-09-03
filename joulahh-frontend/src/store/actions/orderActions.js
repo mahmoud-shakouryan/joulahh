@@ -49,3 +49,27 @@ export const  detailesOrder = (orderId) => {
     }
   };
 };
+
+
+// baraye page'e order history
+export const listOrderMine = () => {
+  return async (dispatch, getState) => {
+    dispatch({ type: actions.ORDER_MINE_LIST_REQUEST});
+    const { userSignin: { userInfo }} = getState();
+    try{
+          const { data } = await axios.get('/api/orders/mine', {
+            headers: {
+              Authorization: `Bearer ${userInfo.token}`
+            }
+          });
+          dispatch({ type: actions.ORDER_MINE_LIST_SUCCESS, payload: data });
+    }
+    catch(err){
+      const message =
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message;
+      dispatch({ type: actions.ORDER_MINE_LIST_FAIL, payload: message });
+    }
+  }
+}
