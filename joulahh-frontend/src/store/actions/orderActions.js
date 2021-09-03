@@ -55,13 +55,14 @@ export const  detailesOrder = (orderId) => {
 export const listOrderMine = () => {
   return async (dispatch, getState) => {
     dispatch({ type: actions.ORDER_MINE_LIST_REQUEST});
-    const { userSignin: { userInfo }} = getState();
+    const { userSigninReducer: { userInfo }} = getState();
     try{
-          const { data } = await axios.get('/api/orders/mine', {
+          const { data } = await axios.get('/api/orders/mie', {
             headers: {
               Authorization: `Bearer ${userInfo.token}`
             }
           });
+          console.log('data',data)
           dispatch({ type: actions.ORDER_MINE_LIST_SUCCESS, payload: data });
     }
     catch(err){

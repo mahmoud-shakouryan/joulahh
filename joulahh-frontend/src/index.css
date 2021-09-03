@@ -314,3 +314,7 @@ align-items: center;
   border : none;
   background-color:rgb(219, 186, 0);
 }
+.table{
+  background-color: orange;
+  padding: 1rem;
+}
