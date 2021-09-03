@@ -16,14 +16,14 @@ export const orderCreateReducer = (state = initialState, action) => {
   }
 };
 
-export const orderDetailsReducer = (state = { loading: true, order: {} }, action) => {
+export const orderDetailsReducer = (state = { loading: true, order: {} }, action) => {       //order:{} ro too ghesmate paypal bardasht
     //loading true baraye inke hamin ke raftim tu safheye orderScreen bayad fetching data from backend dashte bashim
 
     switch(action.type){
         case actions.ORDER_DETAILS_REQUEST:
-            return { loading: true};
+            return { ...state, loading: true};
         case actions.ORDER_DETAILS_SUCCESS:
-            return { loading: false, order: action.payload }
+            return { ...state, loading: false, order: action.payload }
         case actions.ORDER_DETAILS_FAIL:
             return { loading: false, error: action.payload };
         default:

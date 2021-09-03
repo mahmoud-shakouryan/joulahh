@@ -1,21 +1,61 @@
 // should fetch order data from backend & show it in the front
 // ?? chera hala hatman bayad az backend begireim?
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { detailesOrder } from "../store/actions/orderActions";
+import {PayPalButton} from 'react-paypal-button-v2'; //paypal
 
 const OrderScreen = (props) => {
+  console.log('OrderScreen.js')
   const orderId = props.match.params.id;
+  const [sdkReady, setSdkReady] = useState(false); //paypal
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
 
+  const successPaymentHandler = () => {
+    // dispatch pay order
+  }
+
+
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(detailesOrder(orderId));
-  }, [dispatch, orderId]); // ???? dispatch bayad bashe tu dependency ya na ?
+    console.log('OrderScreen useEffect')
+    const addPayPalScript = async () => {//paypal
+      console.log('oomad tu addPayPalScript')
+      const { data } = await axios.get("/api/config/paypal"); // clientId tooye data'eeye ke barmiarder
+      console.log('data',data)
+      const script = document.createElement("script"); // dorost kardane ye script va gharar dadane src'e oon script be paypal sdk
+      script.type = "text/javascript";
+      script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
+      script.async = true;
+      script.onload = () => {
+        //onload happens vaghti ke oon adddress'e https... to src ( ke ye script hast ) tu browser download shod.
+        setSdkReady(true);
+      };
+      document.body.appendChild(script); // ba in khat in scritp mishe akharin child'e bodye htmlemoon.
+    };
+    if (!order._id) {
+      console.log('oomad tu 1')
+      dispatch(detailesOrder(orderId));
+    } else {
+      console.log('oomad tu 2')
+      if (!order.isPaid) {
+        console.log('oomad tu 3')
+        if (!window.paypal) {
+          console.log('oomad tu 4', window.paypal)
+          addPayPalScript();
+        } else {
+          console.log('oomad tu 5')
+          setSdkReady(true);
+        }
+      }
+    }
+  }, [dispatch, orderId, order, sdkReady]); 
 
   return loading ? (
     <LoadingBox />
@@ -121,6 +161,17 @@ const OrderScreen = (props) => {
                   <div>${order.totalPrice.toFixed(2)}</div>
                 </div>
               </li>
+              {            // in {felan} >>> paypal 
+                !order.isPaid && (
+                  <li>
+                    {!sdkReady ? (
+                      <LoadingBox/>
+                    ) : (
+                      <PayPalButton amount = {order.totalPrice} onSuccess={successPaymentHandler}/>
+                    )}
+                  </li>
+                )
+              }
             </ul>
           </div>
         </div>
