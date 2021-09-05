@@ -10,7 +10,7 @@ export const createOrder = (order) => {
       const store = getState(); //returns (reads) all redux store.
       const userInfo = store.userSigninReducer.userInfo;
       const { data } = await axios.post("/api/orders", order, {
-        // axios >> front :))) yadet bashe, va oon url >>>> ***********API**************
+        // axios >> front (bishtar) :))) yadet bashe, va oon url >>>> ***********API**************
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
         },
@@ -57,12 +57,11 @@ export const listOrderMine = () => {
     dispatch({ type: actions.ORDER_MINE_LIST_REQUEST});
     const { userSigninReducer: { userInfo }} = getState();
     try{
-          const { data } = await axios.get('/api/orders/mie', {
+          const { data } = await axios.get('/api/orders/mine', {
             headers: {
               Authorization: `Bearer ${userInfo.token}`
             }
           });
-          console.log('data',data)
           dispatch({ type: actions.ORDER_MINE_LIST_SUCCESS, payload: data });
     }
     catch(err){

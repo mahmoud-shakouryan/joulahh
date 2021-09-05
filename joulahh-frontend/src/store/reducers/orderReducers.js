@@ -37,7 +37,7 @@ export const orderDetailsReducer = (state = { loading: true, order: {} }, action
 
 
 // baraye orderHistory
-export const orderMineListReducer = (state = { orders: []}, action) => {
+export const orderMineListReducer = (state = { loading: false,  orders: []}, action) => {
   switch(action.type){
     case actions.ORDER_MINE_LIST_REQUEST:
       return { loading: true };

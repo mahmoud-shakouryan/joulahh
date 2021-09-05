@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../store/actions/actionTypes";
 
 const PaymentMethodScreen = (props) => {
-  console.log('PaymentMethodScreen.js')
 
     const [paymentMethod, setPaymentMethod] = useState("PayPal");
     const dispatch = useDispatch();

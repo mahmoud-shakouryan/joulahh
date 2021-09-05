@@ -8,7 +8,6 @@ import { createOrder } from "../store/actions/orderActions";
 import * as actions from '../store/actions/actionTypes';
 
 const PlaceOrderScreen = (props) => {
-  console.log("PlaceOrderScreen.js");
   const cart = useSelector((state) => state.cartReducer);
 
   const orderCreate = useSelector(state => state.orderCreate);

@@ -5,7 +5,6 @@ import { useDispatch, useSelector} from 'react-redux';
 
 
 const ShippingAddressScreen = (props) => {
-    console.log('ShippingAddressScreen.js')
     const userSignin = useSelector(state => state.userSigninReducer);
     const { userInfo } = userSignin;
     // if(!userInfo) {
