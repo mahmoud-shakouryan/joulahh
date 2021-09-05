@@ -314,7 +314,29 @@ align-items: center;
   border : none;
   background-color:rgb(219, 186, 0);
 }
-.table{
-  background-color: orange;
+/* orderHistory */
+.orderHistory{
+  height: 100%;
   padding: 1rem;
+
+}
+.table{
+  background-color: #fd794f;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 5px;
+}
+.table tr{
+  text-align: center;
+}
+.table .orderHistoryBtn{
+ color: #131313;
+  background-color: #3f8a89;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: .8rem 1rem;
+
+}
+.orderHistoryBtn:hover{
+  border: none;
 }

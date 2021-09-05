@@ -46,5 +46,22 @@ export const register = (name, email, password) => {
 };
 
 
-
+export const detailsUser = (userId) => {
+  return async (dispatch, getState) => {
+      dispatch({ type: actions.USER_DETAILS_REQUEST});
+      const { userSigninReducer : { userInfo }} = getState();
+      try {
+        const { data } = await axios.get(`/api/users/${userId}`, {
+          headers:{
+            Authorization: `Bearer ${userInfo.token}`
+          }
+        }); 
+        console.log(data)
+        dispatch({type: actions.USER_DETAILS_SUCCESS, payload: data});
+      } catch (error) {
+        const errorMsg = error.response.data.message ? error.response.data.message : error.message
+        dispatch({ type: actions.USER_DETAILS_FAIL, payload: errorMsg });
+      }
+  }
+}
 

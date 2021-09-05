@@ -18,7 +18,7 @@ const OrderHistoryScreen = (props) => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='orderHistory'>
       <h1>Order History</h1>
       {loading ? (
         <LoadingBox />
@@ -51,7 +51,7 @@ const OrderHistoryScreen = (props) => {
                 <td>
                   <button
                     type="button"
-                    className="small"
+                    className="orderHistoryBtn"
                     onClick={() => orderScreenClickHandler(order._id)}
                   >
                     Details
