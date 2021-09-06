@@ -1,25 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { detailsUser } from "../store/actions/userActions";
 
 const ProfileScreen = () => {
-  const userSignin = useSelector((state) => state.userSigninReducer);
-  const { userInfo } = userSignin;
+    console.log('ProfileScreen.js rendering');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-  const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const  { userInfo } = useSelector((state) => state.userSigninReducer);
+
+  const { loading, error, user } = useSelector((state) => state.userDetails);
+//   console.log('user from userDetailsState',user)
+
+  const submitHandler = (e) => {
+    e.preventDefautl();
+    //dispatch update profile actions
+}
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(detailsUser(userInfo._id));
-  }, [dispatch, userInfo._id]);
-
-  const submitHandler = (e) => {
-        e.preventDefautl();
-        //dispatch update profile actions
-  }
+      console.log('USEEFFECT');
+    if(!user){
+        console.log('oomad tu !user')
+        dispatch(detailsUser(userInfo._id));
+    } else{
+        console.log('umad tu else')
+        setName(user.name)
+    }
+  }, [dispatch, userInfo._id, user]);     //age inja user ro nazarim dependency, com render mishe miad tu useEffect > if(!user) > dobare render 
+ 
+  
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>

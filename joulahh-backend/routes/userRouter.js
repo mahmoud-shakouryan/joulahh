@@ -46,6 +46,7 @@ userRouter.post('/register', expressAsyncHandler(async(req, res) => {
 userRouter.get('/:id', expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
     if(user){
+        console.log('user back',user)
         res.send(user);
     }
     else{

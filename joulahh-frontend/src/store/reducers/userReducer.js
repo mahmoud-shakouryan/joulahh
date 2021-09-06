@@ -52,7 +52,6 @@ export const userDetailsReducer = (state = { loading: true }, action) => {
     case actions.USER_DETAILS_REQUEST:
       return { loading: true };
     case actions.USER_DETAILS_SUCCESS:
-      console.log('tu reducer',action.payload)
       return { loading: false, user: action.payload };
     case actions.USER_DETAILS_FAIL:
       return { loading: false, error: action.payload };
