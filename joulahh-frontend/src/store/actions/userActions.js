@@ -62,5 +62,25 @@ export const detailsUser = (userId) => {
         dispatch({ type: actions.USER_DETAILS_FAIL, payload: errorMsg });
       }
   }
+};
+
+
+// UPDATE USER PROFILE
+export const updateUserProfile = (user) => {
+  return async (dispatch, getState) => {
+      dispatch({ type: actions.USER_UPDATE_PROFILE_REQUEST});
+      const { userSigninReducer: { userInfo }} = getState();
+      try {
+        const { data } =  await axios.put('/api/users/profile', user, {
+          headers:{ Authorization: `Bearer ${ userInfo.token}`}
+        });
+        dispatch({ type: actions.USER_UPDATE_PROFILE_SUCCESS, payload: data}); //after updating profile , update userSigni state , bekhatere oon name oon baa tu header
+        dispatch({ type: actions.USER_SIGNIN_SUCCESS, payload: data}); 
+         
+      } catch (error) {
+        const errorMsg = error.response.data.message ? error.response.data.message : error.message;
+          dispatch({ type: actions.USER_UPDATE_PROFILE_FAIL, payload: errorMsg})
+      }
+  }
 }
 

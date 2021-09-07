@@ -4,6 +4,8 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'
 import data from '../data.js';
 import User from '../models/userModel.js';
+import { isAuth } from "../util.js";
+
 const userRouter = express.Router();
 
 userRouter.get('/seed', expressAsyncHandler(async(req, res)=>{
@@ -42,6 +44,29 @@ userRouter.post('/register', expressAsyncHandler(async(req, res) => {
     })
 
 }));
+
+// PROFILE UPDATE
+userRouter.put('/profile', isAuth, expressAsyncHandler(async(req, res) => {
+    const user = await User.findById(req.user._id);
+    if(user){
+        user.name = req.body.name || user.name;   //client didn't enter any name in the input 
+        user.email = req.body.email || user.email; 
+        if(req.body.password){
+            user.password = bcrypt.hashSync(req.body.password, 8);
+        }
+        const updatedUser = await user.save();
+        const token = jwt.sign({_id:updatedUser._id,name:updatedUser.name,email:updatedUser.email,isAdmin:updatedUser.isAdmin}, process.env.JWT_SECRET || 'somethingsupersecret',{expiresIn:'30d'})
+        res.send({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            token: token
+        })
+
+
+    }
+}))
 
 userRouter.get('/:id', expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);

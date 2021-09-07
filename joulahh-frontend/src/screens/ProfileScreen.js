@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import * as actions from '../store/actions/actionTypes'
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { detailsUser } from "../store/actions/userActions";
+import { detailsUser, updateUserProfile } from "../store/actions/userActions";
 
 const ProfileScreen = () => {
     console.log('ProfileScreen.js rendering');
@@ -14,24 +15,30 @@ const ProfileScreen = () => {
   const  { userInfo } = useSelector((state) => state.userSigninReducer);
 
   const { loading, error, user } = useSelector((state) => state.userDetails);
-//   console.log('user from userDetailsState',user)
+
+  const { loading: loadingUpdate, success: successUpdate, error: errorUpdate} = useSelector(state => state.userUpdateProfile);    //destrucuting with renaming
+
 
   const submitHandler = (e) => {
-    e.preventDefautl();
-    //dispatch update profile actions
+    e.preventDefault();
+    if(password !== confirmPassword){
+        dispatch({type: actions.USER_UPDATE_PROFILE_FAIL, payload: 'passowrd no match'});
+    } else {
+        dispatch(updateUserProfile({ userId: user._id, name, email, password}));
+        
+    }
 }
 
   const dispatch = useDispatch();
   useEffect(() => {
-      console.log('USEEFFECT');
     if(!user){
-        console.log('oomad tu !user')
-        dispatch(detailsUser(userInfo._id));
+        dispatch({ type: actions.USER_UPDATE_PROFILE_RESET })
+        dispatch(detailsUser(userInfo._id));    //inja user details , hamoon too collectione user ro migirim az db az tarighe back end mizarim tu state'e khase uerDetails.
     } else{
-        console.log('umad tu else')
-        setName(user.name)
+        setName(user.name);
+        setEmail(user.email);
     }
-  }, [dispatch, userInfo._id, user]);     //age inja user ro nazarim dependency, com render mishe miad tu useEffect > if(!user) > dobare render 
+  }, [dispatch, userInfo._id, user]);     //age inja user ro nazarim dependency, com render mishe miad tu useEffect > if(!user) > dobare render va dige tu useEffect nemiad ba inke bekhatere if(!user) state'e khase userDetails taghir karde. vali ma be in niaz darim ke age user taghir kard dobare useEffect run beshe o biad too else.
  
   
   return (
@@ -46,13 +53,17 @@ const ProfileScreen = () => {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
+          { loadingUpdate && <LoadingBox/>}
+          {errorUpdate && <MessageBox variant='danger'>{errorUpdate}</MessageBox>}
+          {successUpdate && <MessageBox variant='success'>profile updated successfully</MessageBox>}
             <div>
               <label htmlFor="name">Name</label>
               <input
                 type="text"
                 id="text"
                 placeholder="enter name"
-                value={user.name}
+                value={name}
+                onChange={e=>setName(e.target.value)}
               />
             </div>
             <div>
@@ -61,7 +72,8 @@ const ProfileScreen = () => {
                 type="text"
                 id="email"
                 placeholder="enter email"
-                value={user.email}
+                value={email}
+                onChange={e=>setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -70,7 +82,7 @@ const ProfileScreen = () => {
                 type="text"
                 id="password"
                 placeholder="enter password"
-                
+                onChange={e=>setPassword(e.target.value)}
               />
             </div>
             <div> 
@@ -79,6 +91,7 @@ const ProfileScreen = () => {
                 type="text"
                 id="confirmPassword"
                 placeholder="enter confirmPassword"
+                onChange={e=>setConfirmPassword(e.target.value)}
               />
             </div>
             <div>
