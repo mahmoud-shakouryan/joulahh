@@ -12,6 +12,8 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import PrivateRoute from './components/PrivateRoute';
+
 const  App = () => {
   
   const cartItems = useSelector(state => state.cartReducer).cartItems;
@@ -20,7 +22,7 @@ const  App = () => {
   
   const dispatch = useDispatch();
   const signoutHandler = () => {
-      dispatch({type:actions.SIGNOUT})     //?? ajiibe chetra borde boodam ino too userActions ba dispatch amal nakard?
+      dispatch({type:actions.SIGNOUT})     //?? ajiibe chera borde boodam ino too userActions ba dispatch amal nakard?
   }                                            // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
   
   return (
@@ -64,7 +66,7 @@ const  App = () => {
         <Route path='/placeorder' component={PlaceOrderScreen}/>
         <Route path='/order/:id' component={OrderScreen}/>
         <Route path='/orderhistory' component={OrderHistoryScreen}/>
-        <Route path='/profile' component={ProfileScreen}/>
+        <PrivateRoute path='/profile' component={ProfileScreen}/>
         </Switch>
       </main>
       <footer className="row center">All right reserved</footer>
