@@ -6,7 +6,6 @@ import MessageBox from "../components/MessageBox";
 import { detailsUser, updateUserProfile } from "../store/actions/userActions";
 
 const ProfileScreen = () => {
-    console.log('ProfileScreen.js rendering');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

@@ -19,7 +19,7 @@ export const userSigninReducer = (state = userSigninInitialState, action) => {
       return { loading: false, error: action.payload };
     case actions.SIGNOUT: //in mostaghim az tu app.js miad
       localStorage.removeItem("userInfo");
-      // localStorage.removeItem('cartItems');
+       localStorage.removeItem('cartItems');
       localStorage.removeItem("shippingAddress");
       return {};
     default:
