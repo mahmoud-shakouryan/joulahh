@@ -38,6 +38,7 @@ export const register = (name, email, password) => {
       });
       dispatch({ type: actions.USER_REGISTER_SUCCESS, payload: data });
       dispatch({ type: actions.USER_SIGNIN_SUCCESS, payload: data });
+      dispatch({ type: actions.USER_REGISTER_RESET});
     } catch (error) {
       const errorMsg = error.response.data.message ? error.response.data.message : error.message
       dispatch({ type: actions.USER_REGISTER_FAIL, payload: errorMsg });        //??? inja chera nemitoonam message error ro benevisam

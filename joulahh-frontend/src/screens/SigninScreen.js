@@ -21,22 +21,21 @@ const submitHandler = (e) => {
 
 const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
 useEffect(()=>{
-  
     if(userInfo){
         props.history.push(redirect);
     }
 },[redirect, userInfo, props.history])
   
 return (
-    <div>
+    <div className='form-wrapper'>
+       {error && <div className='msgBoxWrapper'><MessageBox variant='danger' >{error}</MessageBox></div> }
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Sign In</h1>
+          <h1> ورود به حساب کاربری</h1>
         </div>
-        {loading && <LoadingBox>loading</LoadingBox>}
-        {error && <MessageBox variant='danger' >{error}</MessageBox> }
+       
         <div>
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">Email :  </label>
           <input
             type="email"
             id="email"
@@ -46,7 +45,7 @@ return (
           />
         </div>
         <div>
-          <label htmlFor="password">Passwoud</label>
+          <label htmlFor="password">Passwoud :</label>
           <input
             type="password"
             id="password"
@@ -57,14 +56,12 @@ return (
         </div>
         <div>
             <label/>
-            <button className='primary' type='submit'>Sign In</button>
+            <button type='submit'>{loading ? <LoadingBox/> : 'ورود'}</button>
         </div>
-        <div>
-            <label/>
+        <div className='change'>
             <div>
-                New Customer? {' '} 
-                <Link to={`/register?redirect=${redirect}`}>Create Your Account</Link>
-
+                 اگر قبلا ثبت‌‌‌نام نکرده‌اید 
+                <Link to={`/register?redirect=${redirect}`}>ثبت‌نام کنید </Link>
             </div>
         </div>
       </form>

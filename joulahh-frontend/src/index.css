@@ -19,6 +19,7 @@ a{
 }
 :root{
   --dark:#1F0812;
+  --lightdark:#AE6DAB;
   --gray:#EFEFDC;
   --pink:#EA5F9D;
 
@@ -44,8 +45,8 @@ body {
     "main"
     "footer";
   grid-template-columns: 1fr;            /*width*/
-  grid-template-rows: 3rem 1fr 1rem;     /*height*/
-  height: 100%;
+  grid-template-rows: 3rem 1fr 2rem;     /*height*/
+  height: calc(100vh);            /*the whole gridContainer height*/
 }
 
 /* header ****************************************/
@@ -194,14 +195,91 @@ body {
   color: var(--pink);
 }
 
-/* MAIN ***************************************/
+
 main {
   grid-area: main;
-  padding: 1rem;
 }
 footer {
+  background-color: var(--dark);
   grid-area: footer;
-  color: #B3A7B8;
+  color: var(--gray);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* SigninScree.js */
+
+.form-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  position: relative;
+}
+.form{
+  background-color: var(--lightdark);
+  border-radius: .3rem;
+  width: 25%;
+  border: 1px solid var(--lightdark);
+  box-shadow: 2px 2px 10px 2px var(--dark);
+}
+
+
+.form h1{
+  text-align: center;
+  color: var(--dark);
+font-size: 2rem;
+}
+.form > div{
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem 1rem;
+}
+.form > div > label{
+  color: var(--dark);
+  font-size: 1.3rem;
+  padding: 0 .1rem;
+}
+.form > div > input{
+  width: 100%;
+  padding:1rem .1rem ;
+  border: 1px solid var(--dark);
+  background-color: var(--gray);
+  color: var(--dark);
+  outline: none;
+  border-radius: 3px;
+}
+
+.form > div > button {
+  width: 40%;
+  margin: auto;
+  background-color: var(--dark);
+  color: var(--gray);
+  height: 3rem;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  font-family: shabnam_bold , Arial, Helvetica, sans-serif;
+  border: none;
+  box-shadow: 1px 1px 5px 0px var(--dark);
+
+}
+
+.form .change{
+  font-size: 1.3rem;
+  text-align: right;
+  color: var(--dark);
+}
+.form .change a{
+  margin-right: 1rem;
+  color: var(--dark);
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 
@@ -209,8 +287,41 @@ footer {
 
 
 
+.loading{
+  color: var(--gray);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.msgBoxWrapper{
+  position: absolute;
+  top: 2rem;
+}
+.success {
+  color: green;
+}
 
+.alert{
+padding: 1rem;
+border: 0.1rem solid transparent;
+border-radius: .5rem;
+}
+.alert-info{
+  color: blue;
+  background-color: white;
+}
+.alert-danger{
+  color: var(--dark);
+  background-color: var(--pink);
+  font-size: 1.4rem;
+  box-shadow: 1px 1px 5px 0px var(--dark);
 
+}
+.alert-success{
+  color: black;
+  background-color: green;
+}
 
 
 

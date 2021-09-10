@@ -5,43 +5,50 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { register } from "../store/actions/userActions";
 
+
 const RegisterScreen = (props) => {
+  console.log('registerScreen.js rendering',props.location.search)
 
-const [name, setName] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [confirmPassword, setConfirmPassword] = useState('');
-const userRegister = useSelector(state=>state.userRegisterReducer);
-const { userInfo, loading, error } = userRegister;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const userRegister = useSelector((state) => state.userRegisterReducer);
+  const { userInfo, loading, error } = userRegister;
+  const [passErr, setPassErr] = useState(false);
 
-
-const dispatch = useDispatch();
-const submitHandler = (e) => {
-    e.preventDefault();        //no auto refresh
-    if(password !== confirmPassword){ 
-     alert('password and cofirm password does not match')
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault(); //no auto refresh
+    if (password !== confirmPassword) {
+      alert('felan')
+    } else {
+      dispatch(register(name, email, password));
+     
     }
-    else{
-        dispatch(register(name, email, password));
-    }
-}
+  };
 
+  const redirect = props.location.search
+    ? props.location.search.split("=")[1]
+    : "/";
+  useEffect(() => {
+    //register ke ok shod chon dobare in component render mishe pas dobare ueEffect va indafe chon userInfo darim mire to if...
+    if (userInfo) {
+      props.history.push(redirect);
+     }
+  }, [redirect, userInfo, props.history]);
 
-const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
-useEffect(()=>{     //register ke ok shod chon dobare in component render mishe pas dobare ueEffect va indafe chon userInfo darim mire to if...
-    if(userInfo){
-        props.history.push(redirect);
-    }
-},[redirect, userInfo, props.history])
-  
-return (
-    <div>
+  return (
+    <div className="form-wrapper">
+      {error  && (
+        <div className="msgBoxWrapper">
+          <MessageBox variant="danger">{error}</MessageBox>
+        </div>
+      )}
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Create Account</h1>
+          <h1>ایجاد حساب کاربری</h1>
         </div>
-        {loading && <LoadingBox>loading</LoadingBox>}
-        {error && <MessageBox variant='danger' >{error}</MessageBox> }
         <div>
           <label htmlFor="name">Name</label>
           <input
@@ -73,7 +80,7 @@ return (
           />
         </div>
         <div>
-          <label htmlFor="confirmPassword">Passwoud</label>
+          <label htmlFor="confirmPassword">Confirm Passwoud</label>
           <input
             type="password"
             id="confirmPassword"
@@ -83,17 +90,15 @@ return (
           />
         </div>
         <div>
-            <label/>
-            <button className='primary' type='submit'>Register</button>
+          <label />
+          <button type="submit">{loading ? <LoadingBox /> : "ثبت‌نام"}</button>
         </div>
-        <div>
-            <label/>
-            <div>
-                Already Have An Account? {' '} 
-                {/* <Link to={`/signin?redirect=${redirect}`}>Sign In</Link> */}
-                <Link to={'/signin?redirect='+{redirect}}>Sign In</Link>
-
-            </div>
+        <div className="change">
+          <div>
+            قبلا ثبت‌نام کرده‌اید؟
+            <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+          
+          </div>
         </div>
       </form>
     </div>
@@ -101,4 +106,3 @@ return (
 };
 
 export default RegisterScreen;
-     

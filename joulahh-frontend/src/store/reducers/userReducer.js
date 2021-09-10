@@ -40,6 +40,8 @@ export const userRegisterReducer = (state = registerInitialState, action) => {
       };
       localStorage.setItem("userInfo", JSON.stringify(action.payload));
       return updatedState;
+    case actions.USER_REGISTER_RESET:
+      return {};
     case actions.USER_REGISTER_FAIL:
       return { loading: false, error: action.payload };
     default:
