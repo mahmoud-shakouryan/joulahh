@@ -143,7 +143,6 @@ const App = () => {
             <PrivateRoute path="/profile" component={ProfileScreen} />
           </Switch>
         </main>
-        <footer className="row center">All right reserved</footer>
       </div>
     </BrowserRouter>
   );

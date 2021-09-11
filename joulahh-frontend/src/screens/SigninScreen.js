@@ -27,7 +27,8 @@ useEffect(()=>{
 },[redirect, userInfo, props.history])
   
 return (
-    <div className='form-wrapper'>
+    
+      <div className='form-wrapper'>
        {error && <div className='msgBoxWrapper'><MessageBox variant='danger' >{error}</MessageBox></div> }
       <form className="form" onSubmit={submitHandler}>
         <div>
@@ -35,7 +36,7 @@ return (
         </div>
        
         <div>
-          <label htmlFor="email">Email :  </label>
+          <label htmlFor="email"> : ایمیل</label>
           <input
             type="email"
             id="email"
@@ -45,7 +46,7 @@ return (
           />
         </div>
         <div>
-          <label htmlFor="password">Passwoud :</label>
+          <label htmlFor="password"> : رمز عبور</label>
           <input
             type="password"
             id="password"
@@ -66,6 +67,7 @@ return (
         </div>
       </form>
     </div>
+    
   );
 };
 

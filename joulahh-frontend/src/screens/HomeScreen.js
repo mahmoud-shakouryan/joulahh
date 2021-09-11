@@ -25,7 +25,7 @@ const {loading, error, products} = productList;
       ) : error ? (
         <MessageBox varaint='danger'>{error}</MessageBox>
       ) : (
-        <div className="row center">
+        <div className="productsList">
           {products.map((product) => (
             <Product key={product._id} product={product} />
           ))}

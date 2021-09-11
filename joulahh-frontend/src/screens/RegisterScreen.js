@@ -50,7 +50,7 @@ const RegisterScreen = (props) => {
           <h1>ایجاد حساب کاربری</h1>
         </div>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name"> : نام   </label>
           <input
             type="text"
             id="name"
@@ -60,7 +60,7 @@ const RegisterScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email"> : ایمیل</label>
           <input
             type="email"
             id="email"
@@ -70,7 +70,7 @@ const RegisterScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="password">Passwoud</label>
+          <label htmlFor="password"> : رمز عبور</label>
           <input
             type="password"
             id="password"
@@ -80,7 +80,7 @@ const RegisterScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="confirmPassword">Confirm Passwoud</label>
+          <label htmlFor="confirmPassword"> :تکرار رمز عبور </label>
           <input
             type="password"
             id="confirmPassword"
@@ -96,7 +96,7 @@ const RegisterScreen = (props) => {
         <div className="change">
           <div>
             قبلا ثبت‌نام کرده‌اید؟
-            <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+            <Link to={`/signin?redirect=${redirect}`}>وارد شوید</Link>
           
           </div>
         </div>

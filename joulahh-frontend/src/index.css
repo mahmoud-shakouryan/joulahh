@@ -42,10 +42,10 @@ body {
   display: grid;
   grid-template-areas:   /* 1 col, 3 rows*/
     "header"
-    "main"
-    "footer";
+    "main";
+   
   grid-template-columns: 1fr;            /*width*/
-  grid-template-rows: 3rem 1fr 2rem;     /*height*/
+  grid-template-rows: 3rem 1fr;     /*height*/
   height: calc(100vh);            /*the whole gridContainer height*/
 }
 
@@ -93,7 +93,8 @@ body {
   justify-content: center;
   text-decoration: none;
   color: var(--dark);
-  font-family: shabnam_bold, Arial, Helvetica, sans-serif;
+  font-family: shabnam_light, Arial, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: 1.3rem;
 }
 
@@ -209,6 +210,13 @@ footer {
   justify-content: center;
 }
 
+/*      HomeScreen.js */
+.productsList{
+  display: flex;
+  background-color: var(--lightdark);
+
+}
+
 
 /* SigninScree.js */
 
@@ -244,6 +252,8 @@ font-size: 2rem;
   color: var(--dark);
   font-size: 1.3rem;
   padding: 0 .1rem;
+  text-align: right;
+  font-weight: bold;
 }
 .form > div > input{
   width: 100%;
@@ -264,7 +274,7 @@ font-size: 2rem;
   border-radius: 3px;
   outline: none;
   cursor: pointer;
-  font-family: shabnam_bold , Arial, Helvetica, sans-serif;
+  font-family: shabnam, Arial, Helvetica, sans-serif;
   border: none;
   box-shadow: 1px 1px 5px 0px var(--dark);
 
