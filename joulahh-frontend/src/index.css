@@ -38,6 +38,16 @@ body {
   box-sizing: border-box;
 }
 
+.app{
+  display: grid;
+  grid-template-areas:   /* 1 col, 2 rows*/
+    "header"
+    "main";
+  grid-template-columns: 1fr;            /*width*/
+  grid-template-rows: 3rem 1fr;     /*height*/
+  height: calc(100vh);            /*the whole gridContainer height*/
+}
+
 .grid-container {
   display: grid;
   grid-template-areas:   /* 1 col, 3 rows*/
@@ -95,7 +105,7 @@ body {
   color: var(--dark);
   font-family: shabnam_light, Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 
@@ -200,16 +210,16 @@ body {
 main {
   grid-area: main;
 }
-footer {
-  background-color: var(--dark);
-  grid-area: footer;
-  color: var(--gray);
-  font-size: 1.1rem;
+
+/* APP.js */
+.app{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: rgb(153, 76, 76);
+  width: 100vw;
+  height: 100vh;
 }
-
 /*      HomeScreen.js */
 .productsList{
   display: flex;
