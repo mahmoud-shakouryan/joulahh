@@ -19,14 +19,12 @@ a{
 }
 :root{
   --dark:#1F0812;
-  --lightdark:#AE6DAB;
-  --gray:#EFEFDC;
-  --pink:#EA5F9D;
-
-  --green:#002A28;
+  --bluepurple:#9B8BCC;
+  --white:#FFF4FB;
+  
 }
 body {
-  background-color: var(--gray);
+  background-color: var(--white);
   height: 100vh;
   font-size: 1.6rem;
   font-family: shabnam, Arial, sans-serif;
@@ -246,11 +244,11 @@ main {
 }
 
 .form{
-  background-color: var(--lightdark);
+  background-color: var(--bluepurple);
   border-radius: .3rem;
   width: 25%;
   border: 1px solid var(--lightdark);
-  box-shadow: 2px 2px 10px 2px var(--dark);
+  box-shadow: 1px 1px 10px 0px var(--bluepurple);
 }
 @media (max-width: 500px){
   .form{
@@ -261,7 +259,7 @@ main {
 .form h1{
   text-align: center;
   color: var(--dark);
-font-size: 2rem;
+  font-size: 2rem;
 }
 .form > div{
     display: flex;
@@ -276,27 +274,33 @@ font-size: 2rem;
   font-weight: bold;
 }
 .form > div > input{
+  height: 1rem;
   width: 100%;
   padding:1rem .1rem ;
-  border: 1px solid var(--dark);
-  background-color: var(--gray);
+  margin-bottom: 1rem;
+  border: none;
+  background-color: var(--bluepurple);
   color: var(--dark);
+  border-bottom: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
+  font-size: 1.5rem;
+  letter-spacing: .6px;
+ 
 }
+
 
 .form > div > button {
   width: 40%;
   margin: auto;
+  color: var(--bluepurple);
   background-color: var(--dark);
-  color: var(--gray);
   height: 3rem;
   border-radius: 3px;
   outline: none;
   cursor: pointer;
   font-family: shabnam, Arial, Helvetica, sans-serif;
   border: none;
-  box-shadow: 1px 1px 5px 0px var(--dark);
 
 }
 
