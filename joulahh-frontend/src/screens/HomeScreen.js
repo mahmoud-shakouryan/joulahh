@@ -1,38 +1,16 @@
-import React, { useEffect} from "react";
-import Product from "../components/Product";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../store/actions/index";
-
+import React, { useEffect } from 'react'
 
 const HomeScreen = () => {
 
-const dispatch = useDispatch();
-const productList = useSelector(state => state.productListReducer);          //az tooye store tooye index.js
-const {loading, error, products} = productList;
-
-  
-
-  useEffect(() => {
-      dispatch(listProducts());
-  },[dispatch]);
-
-  return (
-    <div>
-      {loading ? (
-        <LoadingBox />
-      ) : error ? (
-        <MessageBox varaint='danger'>{error}</MessageBox>
-      ) : (
-        <div className="productsList">
-          {products.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
+    useEffect(()=>{
+        document.title = "جولاه : صفحه اصلی";
+    })
+    return (
+        <div className='homeScreen'>
+            <div className='homeScreen__left'> dfjdhfjhdjhf</div>
+            <div className='homeScreen__right'></div>
         </div>
-      )}
-    </div>
-  );
-};
+    )
+}
 
-export default HomeScreen;
+export default HomeScreen
