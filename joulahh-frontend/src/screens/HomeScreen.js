@@ -7,7 +7,7 @@ const HomeScreen = () => {
     })
     return (
         <div className='homeScreen'>
-            <div className='homeScreen__left'><img src='./images/knit-large.jpg' alt='knit shirt'/> </div>
+            <div className='homeScreen__left'><img src='./images/blueknit.jpg' alt='knit shirt'/> </div>
         </div>
     )
 }
