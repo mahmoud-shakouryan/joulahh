@@ -27,16 +27,17 @@ useEffect(()=>{
 },[redirect, userInfo, props.history])
   
 return (
-    
+      
       <div className='form-wrapper'>
        {error && <div className='msgBoxWrapper'><MessageBox variant='danger' >{error}</MessageBox></div> }
       <form className="form" onSubmit={submitHandler}>
         <div>
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
           <h1> ورود به حساب کاربری</h1>
         </div>
        
         <div>
-          <label htmlFor="email"> : ایمیل</label>
+          <label htmlFor="email"> : ایمیل <i class="fa fa-envelope-o"></i></label>
           <input
             type="email"
             id="email"
@@ -46,7 +47,7 @@ return (
           />
         </div>
         <div>
-          <label htmlFor="password"> : رمز عبور</label>
+          <label htmlFor="password"> : رمز عبور <i class="fa fa-key"></i></label>
           <input
             type="password"
             id="password"

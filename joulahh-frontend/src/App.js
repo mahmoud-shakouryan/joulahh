@@ -19,8 +19,8 @@ const Main = () => {
   
   return (
     <BrowserRouter>
-    <div className="grid-container">
-      <Header />
+    <div className="container">
+      <Header/>
       <main>
         <Switch>
           <Route path='/' exact component={HomeScreen}/>

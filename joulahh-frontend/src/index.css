@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: shabnam;
   src: url(./fonts/Shabnam.ttf);
@@ -18,9 +19,11 @@ a{
   text-decoration: none;
 }
 :root{
-  --dark:#2A1B09;
-  --bluepurple:#9B8BCC;
-  --white:#FFEBCD;
+  --dark:#384955;
+  --blue:#19729D;
+  --lightBlue:#ACF1FF;
+  --white:#E6F4F1;
+  --orange:#E99A27;
   
 }
 body {
@@ -37,26 +40,26 @@ body {
 }
 
 
-.grid-container {
+.container {
   position: relative;
-  display: grid;
-  grid-template-areas:   /* 1 col, 3 rows*/
-    "header"
-    "main";
-   
-  grid-template-columns: 1fr;            /*width*/
-  grid-template-rows: 3rem 1fr;     /*height*/
+  background-color: rgb(165, 10, 10);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: calc(100vh);            /*the whole gridContainer height*/
 }
 
 /* header ****************************************/
 .header {
   position: absolute;
-  grid-area: header;
+  top: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
 }
 .brand{
   margin-left: 1rem;
@@ -77,7 +80,6 @@ body {
 
 
 .navLinks > div{
-  background-color: rgb(145, 1, 1);
   margin: 1.5rem .3rem;
   flex: 1;
   width: 9rem;
@@ -97,7 +99,7 @@ body {
   color: var(--dark);
   font-family: shabnam_light, Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 
@@ -201,24 +203,24 @@ body {
 
 main {
   height: 100%;
-  background-color: rgb(192, 61, 61);
-  grid-area: main;
+  width: 100vw;
+  background-color: rgb(36, 3, 3);
 }
 
 /* HomeScreen.js */
 
 
     .homeScreen{
-      width: 100%;
+      width: 100vw;
       height: 100vh;
-      background-color: var(--white);
+      background-color: green;
       display: flex;
       flex-wrap: wrap;
       color: var(--dark);
     }
     .homeScreen__left{
       width:100%;
-      height: calc(100vh - 3rem);
+      height:100%;
       background-color: #fff;
       padding: 0;
       margin: 0;
@@ -247,28 +249,38 @@ main {
 /* SigninScree.js */
 
 .form-wrapper{
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
+  width: 100%;
   padding: 0;
   position: relative;
 }
 
 .form{
-  background-color: var(--bluepurple);
+  background-color: var(--lightBlue);
   border-radius: .3rem;
   width: 25%;
-  border: 1px solid var(--lightdark);
-  box-shadow: 1px 1px 10px 0px var(--bluepurple);
+  border: 4px solid var(--lightBlue);
+  box-shadow: 2px 2px 10px 0px var(--lightBlue);
+  
 }
 @media (max-width: 500px){
   .form{
     width: 90%;
   }
 }
-
+.fa-sign-in, .fa-user-plus{
+  text-align: center;
+  color: var(--dark);
+  font-size: 2rem;
+}
+.fa-envelope-o , .fa-user-o, .fa-key{
+  font-weight: bold;
+}
 .form h1{
   text-align: center;
   color: var(--dark);
@@ -292,28 +304,34 @@ main {
   padding:1rem .1rem ;
   margin-bottom: 1rem;
   border: none;
-  background-color: var(--bluepurple);
+  background-color: var(--lightBlue);
   color: var(--dark);
   border-bottom: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
   font-size: 1.5rem;
-  letter-spacing: .6px;
+  font-family: 'Open Sans', sans-serif;
  
 }
-
+.form > div > input::placeholder{
+  color: var(--dark);
+  font-size: 1.3rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
 
 .form > div > button {
   width: 40%;
   margin: auto;
-  color: var(--bluepurple);
-  background-color: var(--dark);
+  color: var(--dark);
+  background-color: #E99A27;
   height: 3rem;
   border-radius: 3px;
   outline: none;
   cursor: pointer;
   font-family: shabnam, Arial, Helvetica, sans-serif;
   border: none;
+  font-weight: bold;
 
 }
 
