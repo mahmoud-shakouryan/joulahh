@@ -70,7 +70,7 @@ const Header = () => {
           </div>
         ) : (
           <div>
-            <Link to="/signin">ورود/ ثبت‌نام</Link>
+            <Link to="/signin"><p>ورود/ ثبت‌نام</p></Link>
           </div>
         )}
         {userInfo && userInfo.isAdmin && (

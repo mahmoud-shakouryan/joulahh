@@ -58,7 +58,7 @@ return (
         </div>
         <div>
             <label/>
-            <button type='submit'>{loading ? <LoadingBox/> : 'ورود'}</button>
+            <button className='submitBtn' type='submit'>{loading ? <LoadingBox/> : 'ورود'}</button>
         </div>
         <div className='change'>
             <div>
