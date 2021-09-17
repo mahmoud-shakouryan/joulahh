@@ -70,7 +70,7 @@ const Header = () => {
           </div>
         ) : (
           <div>
-            <Link to="/signin">ورود/ثبت نام</Link>
+            <Link to="/signin">ورود/ ثبت‌نام</Link>
           </div>
         )}
         {userInfo && userInfo.isAdmin && (
@@ -104,7 +104,8 @@ const Header = () => {
           </div>
         )}
         <div className="mainPageNavLinkWrapper">
-          <Link to="/">صفحه اصلی</Link>
+          <Link to="/"><p>صفحه اصلی</p></Link>
+          
         </div>
       </div>
     </header>
