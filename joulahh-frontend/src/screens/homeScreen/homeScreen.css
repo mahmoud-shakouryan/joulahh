@@ -1,0 +1,103 @@
+.homeScreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--dark);
+}
+.homeScreen__left {
+  flex: 4;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+background-color: rgb(80, 45, 45);
+}
+.homeScreen__right {
+  flex: 3;
+  height: 100vh;
+  background-image: linear-gradient(
+    to top,
+    #e7e8ea,
+    #e6e8ea,
+    #e6e9ea,
+    #e6e9e9,
+    #e6e9e9,
+    #e5e8e7,
+    #e4e7e6,
+    #e4e6e4,
+    #e2e3e1,
+    #e0e0de,
+    #dddedc,
+    #dbdbd9
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.greeting {
+  /*div*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.greeting > h1 , .greeting>h5{
+  text-shadow: 0 1px 1px rgba(3, 37, 57, 0.12), 0 2px 2px rgba(3, 37, 57, 0.12),
+    0 4px 4px rgba(3, 37, 57, 0.12), 0 8px 8px rgba(3, 37, 57, 0.12),
+    0 16px 16px rgba(3, 37, 57, 0.12);
+    user-select: none;
+}
+.greeting > * {
+  margin-bottom: 2rem;
+}
+.greeting__btn {
+  z-index: 1;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 1px 1px rgba(3, 37, 57, 0.12), 0 2px 2px rgba(3, 37, 57, 0.12),
+    0 4px 4px rgba(3, 37, 57, 0.12), 0 8px 8px rgba(3, 37, 57, 0.12),
+    0 16px 16px rgba(3, 37, 57, 0.12);
+  padding: 1.4rem 2.2rem;
+  background-color: var(--dark);
+  cursor: pointer;
+  position: relative;
+}
+.greeting > button > a {
+  color: var(--lightblue);
+  font-family: shabnam, Arial, Helvetica, sans-serif;
+}
+.greeting__btn:hover > a > p,
+.greeting__btn:focus > a > p {
+  color: var(--dark);
+  font-weight: normal;
+  font-weight: bold;
+}
+.greeting__btn::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(199, 130, 0);
+  border-radius: 0.5rem;
+  box-shadow: 0px 1px 1px rgba(199, 130, 0, 0.12),
+    0 2px 2px rgba(199, 130, 0, 0.12), 0 4px 4px rgba(199, 130, 0, 0.12),
+    0 8px 8px rgba(199, 130, 0, 0.12), 0 16px 16px rgba(199, 130, 0, 0.12);
+  transform: scaleX(0);
+  transition: transform 100ms ease-in-out;
+  transform-origin: left;
+}
+.greeting__btn:hover::before,
+.greeting__btn:focus::before {
+  transform: scaleX(1);
+}
+
+.homeScreen__left img {
+  
+ width: auto;
+  height: auto;
+}

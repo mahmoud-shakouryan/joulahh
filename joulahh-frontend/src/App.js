@@ -12,7 +12,7 @@ import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import Header from "./screens/Header";
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./screens/homeScreen/HomeScreen";
 import ProductsScreen from "./screens/ProductsScreen";
 
 const Main = () => {
