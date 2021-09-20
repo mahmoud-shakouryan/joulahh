@@ -8,8 +8,8 @@ const HomeScreen = () => {
   });
   return (
     <div className="homeScreen">
-      <div className="homeScreen__left">
-        <img src="./images/knit4.png" alt="knit shirt" />{" "}
+      <div className="homeScreen__left" >
+       <img srcset='./images/pinkknit.png' alt='knitwear'/>
       </div>
       <div className="homeScreen__right">
         <div className="greeting">
