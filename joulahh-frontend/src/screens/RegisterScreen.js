@@ -47,11 +47,11 @@ const RegisterScreen = (props) => {
       )}
       <form className="form" onSubmit={submitHandler}>
         <div>
-        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <i className="fa fa-user-plus" aria-hidden="true"></i>
           <h1>ایجاد حساب کاربری</h1>
         </div>
         <div>
-          <label htmlFor="name"> : نام  <i class="fa fa-user-o" aria-hidden="true"></i> </label>
+          <label htmlFor="name"> : نام  <i className="fa fa-user-o" aria-hidden="true"></i> </label>
           <input
             type="text"
             id="name"
@@ -61,7 +61,7 @@ const RegisterScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="email"> : ایمیل <i class="fa fa-envelope-o"></i></label>
+          <label htmlFor="email"> : ایمیل <i className="fa fa-envelope-o"></i></label>
           <input
             type="email"
             id="email"
@@ -71,7 +71,7 @@ const RegisterScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="password"> : رمز عبور <i class="fa fa-key"></i></label>
+          <label htmlFor="password"> : رمز عبور <i className="fa fa-key"></i></label>
           <input
             type="password"
             id="password"
@@ -81,7 +81,7 @@ const RegisterScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="confirmPassword"> :تکرار رمز عبور <i class="fa fa-key"></i></label>
+          <label htmlFor="confirmPassword"> :تکرار رمز عبور <i className="fa fa-key"></i></label>
           <input
             type="password"
             id="confirmPassword"

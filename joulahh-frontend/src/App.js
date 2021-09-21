@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useEffect } from "react";
 import CartScreen from "./screens/CartScreen";
 import ProductScreen from "./screens/ProductScreen";
 import SigninScreen from "./screens/SigninScreen";
@@ -21,7 +20,7 @@ const Main = () => {
     <BrowserRouter>
     <div className="container">
       <Header/>
-      <main>
+      <div className='main'>
         <Switch>
           <Route path='/' exact component={HomeScreen}/>
           <Route path="/products" component={ProductsScreen} />
@@ -37,7 +36,7 @@ const Main = () => {
           <Route path="/orderhistory" component={OrderHistoryScreen} />
           <PrivateRoute path="/profile" component={ProfileScreen} />
         </Switch>
-      </main>
+      </div>
     </div>
     </BrowserRouter>
   );

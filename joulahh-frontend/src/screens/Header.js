@@ -23,7 +23,7 @@ const Header = () => {
     setAdminDropDown(!adminDropDown);
   };
   return (
-    <header className="header">
+    <div className="header">
       <div className="brand">
         <Link to="/">Joulahh</Link>
       </div>
@@ -108,7 +108,7 @@ const Header = () => {
           
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 

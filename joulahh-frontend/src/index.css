@@ -26,28 +26,30 @@ a{
   --white:#F7B2B7;
   --btnHover:rgb(0, 201, 188);
 }
+#root{
+  background-color: rgb(14, 12, 12);
+  width: 100%;
+  height: 100%;
+}
 body {
+  overflow-x: hidden;
+  width: 100%;
   height: 100vh;
   font-size: 1.6rem;
   font-family: shabnam, Arial, sans-serif;
-  background-image: radial-gradient(circle, #de639a, #e7779e, #ee8ba4, #f39fac, #f7b2b7);
+  /*background-image: radial-gradient(circle, #de639a, #e7779e, #ee8ba4, #f39fac, #f7b2b7);*/
 }
 
 *{
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 
 .container {
   position: relative;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: calc(100vh);            /*the whole gridContainer height*/
+  width: 100%;
+  height: 100vh;            /*the whole gridContainer height*/
 }
 
 /* header ****************************************/
@@ -55,7 +57,7 @@ body {
   position: absolute;
   top: 0;
   z-index: 2;
-  width: 100vw;
+  width: 100%;
   height: 3rem;
   display: flex;
   align-items: center;
@@ -76,8 +78,13 @@ body {
   justify-content: space-between;
   padding: 1.5rem;
   height: 100%;
+  background-color: rgb(46, 12, 12);
 }
-
+@media(max-width:400px){
+  .navLinks{
+    padding: 0;
+  }
+}
 
 .navLinks > div{
   margin: 1.5rem .3rem;
@@ -219,10 +226,9 @@ body {
 }
 
 
-main {
-  
-  height: 100%;
-  width: 100vw;
+.main{
+  width: 100%;
+  height: 100vh;
 }
 
 /* HomeScreen.js */

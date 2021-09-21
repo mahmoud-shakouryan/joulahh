@@ -32,12 +32,12 @@ return (
        {error && <div className='msgBoxWrapper'><MessageBox variant='danger' >{error}</MessageBox></div> }
       <form className="form" onSubmit={submitHandler}>
         <div>
-        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        <i className="fa fa-sign-in" aria-hidden="true"></i>
           <h1> ورود به حساب کاربری</h1>
         </div>
        
         <div>
-          <label htmlFor="email"> : ایمیل <i class="fa fa-envelope-o"></i></label>
+          <label htmlFor="email"> : ایمیل <i className="fa fa-envelope-o"></i></label>
           <input
             type="email"
             id="email"
@@ -47,7 +47,7 @@ return (
           />
         </div>
         <div>
-          <label htmlFor="password"> : رمز عبور <i class="fa fa-key"></i></label>
+          <label htmlFor="password"> : رمز عبور <i className="fa fa-key"></i></label>
           <input
             type="password"
             id="password"

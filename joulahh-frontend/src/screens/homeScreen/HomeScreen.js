@@ -9,7 +9,7 @@ const HomeScreen = () => {
   return (
     <div className="homeScreen">
       <div className="homeScreen__left" >
-       <img srcset='./images/pinkknit.png' alt='knitwear'/>
+       <img src='./images/pinkknit.png' alt='knitwear'/>
       </div>
       <div className="homeScreen__right">
         <div className="greeting">
