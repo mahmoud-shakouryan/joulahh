@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions from "../../store/actions/actionTypes";
+import Sidebar from "../sidebar/Sidebar";
 import "./header.css";
 
 const Header = () => {
@@ -42,7 +43,7 @@ const Header = () => {
     <div className="header">
       <div className="hamMobileOnly">
         <i className="fa fa-bars"></i>
-        <div className="sidebar">
+        <div className="sidebar-wrapper">
           <Sidebar />
         </div>
       </div>

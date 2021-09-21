@@ -1,0 +1,34 @@
+.sidebar{
+    position: absolute;
+   right: 0px;
+   top: 30px;
+   background-color: var(--dark);
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   height: calc( 100vh - 3rem);
+   padding-top: 1rem;
+
+}
+.closeSidebar{
+    color: var(--white);
+    padding-left: 0.5rem;
+    text-align: left;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.sidebar a, .sidebar li{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+.sidebar ul{
+    margin-bottom: 2rem;
+}

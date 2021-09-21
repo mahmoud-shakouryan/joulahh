@@ -10,9 +10,10 @@
     justify-content: space-between;
     background-color: rgb(2, 136, 62);
   }
-  .hamMobileOnly, .badgeMobileOnly{
+  .hamMobileOnly, .badgeMobileOnly, .sidebar{
     display: none;
   }
+  
   .brand{
     margin-left: 1rem;
     background-color: rgb(95, 17, 17);
@@ -218,5 +219,8 @@
     text-align: right;
     flex:1;
     margin: 0;
+  }
+  .sidebar{
+    display: block;
   }
 }
