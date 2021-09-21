@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import * as actions from '../store/actions/actionTypes';
+import * as actions from "../../store/actions/actionTypes";
+import "./header.css";
 
 const Header = () => {
   const [userDropDown, setUserDropDown] = useState(false);
@@ -22,23 +23,35 @@ const Header = () => {
     setUserDropDown(false);
     setAdminDropDown(!adminDropDown);
   };
+
+  const cartBadge = (
+    <div className="cart-badge">
+      {userInfo && (
+        <Link to="/cart">
+          <i className="fa fa-shopping-basket">
+            {cartItems.length > 0 && userInfo && (
+              <span className="badge">{cartItems.length}</span>
+            )}
+          </i>
+        </Link>
+      )}
+    </div>
+  );
+
   return (
     <div className="header">
+      <div className="hamMobileOnly">
+        <i className="fa fa-bars"></i>
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+      </div>
+      <div className="badgeMobileOnly">{cartBadge}</div>
       <div className="brand">
         <Link to="/">Joulahh</Link>
       </div>
       <div className="navLinks">
-        <div className="cart-badge">
-          {userInfo && (
-            <Link to="/cart">
-              <i className="fa fa-shopping-basket">
-                {cartItems.length > 0 && userInfo && (
-                  <span className="badge">{cartItems.length}</span>
-                )}
-              </i>
-            </Link>
-          )}
-        </div>
+        {cartBadge}
         {userInfo ? (
           <div className="navLinks__userWrapper">
             <Link to="#" onClick={userDropDownHandler}>
@@ -52,7 +65,7 @@ const Header = () => {
               }
             >
               <div className="dropDownExit" onClick={userDropDownHandler}>
-                <li>X</li>
+                <li>X</li>                                         {/*hamaro li kon*/}
               </div>
               <li>
                 <Link to="/profile">پروفایل</Link>
@@ -70,7 +83,9 @@ const Header = () => {
           </div>
         ) : (
           <div>
-            <Link to="/signin"><p>ورود/ ثبت‌نام</p></Link>
+            <Link to="/signin">
+              <p>ورود/ ثبت‌نام</p>
+            </Link>
           </div>
         )}
         {userInfo && userInfo.isAdmin && (
@@ -104,8 +119,9 @@ const Header = () => {
           </div>
         )}
         <div className="mainPageNavLinkWrapper">
-          <Link to="/"><p>صفحه اصلی</p></Link>
-          
+          <Link to="/">
+            <p className="mainPageP">صفحه اصلی</p>
+          </Link>
         </div>
       </div>
     </div>
