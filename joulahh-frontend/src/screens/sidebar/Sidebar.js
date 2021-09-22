@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import * as actions from "../../store/actions/actionTypes";
 import './sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({showSidebar, setShowSidebar}) => {
   const [userDropDown, setUserDropDown] = useState(false);
   const [adminDropDown, setAdminDropDown] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false);
   const { userInfo } = useSelector((state) => state.userSigninReducer);
 
   const dispatch = useDispatch();
@@ -24,17 +23,17 @@ const Sidebar = () => {
     setAdminDropDown(!adminDropDown);
   };
   return (
-    <div className='sidebar'>
-        <div className='closeSidebar' onClick={()=>setShowSidebar(false)} >
-        <p>&rarr;</p>
+    <div className={showSidebar ? 'sidebar active' : 'sidebar'}>
+        <div className='closeSidebar' onClick={()=>setShowSidebar(!showSidebar)} >
+        <i className="fa fa-chevron-right"></i>
         </div>
         <div className='mainPage'>
             <Link to='/'>صفحه اصلی</Link>
         </div>
       {userInfo ? (
-        <ul>
+        <ul >
           <li onClick={userDropDownHandler}>
-            تنظیمات کاربر<i className="fa fa-caret-down arrow"></i>
+          <i className={userDropDown ? "fa fa-chevron-down active": 'fa fa-chevron-down'}></i>تنظیمات کاربر 
           </li>
           {userDropDown && (
             <div className="userDropdown">
@@ -61,23 +60,25 @@ const Sidebar = () => {
       )}
       {userInfo && userInfo.isAdmin && (
         <ul>
-          <li onClick={adminDropDownHandler}>ادمین</li>
-          <li className="adminDropdown">
-            <ul>
-              <li>
-                <Link to="/dashboard">داشبورد</Link>
-              </li>
-              <li>
-                <Link to="/productlist">محصولات</Link>
-              </li>
-              <li>
-                <Link to="/orderlist">سفارشات</Link>
-              </li>
-              <li>
-                <Link to="/userlist">کاربران</Link>
-              </li>
-            </ul>
-          </li>
+          <li onClick={adminDropDownHandler}><i className={adminDropDown ? "fa fa-chevron-down active" : 'fa fa-chevron-down'}></i>ادمین</li>
+          {adminDropDown && (
+              <li className="adminDropdown">
+              <ul className='adminDropdown'>
+                <li>
+                  <Link to="/dashboard">داشبورد</Link>
+                </li>
+                <li>
+                  <Link to="/productlist">محصولات</Link>
+                </li>
+                <li>
+                  <Link to="/orderlist">سفارشات</Link>
+                </li>
+                <li>
+                  <Link to="/userlist">کاربران</Link>
+                </li>
+              </ul>
+            </li>
+          )}
         </ul>
       )}
     </div>

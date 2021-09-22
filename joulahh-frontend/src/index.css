@@ -14,6 +14,7 @@
 html {
   font-size: 62.5%; /* 16px x 62.5% = 10px = 1rem */
   box-sizing: border-box;
+  overflow: hidden;
 }
 a{
   text-decoration: none;
@@ -32,7 +33,7 @@ body {
   height: 100vh;
   font-size: 1.6rem;
   font-family: shabnam, Arial, sans-serif;
-  /*background-image: radial-gradient(circle, #de639a, #e7779e, #ee8ba4, #f39fac, #f7b2b7);*/
+  background-image: radial-gradient(circle, #de639a, #e7779e, #ee8ba4, #f39fac, #f7b2b7);
 }
 
 *{

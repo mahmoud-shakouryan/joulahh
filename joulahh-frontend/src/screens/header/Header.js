@@ -8,6 +8,7 @@ import "./header.css";
 const Header = () => {
   const [userDropDown, setUserDropDown] = useState(false);
   const [adminDropDown, setAdminDropDown] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const cartItems = useSelector((state) => state.cartReducer).cartItems;
   const { userInfo } = useSelector((state) => state.userSigninReducer);
@@ -41,10 +42,10 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="hamMobileOnly">
-        <i className="fa fa-bars"></i>
+      <div className="hamMobileOnly" >
+        <i className="fa fa-bars" onClick={()=>setShowSidebar(!showSidebar)}></i>
         <div className="sidebar-wrapper">
-          <Sidebar />
+          <Sidebar  showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
         </div>
       </div>
       <div className="badgeMobileOnly">{cartBadge}</div>

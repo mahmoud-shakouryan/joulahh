@@ -3,9 +3,7 @@
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
   color: var(--dark);
-  background-color: #fff;
 
 }
 .homeScreen__left {
@@ -19,7 +17,6 @@ justify-content: center;
 }
 
 .homeScreen__right {
-  background-color: rgb(175, 48, 48);
   flex:2;
   height: 100vh;
   display: flex;
@@ -105,7 +102,38 @@ justify-content: center;
 
 /*    Responsive     */
 
+@media (max-width:600px){
+  .homeScreen{
+    position: relative;
+  }
+  .homeScreen__left{
+    
+  }
+  .homeScreen__right{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    background-color: transparent;
+  }
+  .homeScreen__right > .greeting{
+    background-color: rgba(0, 201, 188, 0.4);
+    position: absolute;
+    width: 80vw;
+    padding-top: 1rem;
+    border-radius: .5rem;
 
+  }
+  .homeScreen__right h1{
+    font-size: 4vw;
+  }
+  .homeScreen__right h5{
+    font-size: 2.3vw;
+  }
+  .greeting__btn{
+    padding: 1rem 1.6rem;
+    font-size: 1rem;
+  }
+}
 
 
 @media (min-width:600px) and (max-width:768px){

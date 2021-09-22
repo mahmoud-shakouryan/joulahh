@@ -8,7 +8,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(2, 136, 62);
   }
   .hamMobileOnly, .badgeMobileOnly, .sidebar{
     display: none;
@@ -16,7 +15,6 @@
   
   .brand{
     margin-left: 1rem;
-    background-color: rgb(95, 17, 17);
   }
   .brand a{
     text-decoration: none;
@@ -53,11 +51,8 @@
     font-weight: bold;
     font-size: 1.2rem;
     border-radius: 3px;
-    background-color: rgb(104, 25, 25);
   }
-  .mainPageP{
-      background-color: #fff;
-  }
+  
   .navLinks > div > a ::after{
     content: '';
     display: block;
@@ -80,7 +75,9 @@
   }
   .fa-shopping-basket{
     font-size: 1.4rem;
+    font-weight: bold;
     position: relative;
+    color: var(--dark);
   }
   .cart-badge .badge{
     position: absolute;
@@ -187,8 +184,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 0rem;
-        background-color: yellow;
         padding: 0 0.5rem;
     }
   
@@ -200,19 +195,16 @@
      justify-content: flex-start;
      width: 2rem;
      height: 2rem;
-     background-color: rgb(95, 15, 15);
    }
    .fa-bars{
-     color: rgb(17, 15, 11);
-     text-align: center;
+     color: var(--dark);
+     font-size: 2.5rem;
    }
    .badgeMobileOnly{
-     
     flex:1;
      display: flex;
      justify-content: center;
      align-items: center;
-     background-color: rgb(206, 110, 110);
      height: 2rem;
    }
    .brand{
