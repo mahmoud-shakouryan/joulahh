@@ -106,9 +106,7 @@ justify-content: center;
   .homeScreen{
     position: relative;
   }
-  .homeScreen__left{
-    
-  }
+  
   .homeScreen__right{
     position: absolute;
     width: 100vw;

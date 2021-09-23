@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { signin } from "../store/actions/userActions";
+import LoadingBox from "../../components/LoadingBox";
+import MessageBox from "../../components/MessageBox";
+import { signin } from "../../store/actions/userActions";
+import './signin.css';
 
 const SigninScreen = (props) => {
 const [email, setEmail] = useState('');

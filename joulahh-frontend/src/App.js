@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 import ProductScreen from "./screens/ProductScreen";
-import SigninScreen from "./screens/SigninScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
@@ -13,31 +12,31 @@ import PrivateRoute from "./components/PrivateRoute";
 import Header from "./screens/header/Header";
 import HomeScreen from "./screens/homeScreen/HomeScreen";
 import ProductsScreen from "./screens/ProductsScreen";
+import SigninScreen from "./screens/signinScreen/SigninScreen";
 
 const Main = () => {
-  
   return (
     <BrowserRouter>
-    <div className="container">
-      <Header/>
-      <div className='main'>
-        <Switch>
-          <Route path='/' exact component={HomeScreen}/>
-          <Route path="/products" component={ProductsScreen} />
-          <Route path="/product/:id" exact component={ProductScreen} />
-          <Route path="/cart/:id" component={CartScreen} />{" "}
-          {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
-          <Route path="/signin" component={SigninScreen} />
-          <Route path="/register" component={RegisterScreen} />
-          <Route path="/shipping" component={ShippingAddressScreen} />
-          <Route path="/payment" component={PaymentMethodScreen} />
-          <Route path="/placeorder" component={PlaceOrderScreen} />
-          <Route path="/order/:id" component={OrderScreen} />
-          <Route path="/orderhistory" component={OrderHistoryScreen} />
-          <PrivateRoute path="/profile" component={ProfileScreen} />
-        </Switch>
+      <div className="container">
+        <Header />
+        <div className="main">
+          <Switch>
+            <Route path="/" exact component={HomeScreen} />
+            <Route path="/products" component={ProductsScreen} />
+            <Route path="/product/:id" exact component={ProductScreen} />
+            <Route path="/cart/:id" component={CartScreen} />{" "}
+            {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
+            <Route path="/signin" component={SigninScreen} />
+            <Route path="/register" component={RegisterScreen} />
+            <Route path="/shipping" component={ShippingAddressScreen} />
+            <Route path="/payment" component={PaymentMethodScreen} />
+            <Route path="/placeorder" component={PlaceOrderScreen} />
+            <Route path="/order/:id" component={OrderScreen} />
+            <Route path="/orderhistory" component={OrderHistoryScreen} />
+            <PrivateRoute path="/profile" component={ProfileScreen} />
+          </Switch>
+        </div>
       </div>
-    </div>
     </BrowserRouter>
   );
 };
