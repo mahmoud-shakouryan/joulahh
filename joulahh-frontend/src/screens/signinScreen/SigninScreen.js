@@ -55,6 +55,7 @@ return (
             placeholder="Enter Password"
             required
             onChange={(e) => setPassword(e.target.value)}
+            autocomplete="off"
           />
         </div>
         <div>

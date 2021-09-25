@@ -11,8 +11,8 @@ import ProfileScreen from "./screens/ProfileScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import Header from "./screens/header/Header";
 import HomeScreen from "./screens/homeScreen/HomeScreen";
-import ProductsScreen from "./screens/ProductsScreen";
 import SigninScreen from "./screens/signinScreen/SigninScreen";
+import ProductsScreen from "./screens/productsScreen/ProductsScreen";
 
 const Main = () => {
   return (

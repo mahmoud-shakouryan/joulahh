@@ -4,6 +4,7 @@
   height: 100vh;
   display: flex;
   color: var(--dark);
+  background-image: radial-gradient(circle, #de639a, #e7779e, #ee8ba4, #f39fac, #f7b2b7);
 
 }
 .homeScreen__left {
@@ -60,12 +61,12 @@ justify-content: center;
 .greeting__btn:hover{
   box-shadow: 0px 2px 10px  rgba(0, 201, 188, .15);
 }
-.greeting > button > a {
+.greeting > button > p{
   color: var(--white);
   font-family: shabnam, Arial, Helvetica, sans-serif;
 }
-.greeting__btn:hover > a > p,
-.greeting__btn:focus > a > p {
+.greeting__btn:hover >  p,
+.greeting__btn:focus >  p {
   color: var(--dark);
   font-weight: normal;
   font-weight: bold;

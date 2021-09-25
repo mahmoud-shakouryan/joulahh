@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Rating from './Rating'
+import Rating from '../Rating';
+import './product.module.css';
 
 const Product = ({product}) => {
     return (
-        <div className='productWrapper'>
+        <div className='productCardWrapper'>
             <div key={product._id} className="card">
                 <Link to={`/product/${product._id}`}>  
                   <img
