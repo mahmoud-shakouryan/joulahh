@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Rating from '../Rating';
-import './product.module.css';
+import './product.css';
 
 const Product = ({product}) => {
     return (
