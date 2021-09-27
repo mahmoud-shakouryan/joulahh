@@ -13,7 +13,6 @@
     background-color: rgb(194, 34, 34);
 }
 .productsList{
-    background-color: #fff;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
-import ProductScreen from "./screens/ProductScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
@@ -13,6 +12,7 @@ import Header from "./screens/header/Header";
 import HomeScreen from "./screens/homeScreen/HomeScreen";
 import SigninScreen from "./screens/signinScreen/SigninScreen";
 import ProductsScreen from "./screens/productsScreen/ProductsScreen";
+import ProductScreen from "./screens/productScreen/ProductScreen";
 
 const Main = () => {
   return (

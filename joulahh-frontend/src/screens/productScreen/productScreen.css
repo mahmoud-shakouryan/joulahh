@@ -1,0 +1,23 @@
+.productScreenContainer{
+    padding-top: 3rem;
+    width: 100vw;
+    height: 100vh;
+}
+.productScreen{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.productScreen > a{
+    background-color: rgb(119, 81, 81);
+    text-align: right;
+}
+.productScreen > .imgWrapper{
+    background-color: rgb(62, 23, 94);
+}
+.productDetails{
+    background-color: rgb(143, 21, 21);
+}
+.productDetails2{
+    background-color: rgb(103, 146, 22);
+}
