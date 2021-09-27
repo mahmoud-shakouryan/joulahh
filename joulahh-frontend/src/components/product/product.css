@@ -1,5 +1,4 @@
 .productCardWrapper{
-    background-color: #fff;
     margin: 5px;
     max-height: 40rem;
     max-width: 30rem;
@@ -8,14 +7,13 @@
     width: 100%;
 }
 .productCardWrapper .card a{
-    background-color: rgb(206, 144, 144);
+    background-color: rgb(34, 168, 30);
     width: 100%;
     display: block;
 }
 .productCardWrapper .card a img{
     max-width: 100%;
     max-height: 100%;
-
 }
 .card-body{
     background-color: rgb(63, 43, 136);
@@ -23,4 +21,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.card-body p{
+    text-align: center;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+}
+.card-body .rating{
+    background-color: rgb(173, 189, 32);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: .4rem;
+    font-size: 1.2rem;
+}
+
+.card-body .price{
+    padding: .5rem;
+    background-color: #fff;
+    display: flex;
+    font-weight: bold;
 }

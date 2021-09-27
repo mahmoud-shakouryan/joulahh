@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as actions from "../../store/actions/actionTypes";
@@ -40,8 +40,9 @@ const Header = () => {
     </div>
   );
 
+  
   return (
-    <div className="header">
+    <div className="header" id='navbar'>
       <div className="hamMobileOnly" >
         <i className="fa fa-bars" onClick={()=>setShowSidebar(!showSidebar)}></i>
         <div className="sidebar-wrapper">

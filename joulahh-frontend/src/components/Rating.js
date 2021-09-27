@@ -1,9 +1,8 @@
 const Rating = ({ rating, numReviews }) => {
   return (
     <div className="rating">
-      <span>{"تعداد رای : " + numReviews}</span>
-
-      <span>
+      
+      <span className='starsBox'>
       <span>
         <i
           className={
@@ -60,6 +59,7 @@ const Rating = ({ rating, numReviews }) => {
         ></i>
       </span>
       </span>
+      <span className='voteBox'>{"تعداد رای : " + numReviews}</span>
     </div>
   );
 };

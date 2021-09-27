@@ -18,7 +18,7 @@ const ProductsScreen = () => {
   useEffect(() => {
       dispatch(listProducts());
   },[dispatch]);
-
+  
   return (
     <div className="productsContainer">
      { loading ? <div className='loadBox'><LoadingBox /></div>: error ? <div className='msgBox'><MessageBox varaint='danger'>{error}</MessageBox></div> 
