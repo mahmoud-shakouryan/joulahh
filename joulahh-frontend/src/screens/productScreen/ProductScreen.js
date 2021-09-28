@@ -41,10 +41,10 @@ const ProductScreen = (props) => {
         </div>
       ) : (
         <div className="productScreen">
-          <Link to="/">برگشت به محصولات</Link>
           <div className="productDetailsWrapper">
             <div className="imgWrapper">
-              <img className="large" src={product.image} alt={product.name} />
+              <div ><img src={product.image} alt={product.name} /></div>
+              <Link to="/">برگشت به محصولات</Link>
             </div>
             <div className="detailsWrapper">
               <div className="details1">
@@ -98,10 +98,10 @@ const ProductScreen = (props) => {
                             )}
                           </select>
                         </div>
-                        <p>: تعداد</p>
+                        <p> : تعداد </p>
                       </li>
                       <li className="addToCartBtn">
-                        <button onClick={addToCartHandler}>Add To Cart</button>
+                        <button onClick={addToCartHandler}>اضافه کن به سبد خرید</button>
                       </li>
                     </>
                   )}
