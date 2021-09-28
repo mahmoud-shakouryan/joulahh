@@ -1,3 +1,5 @@
+import './rating.css';
+
 const Rating = ({ rating, numReviews }) => {
   return (
     <div className="rating">

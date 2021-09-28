@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Rating from "../../components/Rating";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct } from "../../store/actions/productDetailsAction";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
 import "./productScreen.css";
+import Rating from "../../components/rating/Rating";
 
 const ProductScreen = (props) => {
   const productDetailsReducer = useSelector(
@@ -42,47 +42,43 @@ const ProductScreen = (props) => {
       ) : (
         <div className="productScreen">
           <Link to="/">برگشت به محصولات</Link>
+          <div className='productDetailsWrapper'>
           <div className="imgWrapper">
             <img className="large" src={product.image} alt={product.name} />
           </div>
-          <div className="productDetails">
+          <div className='detailsWrapper'>
+          <div className="details1">
             <ul>
               <li>
-                <h1>{product.name}</h1>
+                <h3>{product.name}</h3>
               </li>
-              <li>
+              <li className='rate'>
                 <Rating
                   rating={product.rating}
                   numReviews={product.numReviews}
                 />
               </li>
-              <li>Price : ${product.price}</li>
-              <li>Description : {product.description}</li>
+              <li className='desc'>{product.description} : توضیحات </li>
             </ul>
           </div>
-          <div className="productDetails2">
-            <div className="card card-body">
+          <div className="details2">
               <ul>
-                <li>
-                  <div className="row">
-                    <div>Price</div>
-                    <div className="price">${product.price}</div>
-                  </div>
+                <li  className="price">
+                    تومان <b>{product.price}</b> : قیمت
                 </li>
-                <li>
-                  <div className="row">
-                    <div>Status</div>
+                <li> 
+                  <div>
                     {product.countInStock > 0 ? (
-                      <span className="success">In Stock</span>
+                      <span className="success">در انبار موجود است</span>
                     ) : (
-                      <span className="danger">Not Available</span>
+                      <span className="danger">موجود نیست</span>
                     )}
                   </div>
                 </li>
                 {product.countInStock > 0 && (
-                  <>
-                    <div className="row">
-                      <div>Qty</div>
+                  <li>
+                    <div>
+                      <div>: تعداد</div>
                       <div>
                         <select
                           value={qty}
@@ -102,17 +98,17 @@ const ProductScreen = (props) => {
                     </div>
                     <li>
                       <button
-                        className="primaty block"
                         onClick={addToCartHandler}
                       >
                         Add To Cart
                       </button>
                     </li>
-                  </>
+                  </li>
                 )}
               </ul>
-            </div>
           </div>
+          </div>
+        </div>
         </div>
       )}
     </div>
