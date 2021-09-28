@@ -20,13 +20,14 @@ a{
   text-decoration: none;
 }
 :root{
-  --dark:rgb(22, 0, 30);
+  --dark:#16001e;
   --lighterdark:rgb(127, 41, 130);
   --pink:#DE639A;
   --candy:#f7717d;
   --white:rgb(247, 178, 183);
   --lighterWhite:#FFC8FF;
   --btnHover:rgb(0, 201, 188);
+  --green: #005B4C;
 }
 
 body {

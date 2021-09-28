@@ -54,7 +54,6 @@
     text-align: right;
 }
 .detailsWrapper li{
-    background-color: rgb(59, 156, 80);
     width: 100%;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -69,4 +68,17 @@
 
 .details2 .price{
     direction: ltr;
+}
+.details2 .qty{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.inStock{
+    font-size: 1.3rem;
+    color: var(--green);
+}
+.notInStock{
+    font-size: 1.3rem;
+    color: var(--candy);
 }

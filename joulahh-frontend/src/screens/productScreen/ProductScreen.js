@@ -42,73 +42,73 @@ const ProductScreen = (props) => {
       ) : (
         <div className="productScreen">
           <Link to="/">برگشت به محصولات</Link>
-          <div className='productDetailsWrapper'>
-          <div className="imgWrapper">
-            <img className="large" src={product.image} alt={product.name} />
-          </div>
-          <div className='detailsWrapper'>
-          <div className="details1">
-            <ul>
-              <li>
-                <h3>{product.name}</h3>
-              </li>
-              <li className='rate'>
-                <Rating
-                  rating={product.rating}
-                  numReviews={product.numReviews}
-                />
-              </li>
-              <li className='desc'>{product.description} : توضیحات </li>
-            </ul>
-          </div>
-          <div className="details2">
-              <ul>
-                <li  className="price">
-                    تومان <b>{product.price}</b> : قیمت
-                </li>
-                <li> 
-                  <div>
-                    {product.countInStock > 0 ? (
-                      <span className="success">در انبار موجود است</span>
-                    ) : (
-                      <span className="danger">موجود نیست</span>
-                    )}
-                  </div>
-                </li>
-                {product.countInStock > 0 && (
+          <div className="productDetailsWrapper">
+            <div className="imgWrapper">
+              <img className="large" src={product.image} alt={product.name} />
+            </div>
+            <div className="detailsWrapper">
+              <div className="details1">
+                <ul>
                   <li>
-                    <div>
-                      <div>: تعداد</div>
-                      <div>
-                        <select
-                          value={qty}
-                          onChange={(e) => setQty(e.target.value)}
-                        >
-                          {[...Array(product.countInStock).keys()].map(
-                            (x, i) => {
-                              return (
-                                <option key={i} value={i + 1}>
-                                  {i + 1}
-                                </option>
-                              );
-                            }
-                          )}
-                        </select>
-                      </div>
-                    </div>
-                    <li>
-                      <button
-                        onClick={addToCartHandler}
-                      >
-                        Add To Cart
-                      </button>
-                    </li>
+                    <h3>{product.name}</h3>
                   </li>
-                )}
-              </ul>
+                  <li className="rate">
+                    <Rating
+                      rating={product.rating}
+                      numReviews={product.numReviews}
+                    />
+                  </li>
+                  <li className="desc">{product.description} : توضیحات </li>
+                </ul>
+              </div>
+              <div className="details2">
+                <ul>
+                  <li className="price">
+                    قیمت : <b>{product.price} </b> تومان
+                  </li>
+                  <li>
+                    {product.countInStock > 0 ? (
+                      <span className="inStock">
+                        در انبار موجود است<span> &#10003;</span>
+                      </span>
+                    ) : (
+                      <span className="notInStock">
+                        {" "}
+                        در انبار موجود نیست <span> X</span>
+                      </span>
+                    )}
+                  </li>
+                  {product.countInStock > 0 && (
+                    <>
+                      <li className="qty">
+                        <div>
+                          <select
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                          >
+                            {[...Array(product.countInStock).keys()].map(
+                              //????????????????
+                              (x, i) => {
+                                return (
+                                  <option key={i} value={i + 1}>
+                                    {i + 1}
+                                  </option>
+                                );
+                              }
+                            )}
+                          </select>
+                        </div>
+                        <p>: تعداد</p>
+                      </li>
+                      <li className="addToCartBtn">
+                        <button onClick={addToCartHandler}>Add To Cart</button>
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
         </div>
       )}
     </div>
