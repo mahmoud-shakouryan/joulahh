@@ -44,13 +44,13 @@ const ProductScreen = (props) => {
           <div className="productDetailsWrapper">
             <div className="imgWrapper">
               <div ><img src={product.image} alt={product.name} /></div>
-              <Link to="/">برگشت به محصولات</Link>
+              <div className='backLinkDiv'><Link to="/">برگشت به محصولات</Link></div>
             </div>
             <div className="detailsWrapper">
               <div className="details1">
                 <ul>
                   <li>
-                    <h3>{product.name}</h3>
+                    <p>{product.name}</p>
                   </li>
                   <li className="rate">
                     <Rating
@@ -58,7 +58,8 @@ const ProductScreen = (props) => {
                       numReviews={product.numReviews}
                     />
                   </li>
-                  <li className="desc">{product.description} : توضیحات </li>
+                  <li className="descTitle"> : توضیحات </li>
+                  <li className="desc">{product.description}</li>
                 </ul>
               </div>
               <div className="details2">

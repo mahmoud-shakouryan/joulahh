@@ -195,10 +195,12 @@
      justify-content: flex-start;
      width: 2rem;
      height: 2rem;
+     
    }
    .fa-bars{
      color: var(--dark);
      font-size: 2.5rem;
+     cursor: pointer;
    }
    .badgeMobileOnly{
     flex:1;
