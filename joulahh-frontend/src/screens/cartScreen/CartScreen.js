@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import MessageBox from "../components/MessageBox";
-import { addToCart, removeFromCart } from "../store/actions/cartActions";
+import { addToCart, removeFromCart } from "../../store/actions/cartActions";
+import MessageBox from '../../components/MessageBox';
+import "./cartScreen.css";
+
 
 const CartScreen = (props) => {
   // const productId = props.match.params.id;
@@ -12,6 +14,15 @@ const CartScreen = (props) => {
 
   const cart = useSelector((state) => state.cartReducer);
   const { cartItems } = cart;
+
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  const checkoutHandler = () => {
+    props.history.push("/signin?redirect=shipping"); //??? after signin user must be redirection?
+  };
+
   const dispatch = useDispatch();
   useEffect(() => {
     // hala vaghte vasl shodan be backende'e
@@ -20,17 +31,9 @@ const CartScreen = (props) => {
     }
   }, [dispatch, id, qty]);
 
-  const removeFromCartHandler = (id) => {
-    dispatch(removeFromCart(id));
-  };
-
-  const checkoutHandler = () => {
-    props.history.push('/signin?redirect=shipping'); //??? after signin user must be redirection?
-  };
-
   return (
-    <div className="cart">
-      <div className="cart-wrapper">
+    <div className="cartContainer">
+      <div className="cart-details">
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <MessageBox>
@@ -78,27 +81,24 @@ const CartScreen = (props) => {
           </ul>
         )}
       </div>
-      <div className="">
-        <div className="card card-body">
-          <ul>
-            <li>
-              <h2>
-                Subtotal ({cartItems.reduce((a,c) => a + (+c.qty),0)} items) : $
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-              </h2>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={checkoutHandler}
-                className="primary block"
-                disabled={cartItems.length === 0}
-              >
-                Proceed To Checkout
-              </button>
-            </li>
-          </ul>
-        </div>
+      <div className='cart-price-checkoutBtn'>
+        <ul>
+          <li>
+            <h2>
+              Subtotal ({cartItems.reduce((a, c) => a + +c.qty, 0)} items) : $
+              {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+            </h2>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={checkoutHandler}
+              disabled={cartItems.length === 0}
+            >
+              Proceed To Checkout
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   );

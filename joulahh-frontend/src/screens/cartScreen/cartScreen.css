@@ -1,0 +1,9 @@
+.cartContainer{
+    background-color: rgb(148, 40, 40);
+    padding-top: 6rem;
+    height: calc(100vh - 6rem);
+    width: 100%;
+}
+.cart-details{
+    background-color: #fff;
+}

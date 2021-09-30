@@ -20,7 +20,7 @@ a{
   text-decoration: none;
 }
 :root{
-  --dark:#16001e;
+  --dark:rgb(22, 0, 30);
   --lighterdark:rgb(127, 41, 130);
   --pink:rgb(222, 99, 154);
   --candy:rgb(247, 113, 125);
