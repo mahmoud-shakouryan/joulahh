@@ -44,7 +44,7 @@ const ProductScreen = (props) => {
           <div className="productDetailsWrapper">
             <div className="imgWrapper">
               <div ><img src={product.image} alt={product.name} /></div>
-              <div className='backLinkDiv'><Link to="/">برگشت به محصولات</Link></div>
+              <div className='backLinkDiv'><Link to="/products">برگشت به محصولات</Link></div>
             </div>
             <div className="detailsWrapper">
               <div className="details1">
