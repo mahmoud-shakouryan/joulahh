@@ -33,6 +33,7 @@ const CartScreen = (props) => {
   return (
     <div className="cartContainer">
       <div className="cart-details">
+      <div className="basket"><img src="./images/basket.png" alt="shopping cart"  /></div>
         {cartItems.length === 0 ? (
           <MessageBox>
             Cart Is Empty <Link to="/">Go Shopping</Link>
