@@ -52,12 +52,12 @@ const ShippingAddressScreen = (props) => {
   return (
     <div className='shippingContainer'>
       <div className="checkoutStepsWrapper"><CheckoutSteps step1 step2></CheckoutSteps></div>
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form shippingForm" onSubmit={submitHandler}>
         <div>
-          <h1>Shipping Address</h1>
+          <h1>اطلاعات پستی</h1>
         </div>
         <div>
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">: نام کامل  </label>
           <input
             type="text"
             id="fullName"
@@ -67,7 +67,7 @@ const ShippingAddressScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">آدرس</label>
           <input
             type="text"
             id="address"
@@ -77,27 +77,7 @@ const ShippingAddressScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            id="city"
-            placeholder="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="postalCode">Postal Code</label>
-          <input
-            type="text"
-            id="postalCode"
-            placeholder="Postal Code"
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">استان</label>
           <input
             type="text"
             id="country"
@@ -107,9 +87,29 @@ const ShippingAddressScreen = (props) => {
           />
         </div>
         <div>
-          <label />
+          <label htmlFor="city">شهر</label>
+          <input
+            type="text"
+            id="city"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="postalCode">کد پستی</label>
+          <input
+            type="text"
+            id="postalCode"
+            placeholder="Postal Code"
+            value={postalCode}
+            onChange={(e) => setPostalCode(e.target.value)}
+          />
+        </div>
+        
+        <div>
           <button type="submit">
-            Continue
+            ادامه
           </button>
         </div>
       </form>
