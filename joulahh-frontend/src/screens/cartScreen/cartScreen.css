@@ -21,9 +21,15 @@
     padding: 0.5rem;
 }
 
+.basket{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .basket img{
-    width: 100%;
-    
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
 }
 .cart-details ul {
   display: flex;
@@ -57,6 +63,7 @@
 .cartInfo a{
     font-weight: bold;
     font-size: 1.3rem;
+    color: var(--dark);
 }
 .cartInfo .selectWrapper {
   width: 100%;

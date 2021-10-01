@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
-import CheckoutSteps from "../components/CheckoutSteps";
 import { useDispatch, useSelector } from "react-redux";
+import CheckoutSteps from "../components/checkoutSteps/CheckoutSteps";
 import * as actions from "../store/actions/actionTypes";
 
 const PaymentMethodScreen = (props) => {

@@ -1,0 +1,22 @@
+.checkout-steps{
+    background-color: royalblue;
+    display: flex;
+    width: 50%;
+}
+
+.checkout-steps > div{
+  border-top: .3rem var(--white) solid;
+  flex:1;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-steps > div.active{
+  border-top-color: var(--dark);
+  color:var(--dark);
+
+}

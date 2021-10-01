@@ -1,37 +1,57 @@
 import React, { useEffect, useState } from "react";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { saveShippingAddress } from "../store/actions/cartActions";
-import { useDispatch, useSelector} from 'react-redux';
-
+import { saveShippingAddress } from "../../store/actions/cartActions";
+import { useDispatch, useSelector } from "react-redux";
+import "./shippingScreen.css";
+import CheckoutSteps from "../../components/checkoutSteps/CheckoutSteps";
 
 const ShippingAddressScreen = (props) => {
-    const userSignin = useSelector(state => state.userSigninReducer);
-    const { userInfo } = userSignin;
-    // if(!userInfo) {
-    //     props.history.push('/signin')
-    // }
-    const cart = useSelector(state => state.cartReducer);
-    const {shippingAddress} = cart;
-    const [fullName, setFullName] = useState(shippingAddress.fullName ? shippingAddress.fullName : '');
-    const [address, setAddress] = useState(shippingAddress.address ? shippingAddress.address : '');
-    const [city, setCity] = useState(shippingAddress.city ? shippingAddress.city : '');
-    const [postalCode, setPostalCode] = useState(shippingAddress.postalCode ? shippingAddress.postalCode : '');
-    const [country, setCountry] = useState(shippingAddress.country ? shippingAddress.country : '');
-     const dispatch = useDispatch();
-    const submitHandler = (e) => {
-        e.preventDefault();
-         dispatch(saveShippingAddress({fullName : fullName,address : address, city : city, postalCode : postalCode, country : country }));
-        props.history.push('/payment');
+  const userSignin = useSelector((state) => state.userSigninReducer);
+  const { userInfo } = userSignin;
+  // if(!userInfo) {
+  //     props.history.push('/signin')
+  // }
+  const cart = useSelector((state) => state.cartReducer);
+  const { shippingAddress } = cart;
+  const [fullName, setFullName] = useState(
+    shippingAddress.fullName ? shippingAddress.fullName : ""
+  );
+  const [address, setAddress] = useState(
+    shippingAddress.address ? shippingAddress.address : ""
+  );
+  const [city, setCity] = useState(
+    shippingAddress.city ? shippingAddress.city : ""
+  );
+  const [postalCode, setPostalCode] = useState(
+    shippingAddress.postalCode ? shippingAddress.postalCode : ""
+  );
+  const [country, setCountry] = useState(
+    shippingAddress.country ? shippingAddress.country : ""
+  );
+
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      saveShippingAddress({
+        fullName: fullName,
+        address: address,
+        city: city,
+        postalCode: postalCode,
+        country: country,
+      })
+    );
+    props.history.push("/payment");
+  };
+
+  useEffect(() => {
+    if (!userInfo) {
+      props.history.push("/signin");
     }
-    useEffect(()=>{
-      if(!userInfo) {
-        props.history.push('/signin')
-    }
-    },[props.history, userInfo])
-    
+  }, [props.history, userInfo]);
+
   return (
-    <div>
-      <CheckoutSteps step1 step2></CheckoutSteps>
+    <div className='shippingContainer'>
+      <div className="checkoutStepsWrapper"><CheckoutSteps step1 step2></CheckoutSteps></div>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Shipping Address</h1>
@@ -87,8 +107,10 @@ const ShippingAddressScreen = (props) => {
           />
         </div>
         <div>
-            <label/>
-            <button className='primary' type='submit'>Continue</button>
+          <label />
+          <button type="submit">
+            Continue
+          </button>
         </div>
       </form>
     </div>
