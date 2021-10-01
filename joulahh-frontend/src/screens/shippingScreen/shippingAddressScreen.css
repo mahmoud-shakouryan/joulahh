@@ -17,8 +17,21 @@
     flex: 11.5;
     margin: 1rem 0;
 }
+.form.shippingForm div{
+    margin: 1.5rem 1rem;
+}
+.form.shippingForm label{
+    font-size: 1rem;
+}
+
+.form.shippingForm button:hover{
+    box-shadow: 0px 3px 5px rgba(22, 0, 30, .6);
+}
 @media (min-width:1100px){
     .form.shippingForm{
         width: 35%;
+    }
+    .form.shippingForm button{
+        width: 120px;
     }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { saveShippingAddress } from "../../store/actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
-import "./shippingScreen.css";
+import "./shippingAddressScreen.css";
 import CheckoutSteps from "../../components/checkoutSteps/CheckoutSteps";
 
 const ShippingAddressScreen = (props) => {
@@ -57,7 +57,7 @@ const ShippingAddressScreen = (props) => {
           <h1>اطلاعات پستی</h1>
         </div>
         <div>
-          <label htmlFor="fullName">: نام کامل  </label>
+          <label htmlFor="fullName"> نام کامل  </label>
           <input
             type="text"
             id="fullName"
@@ -66,16 +66,7 @@ const ShippingAddressScreen = (props) => {
             onChange={(e) => setFullName(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="address">آدرس</label>
-          <input
-            type="text"
-            id="address"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </div>
+        
         <div>
           <label htmlFor="country">استان</label>
           <input
@@ -94,6 +85,36 @@ const ShippingAddressScreen = (props) => {
             placeholder="City"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="address">آدرس</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="address">تلفن همراه</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="address">تلفن منزل / محل کار</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
         </div>
         <div>

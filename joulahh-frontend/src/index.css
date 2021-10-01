@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: shabnam;
   src: url(./fonts/Shabnam.ttf);
@@ -16,18 +15,18 @@ html {
   box-sizing: border-box;
   overflow: hidden;
 }
-a{
+a {
   text-decoration: none;
 }
-:root{
-  --dark:rgb(22, 0, 30);
-  --lighterdark:rgb(127, 41, 130);
-  --pink:rgb(222, 99, 154);
-  --candy:rgb(247, 115, 126);
-  --white:rgb(247, 178, 183);
-  --lighterWhite:#FFC8FF;
-  --btnHover:rgb(0, 201, 188);
-  --green: #005B4C;
+:root {
+  --dark: rgb(22, 0, 30);
+  --lighterdark: rgb(127, 41, 130);
+  --pink: rgb(222, 99, 154);
+  --candy: rgb(247, 115, 126);
+  --white: rgb(247, 178, 183);
+  --lighterWhite: #ffc8ff;
+  --btnHover: rgb(0, 201, 188);
+  --green: #005b4c;
 }
 
 body {
@@ -35,345 +34,29 @@ body {
   height: 100vh;
   font-size: 1.6rem;
   font-family: shabnam, Arial, sans-serif;
-  background-image: radial-gradient(circle, #ffc8ff, #ffc0ec, #ffbad9, #feb6c7, #f7b2b7);
-
+  background-image: radial-gradient(
+    circle,
+    #ffc8ff,
+    #ffc0ec,
+    #ffbad9,
+    #feb6c7,
+    #f7b2b7
+  );
 }
 
-*{
+* {
   margin: 0;
   box-sizing: border-box;
 }
 
-
 .container {
   position: relative;
   width: 100%;
-    height: 100vh;            /*the whole gridContainer height*/
+  height: 100vh; /*the whole gridContainer height*/
 }
 
 /* header ****************************************/
-
-
-
-.main{
+.main {
   width: 100%;
-  height:100vh;
+  height: 100vh;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Common 
-h1 {
-  font-size: 1.8rem;
-  padding: 1rem 0;
-}
-h2 {
-  font-size: 1.6rem;
-  padding: 1rem 0;
-}
-
-a {
-  text-decoration: none;
-}
-a:hover {
-  color: #ff8000;
-}
-ul {
-  list-style-type: none;
-}
-li {
-  margin-top: 1rem;
-}
-button ,input, select, textarea{
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 0.1rem gray;
-  font-size: 1.6rem;
-  font-family: Helvetica, Arial, sans-serif; 
-}
-button{
-  background-color: var(--white);
-  cursor: pointer;
-}
-button:hover, input:hover, select:hover, textarea:hover{
-  border: 0.1rem solid black;
-}
-.button.primary {
-  background-color: var(--orange2);
-}
-button.block {
-  width: 100%;
-}
-/* Header */
-/*.navLinks{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.userNameLink{
-  background-color: rgb(97, 28, 28);
-}
-.adminLink{
-  background-color: rgb(17, 4, 4);
-}
-header a {
-  color: #9CADC4;
-  padding: 2rem;
-}
-.cart-badge{
-  position:relative;
-  background-color: #fff;
-}
-a.brand {
-  color: #C18500;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.badge{
-  background-color: var(--green);
-  color: var(--dark);
-  font-weight: bold;
-  border-radius: 50%;
-  position: absolute;
-  padding: .3rem .3rem;
-  font-size: 1.3rem;
-  margin-left: .2rem;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-.row.center {
-  justify-content: center;
-}
-.row.top {
-  align-items: flex-start;
-}
-.col-1 {
-  flex: 1 1 25rem;
-  background-color: rgb(133, 23, 23);
-}
-.col-2 {
-  flex: 2 1 30rem;
-  background-color: rgb(106, 199, 145);
-}
-.col-2.ProductWrapper{
-  display: flex;
-  justify-content: center;
-}
-.min-30{
-  min-width: 30rem;
-}
-/* Image */
-/*img {
-  border-radius: 0.5rem;
-}
-img.small{
-  max-width: 5rem;
-  width: 100%;
-
-}
-img.medium {
-  max-width: 29rem;
-  width: 100%;
-}
-/* Card */
-/*.card {
-  border: 0.1rem #c0c0c0 solid;
-  background-color: #9CADC4;
-  font-weight: 100;
-  border-radius: 0.5rem;
-  margin: 1rem;
-}
-.card-body {
-  padding: 1rem;
-  
-}
-.product-name{
-  color: #B0A8B9;
-}
-.card-body ul{
-  padding: 0;
-}
-.card-body > * {
-  margin-bottom: 0.5rem;
-}
-.price {
-  font-size: 2rem;
-}
-/* Rating */
-/*.rating{
-  display: flex;
-  justify-content: space-between;
-}
-.rating span {
-  color: #f0c040;
-  margin: 0.1rem;
-}
-.rating span:first-child {
-  color: #203040;
-}
-/*alert*/ 
-/*.loading{
-  display: block !important;
-}
-
-.success {
-  color: green;
-}
-.danger {
-  color: red;
-}
-.alert{
-padding: 1rem;
-border: 0.1rem solid transparent;
-border-radius: .5rem;
-}
-.alert-info{
-  color: blue;
-  background-color: white;
-}
-.alert-danger{
-  color: red;
-  background-color: pink;
-}
-.alert-success{
-  color: black;
-  background-color: green;
-}
-
-/* CartScreen.js */
-
-
-/*.cart-wrapper ul li{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.imgWrapper{
-display: flex;
-align-items: center;
-}
-.imgWrapper img{
- height: 100px;
- width: 100px;
- 
-}
-
-/* form */
-/*.form{
-  width: 30rem;
-  margin: 0 auto;
-}
-.form > div{
-  width: 50rem;
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-}
-.form > div > input{
-  width: 50%;
-  padding:1rem 0 ;
-  border: 1px solid black;
-  background-color: rgb(133, 47, 47);
-}
-
-.form > div > button {
-  width: 50%;
-  background-color: rgb(192, 146, 18);
-  border: 1px solid black;
-}
-.form label{
-  margin: 1rem 1rem;
-}
-
-/* dropdown*/
- /*.dropdown{
-   display: inline-block;
-   position: relative;
- }
- .dropdown-content{
-   position: absolute;
-   display: none;
-   right: 0;
-   min-width: 12rem;
-   padding: 1rem;
-   z-index: 1;
-   background-color: #203040;
-   margin: 0;
-   margin-top: 0.4rem;
-   border-radius: .5rem;
- }
-
- .dropdown:hover .dropdown-content{
-   display: block;
- }
-/* checkoutSteps */
-
-
-/* placeOrder page */
-/*.recipt-summary{
-  flex: 2;
-  background-color: rgb(46, 45, 45);
-  border-radius: 3px;
-}
-.recipt-summary > ul > li > div{
-  background-color: rgb(194, 194, 194);
-}
-.price-summary{
-  flex: 1;
-}
-.price-summary > div > ul   {
-  padding: 5px;
-}
-.price-summary > div > ul > li > button {
-  background-color: gold;
-}
- .submit-placeOrder:hover{
-  border : none;
-  background-color:rgb(219, 186, 0);
-}*/
-/* orderHistory 
-// .orderHistory{
-//   height: 100%;
-//   padding: 1rem;
-
-// }
-// .table{
-//   background-color: #fd794f;
-//   padding: 1rem;
-//   width: 100%;
-//   border-radius: 5px;
-// }
-// .table tr{
-//   text-align: center;
-// }
-// .table .orderHistoryBtn{
-//  color: #131313;
-//   background-color: #3f8a89;
-//   width: 100%;
-//   font-size: 1.5rem;
-//   padding: .8rem 1rem;
-
-// }
-// .orderHistoryBtn:hover{
-//   border: none;
-// }
-*/
