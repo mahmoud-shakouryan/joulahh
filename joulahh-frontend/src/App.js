@@ -12,7 +12,7 @@ import HomeScreen from "./screens/homeScreen/HomeScreen";
 import SigninScreen from "./screens/signinScreen/SigninScreen";
 import ProductsScreen from "./screens/productsScreen/ProductsScreen";
 import ProductScreen from "./screens/productScreen/ProductScreen";
-import CartScreen from "./screens/cartScreen/CartScreen";
+import CartScreen from "./screens/cartScreen/CartScreen.jsx";
 
 const Main = () => {
   return (
