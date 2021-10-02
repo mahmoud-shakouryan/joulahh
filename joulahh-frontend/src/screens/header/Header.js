@@ -58,7 +58,7 @@ const Header = () => {
         {userInfo ? (
           <div className="navLinks__userWrapper">
             <Link to="#" onClick={userDropDownHandler}>
-              تنظیمات کاربر<i className="fa fa-caret-down"></i>
+              <p>تنظیمات کاربر</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={
@@ -94,7 +94,7 @@ const Header = () => {
         {userInfo && userInfo.isAdmin && (
           <div>
             <Link to="#admin" onClick={adminDropDownHandler}>
-              ادمین<i className="fa fa-caret-down"></i>
+              <p>ادمین</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={

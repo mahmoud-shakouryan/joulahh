@@ -10,9 +10,6 @@
   padding-top: 1rem;
   transition: width 10ms ease;
 }
-.mainPage{
-  padding-right: .5rem;
-}
 .sidebar.active {
   width: 50vw;
   right: 0;
@@ -27,9 +24,7 @@
   margin-bottom: 3rem;
 }
 
-.sidebar ul{
-    padding-right: .5rem;
-}
+
 .sidebar a,
 .sidebar li {
   display: flex;
@@ -38,6 +33,7 @@
   margin-bottom: 2rem;
   font-size: 1.6rem;
   color: var(--pink);
+  padding-right: .5rem;
 }
 
 .sidebar ul {

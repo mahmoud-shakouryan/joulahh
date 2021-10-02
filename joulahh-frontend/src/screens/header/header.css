@@ -53,20 +53,18 @@
     border-radius: 3px;
   }
   
-  .navLinks > div > a ::after{
+  .navLinks > div > a >p::after{
     content: '';
     display: block;
     width: 0;
     height: 2px;
     transition: width .3s;
-    background-color: rgb(7, 5, 1);
+    background-color: var(--dark);
   }
-  .navLinks > div > a :hover::after{
+  .navLinks > div > a >p:hover::after{
     width: 100%;
   }
-  .navLinks > div > a >p{
-    text-align: center;
-  }
+  
   
   
   
