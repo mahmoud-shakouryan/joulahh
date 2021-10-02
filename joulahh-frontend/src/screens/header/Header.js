@@ -51,14 +51,14 @@ const Header = () => {
       </div>
       <div className="badgeMobileOnly">{cartBadge}</div>
       <div className="brand">
-        <Link to="/">Joulahh</Link>
+        <Link to="/">جولا‌‌ه</Link>
       </div>
       <div className="navLinks">
         {cartBadge}
         {userInfo ? (
           <div className="navLinks__userWrapper">
             <Link to="#" onClick={userDropDownHandler}>
-              تنظیمات کاربر<i className="fa fa-caret-down arrow"></i>
+              تنظیمات کاربر<i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={
