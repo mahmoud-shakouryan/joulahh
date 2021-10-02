@@ -40,7 +40,7 @@ const ShippingAddressScreen = (props) => {
         country: country,
       })
     );
-    props.history.push("/payment");
+    props.history.push("/placeorder");
   };
 
   useEffect(() => {

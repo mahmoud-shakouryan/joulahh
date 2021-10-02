@@ -13,6 +13,9 @@ const PlaceOrderScreen = (props) => {
   const orderCreate = useSelector(state => state.orderCreate);
   const { loading, success, error, order } = orderCreate;
 
+  const { shippingAddress }  = useSelector(state => state.cartReducer);
+
+
 
   const toPrice = (num) => Number(num.toFixed(2)); //5.122323 >> "5.12" >> 5.12
   cart.itemsPrice = toPrice(
@@ -28,14 +31,20 @@ const placeOrderHandler = () => {
 }
 
   useEffect(() => {
-    if (!cart.paymentMethod) {
-      return props.history.push("/payment");
-    }
+    // if (!cart.paymentMethod) {
+    //   return props.history.push("/payment");
+    // }
     if(success){
       dispatch({ type: actions.ORDER_CREATE_RESET })           //faghat state'e orderCreate ro khali kardim
       return props.history.push(`/order/${order._id}`);
     }
   }, [ dispatch, props.history, cart.paymentMethod, success, order]);
+
+  useEffect(() => {
+    if(!shippingAddress.address){
+        props.history.push('/shipping')
+    }
+  }, [props.history, shippingAddress])
   
   return (
     <div>

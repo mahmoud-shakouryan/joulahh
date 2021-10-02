@@ -6,14 +6,12 @@ import * as actions from "../store/actions/actionTypes";
 const PaymentMethodScreen = (props) => {
 
     const [paymentMethod, setPaymentMethod] = useState("PayPal");
-    const dispatch = useDispatch();
     
-     const cart = useSelector(state => state.cartReducer);
-     const { shippingAddress } = cart;
+     const { shippingAddress }  = useSelector(state => state.cartReducer);
      
      
 
-
+     const dispatch = useDispatch();
      const submitHandler = (e) => {
         e.preventDefault();
        dispatch({
@@ -23,7 +21,7 @@ const PaymentMethodScreen = (props) => {
         props.history.push("/placeorder");
       };
 
-      useEffect(() => {
+      useEffect(() => {                //ino copy kardam bordam tu placeorderScreen
         if(!shippingAddress.address){
             props.history.push('/shipping')
         }

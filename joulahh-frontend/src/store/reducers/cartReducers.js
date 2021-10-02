@@ -24,9 +24,9 @@ export const cartReducer = (state = initialState , action) => {
         return updatedFilteredState;
       case actions.CART_SAVE_SHIPPING_ADDRESS:
         localStorage.setItem('shippingAddress',JSON.stringify(action.payload));
-        return {...state, shippingAddress : action.payload}
-      case actions.CART_SAVE_PAYMENT_METHOD:
-        return {...state, paymentMethod : action.payload};
+        return {...state, shippingAddress : action.payload};
+      // case actions.CART_SAVE_PAYMENT_METHOD:
+      //   return {...state, paymentMethod : action.payload};
       case actions.CART_EMPTY:
         localStorage.removeItem('cartItems');
         return {...state, cartItems : []};

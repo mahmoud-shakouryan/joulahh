@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import RegisterScreen from "./screens/RegisterScreen";
-import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+// import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
@@ -29,7 +29,7 @@ const Main = () => {
             <Route path="/signin" component={SigninScreen} />
             <Route path="/register" component={RegisterScreen} />
             <Route path="/shipping" component={ShippingAddressScreen} />
-            <Route path="/payment" component={PaymentMethodScreen} />
+            {/* <Route path="/payment" component={PaymentMethodScreen} /> */}
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/orderhistory" component={OrderHistoryScreen} />
