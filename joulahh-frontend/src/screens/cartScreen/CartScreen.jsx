@@ -73,7 +73,7 @@ const CartScreen = (props) => {
                       type="button"
                       onClick={() => removeFromCartHandler(cartItem.product)}
                     >
-                      <i className="fa fa-trash"></i>
+                      <img className='trash-bin-img' src='../images/trash-bin.png' alt='trash bin'/>
                     </button>
                   </div>
                 </div>

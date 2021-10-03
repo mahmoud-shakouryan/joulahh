@@ -1,37 +1,40 @@
-.shippingContainer{
-    height: 100vh;
-    padding-top: 6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+.shippingContainer {
+  height: 100vh;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.checkoutStepsWrapper{
-    flex: .5;
-    width: 100vw;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+.checkoutStepsWrapper {
+  flex: 0.5;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
-.form.shippingForm{
-    flex: 11.5;
-    margin: 1rem 0;
+.form.shippingForm {
+  flex: 11.5;
+  margin: 1rem 0;
 }
-.form.shippingForm div{
-    margin: 1.5rem 1rem;
+.form.shippingForm div {
+  margin: 1.5rem 1rem;
 }
-.form.shippingForm label{
-    font-size: 1rem;
+.form.shippingForm label {
+  font-size: 1rem;
 }
-
-.form.shippingForm button:hover{
-    box-shadow: 0px 3px 5px rgba(22, 0, 30, .6);
+.form.shippingForm button {
+  box-shadow: 0px 3px 5px rgba(100, 63, 114, 0.6);
 }
-@media (min-width:1100px){
-    .form.shippingForm{
-        width: 35%;
-    }
-    .form.shippingForm button{
-        width: 120px;
-    }
+.form.shippingForm button:hover {
+  background-color: var(--btnHover);
+  color: var(--dark);
+  font-weight: bold;
+}
+@media (min-width: 1100px) {
+  .form.shippingForm {
+    width: 35%;
+  }
+  .form.shippingForm button {
+    width: 120px;
+  }
 }

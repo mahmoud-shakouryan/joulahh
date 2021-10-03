@@ -99,12 +99,13 @@
     cursor: pointer;
     border-radius: 5px;
 }
-.cartInfo .fa-trash{
-    font-size: 2rem;
-    color: var(--dark);
+.cartInfo .trash-bin-img{
+    width: 4rem;
+    height: 4rem;
 }
-.cartInfo button:hover .fa-trash{
-color: red;
+
+.cartInfo button:hover .trash-bin-img{
+transform: scale(1.2);
 }
 .cart-price-checkoutBtn {
   height: 10%;
@@ -139,11 +140,20 @@ color: red;
     outline: none;
     background-color: var(--dark);
     padding: 1rem 4rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--white);
     font-family: inherit;
     cursor: pointer;
 }
+.cart-price-checkoutBtn ul li:nth-child(1) button:hover,
+.cart-price-checkoutBtn ul li:nth-child(1) button:focus{
+  background-color: var(--btnHover);
+  color: var(--dark);
+  font-weight: bold;
+}
+
+
+
 .cart-price-checkoutBtn .subTotal { /*li*/
 display: flex;
 align-items: center;
@@ -152,7 +162,7 @@ padding: 0;
 margin-left: 1rem;
 border-radius: 5px;
 background-color: var(--candy);
-box-shadow: 0 2px 10px rgba(247, 115, 126, .8);
+box-shadow: 0 2px 10px rgba(0,0,0, .5);
 color: var(--dark);
 user-select: none;
 

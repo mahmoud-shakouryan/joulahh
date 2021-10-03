@@ -79,21 +79,21 @@ const PlaceOrderScreen = (props) => {
               </div>
             </li> */}
             <li className="orderItemsWrapper">
-              <p className='title'>اقلام سفارشی</p>
+              <p className="title">اقلام سفارشی</p>
               <ul className="img-details-wrapper">
                 {cart.cartItems.map((cartItem) => (
-                  <li className='imgDetailsLi' key={cartItem.product}>
+                  <li className="imgDetailsLi" key={cartItem.product}>
                     <div className="imgWrapper">
                       <img src={cartItem.image} alt={cartItem.name} />
                     </div>
-                    <div className="link">
-                      <Link to={`/product/${cartItem.product}`}>
-                        {cartItem.name}
-                      </Link>
-                    </div>
+
+                    <Link to={`/product/${cartItem.product}`}>
+                      {cartItem.name}
+                    </Link>
+
                     <div className="priceWrapper">
-                      {cartItem.qty} * ${cartItem.price} = $
-                      {cartItem.qty * cartItem.price}
+                     {cartItem.qty} * {cartItem.price} = {cartItem.qty * cartItem.price}
+                      
                     </div>
                   </li>
                 ))}

@@ -18,8 +18,7 @@
 .recipt-summary > ul > li {
   display: flex;
   flex-direction: column;
-  padding: .5rem;
-
+  padding: 0.5rem;
 }
 .recipt-summary > ul > li:nth-of-type(1) > div {
   background-color: #fff;
@@ -27,45 +26,56 @@
   background-color: var(--candy);
   color: var(--dark);
   padding: 0.5rem;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
 }
-.recipt-summary > ul > li:nth-of-type(1) > div > p:nth-of-type(1){
+.recipt-summary > ul > li:nth-of-type(1) > div > p:nth-of-type(1) {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-.recipt-summary > ul > li:nth-of-type(1) > div > p:nth-of-type(2){
-    font-size: 1.3rem;
+.recipt-summary > ul > li:nth-of-type(1) > div > p:nth-of-type(2) {
+  font-size: 1.3rem;
 }
 
-.recipt-summary .orderItemsWrapper{
-    background-color: #fff;
-
+.recipt-summary .orderItemsWrapper {
+  background-color: #fff;
 }
-.recipt-summary .orderItemsWrapper p.title{
-    text-align: center;
-    font-size: 1.6rem;
-    background-color: rgb(190, 102, 102);
+.recipt-summary .orderItemsWrapper p.title {
+  text-align: center;
+  font-size: 1.6rem;
 }
-.recipt-summary .img-details-wrapper{    /*ul*/
-    background-color: rgb(216, 36, 147);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    list-style: none;
-    overflow: auto;
+.recipt-summary .img-details-wrapper {
+  /*ul*/
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  overflow: auto;
 }
-.recipt-summary .img-details-wrapper .imgDetailsLi{ /*li*/
-    background-color: #fff;
+.recipt-summary .img-details-wrapper .imgDetailsLi {
+  /*li*/
+  background-color: var(--dark);
+  font-size: 1.2rem;
+  color: var(--candy);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.3rem;
 }
-.recipt-summary .img-details-wrapper .imgWrapper{
-    width: 20vw;
-    background-color: #fff;
+.recipt-summary .img-details-wrapper .imgWrapper {
+  width: 20vw;
 }
-.recipt-summary .img-details-wrapper .imgWrapper img{
-    max-width: 100%;
-    object-fit: cover;
+.recipt-summary .img-details-wrapper .imgDetailsLi a {
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--candy);
 }
-
-
+.recipt-summary .priceWrapper {
+  padding: 0.3rem;
+  text-align: center;
+}
+.recipt-summary .img-details-wrapper .imgWrapper img {
+  border-radius: 0.3rem 0.3rem 0 0;
+  max-width: 100%;
+  object-fit: cover;
+}
