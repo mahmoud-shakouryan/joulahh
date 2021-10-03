@@ -1,9 +1,14 @@
+//paymentMethod ro hazfesh kardam az ejraye app.
+
+
 import React, {useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../components/checkoutSteps/CheckoutSteps";
 import * as actions from "../store/actions/actionTypes";
 
 const PaymentMethodScreen = (props) => {
+
+
 
     const [paymentMethod, setPaymentMethod] = useState("PayPal");
     
