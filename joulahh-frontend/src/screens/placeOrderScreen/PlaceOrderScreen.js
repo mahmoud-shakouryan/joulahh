@@ -84,6 +84,7 @@ const PlaceOrderScreen = (props) => {
               <ul className="img-details-wrapper">
                 {cart.cartItems.map((cartItem) => (
                   <li className="imgDetailsLi" key={cartItem.product}>
+                    <div className='wrapperDiv'>
                     <div className="imgWrapper">
                       <img src={cartItem.image} alt={cartItem.name} />
                     </div>
@@ -95,6 +96,7 @@ const PlaceOrderScreen = (props) => {
                     <div className="priceWrapper">
                       {cartItem.qty} * {cartItem.price} ={" "}
                       {cartItem.qty * cartItem.price}
+                    </div>
                     </div>
                   </li>
                 ))}

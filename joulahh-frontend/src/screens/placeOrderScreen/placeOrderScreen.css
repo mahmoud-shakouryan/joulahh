@@ -8,14 +8,13 @@
   display: flex;
   justify-content: center;
 }
-.recipt-wrapper{
+.recipt-wrapper {
   background-color: rgb(28, 128, 89);
-
 }
 .recipt-wrapper ul {
   padding: 0;
 }
-.recipt-summary{
+.recipt-summary {
   padding: 2rem;
 }
 .recipt-summary > ul > li {
@@ -39,8 +38,9 @@
 }
 
 .recipt-summary .orderItemsWrapper {
-    margin-top: 2rem;
-    background-color: rgb(179, 121, 121);
+  margin-top: 2rem;
+  background-color: rgb(179, 121, 121);
+  
 }
 .recipt-summary .orderItemsWrapper p.title {
   text-align: center;
@@ -50,13 +50,17 @@
 .recipt-summary .img-details-wrapper {
   /*ul*/
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  overflow: auto;
 }
-.recipt-summary .img-details-wrapper .imgDetailsLi {
-  /*li*/
+.imgDetailsLi{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv {
   background-color: var(--dark);
   font-size: 1.2rem;
   display: flex;
@@ -65,10 +69,14 @@
   margin-bottom: 1rem;
 }
 
+.recipt-summary .img-details-wrapper .imgDetailsLi:nth-of-type(1) {
+  margin-right: 1rem;
+}
 .recipt-summary .img-details-wrapper .imgDetailsLi a {
   padding: 0.5rem;
   text-align: center;
   color: var(--candy);
+  width: 100%;
 }
 .recipt-summary .priceWrapper {
   padding: 0.3rem;
