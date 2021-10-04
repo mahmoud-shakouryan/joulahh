@@ -57,15 +57,16 @@ const PlaceOrderScreen = (props) => {
               <div>
                 <p>: مشخصات</p>
                 <p>
-                  <span>{cart.shippingAddress.fullName}</span>
-                  <strong>: نام</strong>
+                  <strong>نام :</strong>
+                  <span> {cart.shippingAddress.fullName} </span>
                   <br />
+                  <strong>آدرس :</strong>
                   <span>
-                    {cart.shippingAddress.postalCode} ,{" "}
-                    {cart.shippingAddress.address} , {cart.shippingAddress.city}{" "}
-                    , {cart.shippingAddress.country}
+                    {" "}
+                    {cart.shippingAddress.country} , {cart.shippingAddress.city}{" "}
+                    , {cart.shippingAddress.postalCode} ,{" "}
+                    {cart.shippingAddress.address}
                   </span>
-                  <strong>: آدرس</strong>
                 </p>
               </div>
             </li>
@@ -92,8 +93,8 @@ const PlaceOrderScreen = (props) => {
                     </Link>
 
                     <div className="priceWrapper">
-                     {cartItem.qty} * {cartItem.price} = {cartItem.qty * cartItem.price}
-                      
+                      {cartItem.qty} * {cartItem.price} ={" "}
+                      {cartItem.qty * cartItem.price}
                     </div>
                   </li>
                 ))}

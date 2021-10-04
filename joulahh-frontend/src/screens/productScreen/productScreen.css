@@ -76,7 +76,6 @@
 }
 .detailsWrapper ul {
   width: 100%;
-  list-style-type: none;
   text-align: right;
   background-color: var(--white);
   border-radius: 5px;
