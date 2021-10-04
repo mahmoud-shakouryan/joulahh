@@ -94,7 +94,7 @@ const PlaceOrderScreen = (props) => {
                     </Link>
 
                     <div className="priceWrapper">
-                      {cartItem.qty} * {cartItem.price} ={" "}
+                      {cartItem.qty} x {cartItem.price} ={" "}
                       {cartItem.qty * cartItem.price}
                     </div>
                     </div>
@@ -105,31 +105,31 @@ const PlaceOrderScreen = (props) => {
           </ul>
         </div>
         <div className="price-summary">
-          <div className="card card-body">
+          <div>
             <ul>
               <li>
-                <h2>Order Summary</h2>
+                <h2>خلاصه قیمت </h2>
               </li>
               <li>
-                <div className="row">
+                <div>
                   <div>Items</div>
                   <div>${cart.itemsPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div>
                   <div>Shipping</div>
                   <div>${cart.shippingPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div >
                   <div>Tax</div>
                   <div>${cart.taxPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div>
                   <div>
                     <strong>Total</strong>
                   </div>
@@ -139,7 +139,6 @@ const PlaceOrderScreen = (props) => {
               <li>
                 <button
                   type="button"
-                  className="primary block submit-placeOrder"
                   onClick={placeOrderHandler}
                   disabled={cart.cartItems.length === 0}
                 >
