@@ -1,6 +1,6 @@
 .checkout-steps{
     display: flex;
-    width: 50%;
+    width: 60%;
 }
 
 .checkout-steps > div{
@@ -18,3 +18,5 @@
   color:var(--dark);
 
 }
+
+

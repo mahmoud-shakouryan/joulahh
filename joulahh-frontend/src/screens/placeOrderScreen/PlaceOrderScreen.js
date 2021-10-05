@@ -84,19 +84,19 @@ const PlaceOrderScreen = (props) => {
               <ul className="img-details-wrapper">
                 {cart.cartItems.map((cartItem) => (
                   <li className="imgDetailsLi" key={cartItem.product}>
-                    <div className='wrapperDiv'>
-                    <div className="imgWrapper">
-                      <img src={cartItem.image} alt={cartItem.name} />
-                    </div>
+                    <div className="wrapperDiv">
+                      <div className="imgWrapper">
+                        <img src={cartItem.image} alt={cartItem.name} />
+                      </div>
 
-                    <Link to={`/product/${cartItem.product}`}>
-                      {cartItem.name}
-                    </Link>
+                      <Link to={`/product/${cartItem.product}`}>
+                        {cartItem.name}
+                      </Link>
 
-                    <div className="priceWrapper">
-                      {cartItem.qty} x {cartItem.price} ={" "}
-                      {cartItem.qty * cartItem.price}
-                    </div>
+                      <div className="priceWrapper">
+                        {cartItem.qty} x {cartItem.price} ={" "}
+                        {cartItem.qty * cartItem.price}
+                      </div>
                     </div>
                   </li>
                 ))}
@@ -105,50 +105,42 @@ const PlaceOrderScreen = (props) => {
           </ul>
         </div>
         <div className="price-summary">
-          <div>
-            <ul>
-              <li>
-                <h2>خلاصه قیمت </h2>
-              </li>
-              <li>
+          <ul>
+            <li>
+              <p id="title">رسید قیمت </p>
+            </li>
+            <li className="recipt">
+              <div>
                 <div>
-                  <div>Items</div>
-                  <div>${cart.itemsPrice.toFixed(2)}</div>
+                  <strong>قیمت کل</strong>
                 </div>
-              </li>
-              <li>
-                <div>
-                  <div>Shipping</div>
-                  <div>${cart.shippingPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div >
-                  <div>Tax</div>
-                  <div>${cart.taxPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <div>
-                    <strong>Total</strong>
-                  </div>
-                  <div>${cart.totalPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={placeOrderHandler}
-                  disabled={cart.cartItems.length === 0}
-                >
-                  Place Order
-                </button>
-              </li>
-              {loading && <LoadingBox />}
-              {error && <MessageBox variant="danger">{error}</MessageBox>}
-            </ul>
-          </div>
+                <div>{cart.totalPrice.toFixed(2)}</div>
+              </div>
+              <div>
+                <div>دستمزد</div>
+                <div>{cart.taxPrice.toFixed(2)}</div>
+              </div>
+              <div>
+                <div>اقلام</div>
+                <div>{cart.itemsPrice.toFixed(2)}</div>
+              </div>
+              <div>
+                <div>ارسال پستی</div>
+                <div>{cart.shippingPrice.toFixed(2)}</div>
+              </div>
+            </li>
+            <li className='buttonWrapper'>
+              <button
+                type="button"
+                onClick={placeOrderHandler}
+                disabled={cart.cartItems.length === 0}
+              >
+                ثبت سفارش
+              </button>
+            </li>
+            {loading && <LoadingBox />}
+            {error && <MessageBox variant="danger">{error}</MessageBox>}
+          </ul>
         </div>
       </div>
     </div>
