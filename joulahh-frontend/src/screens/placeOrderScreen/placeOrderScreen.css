@@ -13,20 +13,20 @@
     flex: 5;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
 }
 .recipt-wrapper ul {
     padding: 0;
 }
 .recipt-summary {
+    min-height: 75%;
   padding: 2rem;
-  flex: 4;
-  background-color: rgb(184, 50, 50);
 }
+
 .recipt-summary > ul > li {
   display: flex;
   flex-direction: column;
 }
+
 .recipt-summary > ul > li:nth-of-type(1) > div {
   text-align: right;
   background-color: var(--candy);
@@ -34,7 +34,7 @@
   padding: 1rem;
   border-radius: 0.3rem;
   box-shadow: 0 2px 10px rgba(0,0,0,.4);
-
+    
 }
 .recipt-summary > ul > li:nth-of-type(1) > div > p:nth-of-type(1) {
   font-size: 1.5rem;
@@ -46,8 +46,8 @@
 }
 
 .recipt-summary .orderItemsWrapper {
+  height: 100%;
   margin-top: 2rem;
-  background-color: rgb(170, 207, 36);
 }
 .recipt-summary .orderItemsWrapper p.title {
   text-align: center;
@@ -58,16 +58,21 @@
 .recipt-summary .img-details-wrapper {
   /*ul*/
   display: flex;
+  /*flex-wrap: wrap;*/
   align-items: center;
   justify-content: space-around;
-  background-color: rgb(5, 5, 5);
   height: 100%;
 }
 .imgDetailsLi{   /*li*/
-
+  
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media (max-width:800px){
+    .imgDetailsLi{
+        transform: scale(.9);
+    }
 }
 .wrapperDiv{
     box-shadow: 0 2px 10px rgba(0,0,0,.4);
@@ -104,9 +109,12 @@
 
 /* price summary section ( the footer ) */
 .price-summary{
-    flex: 1.2;
+    min-height: 25%;
     padding: .5rem 2rem;
     color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .price-summary #title{
     text-align: center;
@@ -118,9 +126,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 95%;
     background-color: var(--pink);
     border-radius: .3rem;
     box-shadow: 0 2px 10px rgba(0,0,0,.5);
@@ -168,8 +176,17 @@
 }
 
 /* responsiveness */
-@media (max-width:400px){
+@media (max-width:500px){
     .recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv{
         font-size: .8rem;
+    }
+    .price-summary button{
+        padding: .5rem 2rem;
+        font-size: .7rem;
+    }
+}
+@media (max-width:350px){
+    .recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv{
+        font-size: .6rem;
     }
 }

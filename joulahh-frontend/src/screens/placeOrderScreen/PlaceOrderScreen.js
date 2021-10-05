@@ -52,7 +52,7 @@ const PlaceOrderScreen = (props) => {
       </div>
       <div className="recipt-wrapper">
         <div className="recipt-summary">
-          <ul>
+          <ul >
             <li>
               <div>
                 <p>: مشخصات</p>
@@ -107,6 +107,7 @@ const PlaceOrderScreen = (props) => {
         <div className="price-summary">
           <ul>
             <li>
+            <li>
               <p id="title">رسید قیمت </p>
             </li>
             <li className="recipt">
@@ -128,6 +129,7 @@ const PlaceOrderScreen = (props) => {
                 <div>ارسال پستی</div>
                 <div>{cart.shippingPrice.toFixed(2)}</div>
               </div>
+            </li>
             </li>
             <li className='buttonWrapper'>
               <button
