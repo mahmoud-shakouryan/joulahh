@@ -10,22 +10,25 @@ const ShippingAddressScreen = (props) => {
   // if(!userInfo) {
   //     props.history.push('/signin')
   // }
-  const cart = useSelector((state) => state.cartReducer);
-  const { shippingAddress } = cart;
+  const { shippingAddress }  = useSelector((state) => state.cartReducer);
   const [fullName, setFullName] = useState(
     shippingAddress.fullName ? shippingAddress.fullName : ""
+  );
+  const [province, setProvince] = useState( shippingAddress.province ? shippingAddress.province : '');
+  const [city, setCity] = useState(
+    shippingAddress.city ? shippingAddress.city : ""
   );
   const [address, setAddress] = useState(
     shippingAddress.address ? shippingAddress.address : ""
   );
-  const [city, setCity] = useState(
-    shippingAddress.city ? shippingAddress.city : ""
+  const [mobileNum, setMobileNum] = useState(
+    shippingAddress.mobileNum ? shippingAddress.mobileNum : ""
+  );
+  const [telNum, setTelNum] = useState(
+    shippingAddress.telNum ? shippingAddress.telNum : ""
   );
   const [postalCode, setPostalCode] = useState(
     shippingAddress.postalCode ? shippingAddress.postalCode : ""
-  );
-  const [country, setCountry] = useState(
-    shippingAddress.country ? shippingAddress.country : ""
   );
 
   const dispatch = useDispatch();
@@ -35,9 +38,11 @@ const ShippingAddressScreen = (props) => {
       saveShippingAddress({
         fullName: fullName,
         address: address,
+        province:province,
         city: city,
-        postalCode: postalCode,
-        country: country,
+        mobileNum: mobileNum,
+        telNum: telNum,
+        postalCode:postalCode
       })
     );
     props.history.push("/placeorder");
@@ -66,15 +71,14 @@ const ShippingAddressScreen = (props) => {
             onChange={(e) => setFullName(e.target.value)}
           />
         </div>
-        
         <div>
           <label htmlFor="country">استان</label>
           <input
             type="text"
             id="country"
             placeholder="Country"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            value={province}
+            onChange={(e) => setProvince(e.target.value)}
           />
         </div>
         <div>
@@ -103,8 +107,8 @@ const ShippingAddressScreen = (props) => {
             type="text"
             id="address"
             placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={mobileNum}
+            onChange={(e) => setMobileNum(e.target.value)}
           />
         </div>
         <div>
@@ -113,8 +117,8 @@ const ShippingAddressScreen = (props) => {
             type="text"
             id="address"
             placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={telNum}
+            onChange={(e) => setTelNum(e.target.value)}
           />
         </div>
         <div>

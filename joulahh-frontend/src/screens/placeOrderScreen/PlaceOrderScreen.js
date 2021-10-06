@@ -107,6 +107,7 @@ const PlaceOrderScreen = (props) => {
         <div className="price-summary">
           <ul>
             <li>
+            <ul>
             <li>
               <p id="title">رسید قیمت </p>
             </li>
@@ -130,6 +131,7 @@ const PlaceOrderScreen = (props) => {
                 <div>{cart.shippingPrice.toFixed(2)}</div>
               </div>
             </li>
+            </ul>
             </li>
             <li className='buttonWrapper'>
               <button
