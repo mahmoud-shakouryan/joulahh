@@ -1,30 +1,35 @@
-
 .homeScreen {
   width: 100%;
   height: 100vh;
   display: flex;
   color: var(--dark);
-  background-image: radial-gradient(circle, #de639a, #e7779e, #ee8ba4, #f39fac, #f7b2b7);
-
+  background-image: radial-gradient(
+    circle,
+    #de639a,
+    #e7779e,
+    #ee8ba4,
+    #f39fac,
+    #f7b2b7
+  );
 }
 .homeScreen__left {
   flex: 2;
   height: 100%;
   padding: 0;
   margin: 0;
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .homeScreen__right {
-  flex:2;
+  flex: 2;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.homeScreen__right h1{
+.homeScreen__right h1 {
   font-size: 2.34vw;
 }
 
@@ -36,17 +41,18 @@ justify-content: center;
   justify-content: center;
   align-items: center;
 }
-.greeting > h1 , .greeting>h5{
+.greeting > h1,
+.greeting > h5 {
   text-shadow: 0 1px 1px rgba(22, 0, 30, 0.12), 0 2px 2px rgba(22, 0, 30, 0.12),
     0 4px 4px rgba(22, 0, 30, 0.12), 0 8px 8px rgba(22, 0, 30, 0.12),
     0 16px 16px rgba(22, 0, 30, 0.12);
-    user-select: none;
+  user-select: none;
 }
 .greeting > * {
   margin-bottom: 2rem;
 }
 .greeting__btn {
-  z-index: 1;
+  z-index: 0;
   border: none;
   outline: none;
   border-radius: 0.5rem;
@@ -54,19 +60,19 @@ justify-content: center;
     0 4px 4px rgba(22, 0, 30, 0.12), 0 8px 8px rgba(22, 0, 30, 0.12),
     0 16px 16px rgba(22, 0, 30, 0.12);
   padding: 1.4rem 2.2rem;
-  background-color:var(--dark);
+  background-color: var(--dark);
   cursor: pointer;
   position: relative;
 }
-.greeting__btn:hover{
-  box-shadow: 0px 2px 10px  rgba(0, 201, 188, .15);
+.greeting__btn:hover {
+  box-shadow: 0px 2px 10px rgba(0, 201, 188, 0.15);
 }
-.greeting > button > p{
+.greeting > button > p {
   color: var(--white);
   font-family: shabnam, Arial, Helvetica, sans-serif;
 }
-.greeting__btn:hover >  p,
-.greeting__btn:focus >  p {
+.greeting__btn:hover > p,
+.greeting__btn:focus > p {
   color: var(--dark);
   font-weight: normal;
   font-weight: bold;
@@ -79,7 +85,7 @@ justify-content: center;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color:var(--btnHover);
+  background-color: var(--btnHover);
   border-radius: 0.5rem;
   box-shadow: 0px 1px 1px rgba(0, 201, 188, 0.12),
     0 2px 2px rgba(0, 201, 188 0.12), 0 4px 4px rgba(0, 201, 188 0.12),
@@ -87,7 +93,6 @@ justify-content: center;
   transform: scaleX(0);
   transition: transform 100ms ease-in-out;
   transform-origin: left;
-
 }
 .greeting__btn:hover::before,
 .greeting__btn:focus::before {
@@ -95,74 +100,76 @@ justify-content: center;
 }
 
 .homeScreen__left img {
- max-width: 100%;
- max-height: 100%;
- object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
-
 
 /*    Responsive     */
 
-@media (max-width:600px){
-  .homeScreen{
+@media (max-width: 600px) {
+  .homeScreen {
     position: relative;
   }
-  
-  .homeScreen__right{
+
+  .homeScreen__right {
     position: absolute;
     width: 100vw;
     bottom: 0;
     background-color: transparent;
   }
-  .homeScreen__right > .greeting{
+  .homeScreen__right > .greeting {
     background-color: rgba(0, 201, 188, 0.4);
     position: absolute;
     width: 80vw;
     padding-top: 1rem;
-    border-radius: .5rem;
-
+    border-radius: 0.5rem;
   }
-  .homeScreen__right h1{
+  .homeScreen__right h1 {
     font-size: 4vw;
   }
-  .homeScreen__right h5{
+  .homeScreen__right h5 {
     font-size: 2.3vw;
   }
-  .greeting__btn{
+  .greeting__btn {
     padding: 1rem 1.6rem;
+    font-size: 1rem;
+  }
+  .greeting__btn:hover::before {
+    transform: scaleX(0);
+  }
+  .greeting__btn:hover {
+    background-color: var(--pink);
+    color: var(--dark);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .homeScreen__right h1 {
+    font-size: 3vw;
+  }
+  .homeScreen__right h5 {
+    font-size: 1.5vw;
+  }
+  .greeting__btn {
+    padding: 1rem 1.6rem;
+  }
+  .greeting__btn {
     font-size: 1rem;
   }
 }
 
-
-@media (min-width:600px) and (max-width:768px){
-  .homeScreen__right h1{
-    font-size: 3vw;
-  }
-  .homeScreen__right h5{
-    font-size: 1.5vw;
-  }
- .greeting__btn{
-   padding: 1rem 1.6rem;
- }
- .greeting__btn{
-   font-size: 1rem;
- }
-}
-
-
-@media (min-width:768px) and (max-width:922px){
-  .greeting__btn{
+@media (min-width: 768px) and (max-width: 922px) {
+  .greeting__btn {
     padding: 1.2rem 1.8rem;
   }
-  .greeting__btn{
+  .greeting__btn {
     font-size: 1.2rem;
   }
 }
 
-
-@media (min-width:992px){
-  .homeScreen__right h1{
+@media (min-width: 992px) {
+  .homeScreen__right h1 {
     font-size: 2.34vw;
   }
 }

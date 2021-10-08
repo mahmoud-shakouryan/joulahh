@@ -1,6 +1,6 @@
 .productCardWrapper{
     margin: 5px;
-    max-height: 40rem;
+    max-height: 39rem;
     max-width: 30rem;
     background-color: var(--dark);
     border-radius: 5px;
@@ -8,6 +8,7 @@
     box-shadow: 1px 1px 5px 0px var(--dark);
 
 }
+
 .productCardWrapper .card{
     width: 100%;
 }
@@ -18,9 +19,8 @@
 }
 .productCardWrapper .card a img{
     border-radius: 5px 5px 0 0;
-
     max-width: 100%;
-    max-height: 100%;
+    object-fit: cover;
 }
 .card-body{
     display: flex;
@@ -33,21 +33,22 @@
     text-align: center;
     font-size: 1.3rem;
     display: flex;
-    justify-content: center;
     padding: .5rem;
+    justify-content: center;
 }
 .card-body .rating{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding: .4rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .card-body .price{
-    padding: .5rem;
     display: flex;
     font-weight: bold;
     color: var(--candy);
     font-weight: normal;
+    font-size: 1.3rem;
+    padding: .5rem;
+
 }

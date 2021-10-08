@@ -15,7 +15,7 @@ const RegisterScreen = (props) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const userRegister = useSelector((state) => state.userRegisterReducer);
   const { userInfo, loading, error } = userRegister;
-  const [passErr, setPassErr] = useState(false);
+  //const [passErr, setPassErr] = useState(false);
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {

@@ -208,9 +208,14 @@
    .brand{
     text-align: right;
     flex:1;
-    margin: 0;
   }
   .sidebar{
     display: block;
+  }
+}
+
+@media (max-width:487px){
+  .brand{
+    margin-right: 1.5rem;
   }
 }

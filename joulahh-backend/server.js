@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 const MONGODB_URI = "mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/joulahh?retryWrites=true&w=majority";
 
-// const __dirname = path.resolve();         //baraye inke modele import taghir karder
+// const __dirname = path.resolve();         //baraye inke modele import taghir karde
 // app.use('/images',express.static(path.join(__dirname,'images')));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

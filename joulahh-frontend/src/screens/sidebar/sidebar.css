@@ -22,9 +22,11 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 3rem;
+  cursor: pointer;
 }
-
-
+.closeSidebar:hover .fa-chevron-right{
+  color: var(--white);
+}
 .sidebar a,
 .sidebar li {
   display: flex;
@@ -34,6 +36,11 @@
   font-size: 1.6rem;
   color: var(--pink);
   padding-right: .5rem;
+  cursor: pointer;
+}
+.sidebar a:hover,
+.sidebar li:hover{
+  color: var(--white);
 }
 
 .sidebar ul {

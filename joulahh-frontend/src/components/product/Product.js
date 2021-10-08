@@ -19,7 +19,7 @@ const Product = ({product}) => {
                     <p className='product-name'>{product.name}</p>
                   </Link>
                   <Rating rating={product.rating} numReviews={product.numReviews}/>
-                  <div className="price">${product.price}</div>
+                  <div className="price">{product.price}</div>
                 </div>
               </div>
         </div>
