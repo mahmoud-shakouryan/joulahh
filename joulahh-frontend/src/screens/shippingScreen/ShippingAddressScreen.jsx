@@ -102,21 +102,21 @@ const ShippingAddressScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="address">تلفن همراه</label>
+          <label htmlFor="mobileNum">تلفن همراه</label>
           <input
             type="text"
-            id="address"
-            placeholder="Address"
+            id="mobileNum"
+            placeholder="Mobile Number"
             value={mobileNum}
             onChange={(e) => setMobileNum(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="address">تلفن منزل / محل کار</label>
+          <label htmlFor="telNum">تلفن منزل / محل کار</label>
           <input
             type="text"
-            id="address"
-            placeholder="Address"
+            id="telNum"
+            placeholder="Office/Home Tel Number"
             value={telNum}
             onChange={(e) => setTelNum(e.target.value)}
           />

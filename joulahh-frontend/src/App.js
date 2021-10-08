@@ -24,7 +24,8 @@ const Main = () => {
             <Route path="/" exact component={HomeScreen} />
             <Route path="/products" component={ProductsScreen} />
             <Route path="/product/:id" exact component={ProductScreen} />
-            <Route path="/cart/:id" component={CartScreen} />{" "}
+            <Route path="/cart/:id" component={CartScreen} />
+            <Route path="/cart" component={CartScreen} />
             {/*goft baraye in akhare path ? gozashte ke age yedafe karbar raft safheye /cart faghat safheye shopping cart bedoone mahsool namyesh dade beshe */}
             <Route path="/signin" component={SigninScreen} />
             <Route path="/register" component={RegisterScreen} />
