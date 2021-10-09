@@ -32,7 +32,7 @@ const ShippingAddressScreen = (props) => {
   );
 
   const dispatch = useDispatch();
-  const submitHandler = (e) => {
+  const submitHandler = (e) => {           //chon sybmite forme >> e.preventDefault()
     e.preventDefault();
     dispatch(
       saveShippingAddress({
@@ -72,11 +72,11 @@ const ShippingAddressScreen = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="country">استان</label>
+          <label htmlFor="province">استان</label>
           <input
             type="text"
-            id="country"
-            placeholder="Country"
+            id="province"
+            placeholder="Province"
             value={province}
             onChange={(e) => setProvince(e.target.value)}
           />

@@ -2,13 +2,14 @@ import * as actions from "./actionTypes";
 import axios from "axios";
 
 export const createOrder = (order) => {
-  // order >> { orderItems : [] }
+  // order >> { orderItems : [...] }
   return async (dispatch, getState) => {
-    dispatch({ type: actions.ORDER_CREATE_REQUEST, payload: order }); // ????? inja chera bayad order ro bedim?
+    dispatch({ type: actions.ORDER_CREATE_REQUEST }); // ????? inja chera bayad order ro bedim?
     try {
       // const { userSigninReducer : { userInfo }} = getState(); >>> bejaye 2khate paeen avavl userSigninReducer destructure shode baad az userSigninReducer , userInfo destructure shode.
       const store = getState(); //returns (reads) all redux store.
       const userInfo = store.userSigninReducer.userInfo;
+      console.log('userInfo createOrder',userInfo)
       const { data } = await axios.post("/api/orders", order, {
         // axios >> front (bishtar) :))) yadet bashe, va oon url >>>> ***********API**************
         headers: {

@@ -11,9 +11,7 @@ import "./placeOrderScreen.css";
 const PlaceOrderScreen = (props) => {
   const cart = useSelector((state) => state.cartReducer);
 
-  const orderCreate = useSelector((state) => state.orderCreate);
-  const { loading, success, error, order } = orderCreate;
-
+  const { loading, success, error, order }= useSelector((state) => state.orderCreate);
   const { shippingAddress } = useSelector((state) => state.cartReducer);
 
   const toPrice = (num) => Number(num.toFixed(2)); //5.122323 >> "5.12" >> 5.12
@@ -143,7 +141,7 @@ const PlaceOrderScreen = (props) => {
               </button>
             </li>
             {loading && <LoadingBox />}
-            {error && <MessageBox variant="danger">{error}</MessageBox>}
+            <div className='placeOrderMsgBox'>{error && <MessageBox variant="danger">{error}</MessageBox>}</div>
           </ul>
         </div>
       </div>
