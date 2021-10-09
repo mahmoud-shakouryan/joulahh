@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import PaymentMethodScreen from "./screens/PaymentMethodScreen";
-import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import PrivateRoute from "./components/PrivateRoute";
@@ -13,6 +12,8 @@ import CartScreen from "./screens/cartScreen/CartScreen.jsx";
 import ShippingAddressScreen from "./screens/shippingScreen/ShippingAddressScreen";
 import PlaceOrderScreen from "./screens/placeOrderScreen/PlaceOrderScreen";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
+import OrderScreen from "./screens/orderScreen/OrderScreen.jsx";
+
 
 const Main = () => {
   return (

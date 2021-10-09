@@ -9,8 +9,8 @@ import CheckoutSteps from "../../components/checkoutSteps/CheckoutSteps";
 import "./placeOrderScreen.css";
 
 const PlaceOrderScreen = (props) => {
+ 
   const cart = useSelector((state) => state.cartReducer);
-
   const { loading, success, error, order }= useSelector((state) => state.orderCreate);
   const { shippingAddress } = useSelector((state) => state.cartReducer);
 
