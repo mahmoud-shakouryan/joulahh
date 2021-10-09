@@ -93,7 +93,7 @@ const Header = () => {
         )}
         {userInfo && userInfo.isAdmin && (
           <div>
-            <Link to="#admin" onClick={adminDropDownHandler}>
+            <Link to="#" onClick={adminDropDownHandler}>
               <p>ادمین</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul

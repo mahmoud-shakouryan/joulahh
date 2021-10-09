@@ -35,9 +35,12 @@ const CartScreen = (props) => {
       <div className="cart-details">
       <div className="basket"><img src="../images/cart-basket.png" alt="shopping cart"  /></div>
         {cartItems.length === 0 ? (
-          <MessageBox>
-            Cart Is Empty <Link to="/">Go Shopping</Link>
-          </MessageBox>
+          <div className='cartMsgBoxWrapper'>
+            <MessageBox >
+              <Link to="/products">برو به محصولات</Link> 
+              <span>سبد خرید شما خالی است </span>
+            </MessageBox>
+        </div>
         ) : (
           <ul>
             {cartItems.map((cartItem) => (

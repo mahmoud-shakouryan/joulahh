@@ -9,6 +9,8 @@
   height: calc(100vh);
   padding-top: 1rem;
   transition: width 10ms ease;
+  border-top-left-radius: 1rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,.9) ;
 }
 .sidebar.active {
   width: 50vw;
@@ -22,6 +24,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 3rem;
+  margin-left: 1rem;
   cursor: pointer;
 }
 .closeSidebar:hover .fa-chevron-right{

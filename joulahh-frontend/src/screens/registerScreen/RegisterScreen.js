@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { register } from "../store/actions/userActions";
+import LoadingBox from "../../components/LoadingBox";
+import MessageBox from "../../components/MessageBox";
+import { register } from "../../store/actions/userActions";
 
 
 const RegisterScreen = (props) => {
-  console.log('registerScreen.js rendering',props.location.search)
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +20,7 @@ const RegisterScreen = (props) => {
   const submitHandler = (e) => {
     e.preventDefault(); //no auto refresh
     if (password !== confirmPassword) {
-      alert('felan')
+      alert('پسووردها همخوانی ندارند')
     } else {
       dispatch(register(name, email, password));
      
@@ -39,7 +38,7 @@ const RegisterScreen = (props) => {
   }, [redirect, userInfo, props.history]);
 
   return (
-    <div className="form-wrapper">
+    <div className="form-wrapper registerFromWrapper">
       {error  && (
         <div className="msgBoxWrapper">
           <MessageBox variant="danger">{error}</MessageBox>
@@ -92,7 +91,7 @@ const RegisterScreen = (props) => {
         </div>
         <div>
           <label />
-          <button type="submit">{loading ? <LoadingBox /> : "ثبت‌نام"}</button>
+          <button className='submitBtn' type="submit">{loading ? <LoadingBox /> : "ثبت‌نام"}</button>
         </div>
         <div className="change">
           <div>
