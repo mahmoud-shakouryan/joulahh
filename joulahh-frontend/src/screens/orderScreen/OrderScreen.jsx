@@ -29,8 +29,8 @@ const OrderScreen = (props) => {
         </div>
       ) : (
         <div className='orderScreen'>
-          <p><span>سفارش</span><span>{order._id}</span></p>
-          <div >
+          <p><span>{order._id}</span><span>کد سفارش</span></p>
+          <div className='orderScreenDetails'>
             <div>
               <ul>
                 <li>
