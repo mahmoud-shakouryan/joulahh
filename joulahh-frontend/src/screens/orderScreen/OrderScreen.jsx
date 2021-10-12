@@ -11,7 +11,7 @@ import "./orderScreen.css";
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
   const { order, loading, error } = useSelector((state) => state.orderDetails);
-
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailesOrder(orderId));
@@ -28,75 +28,74 @@ const OrderScreen = (props) => {
           <MessageBox variant="danger">{error}</MessageBox>
         </div>
       ) : (
-        <div className='orderScreen'>
-          <p><span>{order._id}</span><span>کد سفارش</span></p>
-          <div className='orderScreenDetails'>
-            <div>
+        <div className="orderScreen">
+          <p>
+            <span>{order._id}</span>
+            <span>کد سفارش</span>
+          </p>
+          <div className="orderScreenDetails">
+            <div className='orderScreenShipping'>
               <ul>
                 <li>
-                  <div >
-                    <h2>Shipping</h2>
-                    <p>
-                      <strong>Name : </strong>
-                      {order.shippingAddress.fullName}
-                      <br />
-                      <strong>Address : </strong>{" "}
-                      {order.shippingAddress.address},
-                      {order.shippingAddress.city},{" "}
-                      {order.shippingAddress.postalCode},
-                      {order.shippingAddress.country}
-                    </p>
-                    {order.isDelivered ? (
-                      <MessageBox varian="success">
-                        Delivered at {order.deliveredAt}
-                      </MessageBox>
-                    ) : (
-                      <MessageBox variant="danger">Not Delivered</MessageBox>
-                    )}
-                  </div>
+                  <p> : مشخصات سفارش</p>
+                  <p>
+                    <span>
+                      <strong>: نام </strong>
+                      <span>{order.shippingAddress.fullName}</span>
+                    </span>
+                    <span>
+                      <strong>: آدرس</strong>
+                      <span>{order.shippingAddress.address}{" "}
+                      {order.shippingAddress.city}{" "}
+                      {order.shippingAddress.postalCode}{" "}
+                      {order.shippingAddress.country}{" "}</span>
+                    </span>
+                  </p>
+                  {order.isDelivered ? (
+                    <div className='msg'><MessageBox varian="success">
+                    تحویل داده شده {order.deliveredAt}
+                  </MessageBox></div>
+                  ) : (
+                    <div className='msg'><MessageBox variant="danger">تحویل داده نشده</MessageBox></div>
+                  )}
                 </li>
                 <li>
-                  <div >
-                    <h2>Payment</h2>
-                    <p>
-                      <strong>Method : </strong>
-                      {order.paymentMethod}
-                    </p>
-                    {order.isPaid ? (
-                      <MessageBox varian="success">
-                        paid at {order.deliveredAt}
-                      </MessageBox>
-                    ) : (
-                      <MessageBox variant="danger">Not paid</MessageBox>
-                    )}
-                  </div>
+                  <p> : وضعیت پرداخت </p>
+                  <p>
+                    {order.paymentMethod}
+                  </p>
+                  {order.isPaid ? (
+                    <div className="msg"><MessageBox varian="success">
+                    paid at {order.deliveredAt}
+                  </MessageBox></div>
+                  ) : (
+                    <div className="msg"><MessageBox variant="danger">پرداخت نشده</MessageBox></div>
+                  )}
                 </li>
                 <li>
-                  <div >
-                    <h2>Order Items</h2>
-                    <ul>
-                      {order.orderItems.map((orderItem) => (
-                        <li key={orderItem.product}>
-                          <div className="imgWrapper">
-                            <img src={orderItem.image} alt={orderItem.name} />
-                          </div>
-                          <div >
-                            <Link to={`/product/${orderItem.product}`}>
-                              {orderItem.name}
-                            </Link>
-                          </div>
-                          <div >
-                            {orderItem.qty} * ${orderItem.price} = $
-                            {orderItem.qty * orderItem.price}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ح>سفارشات</ح>
+                  <ul>
+                    {order.orderItems.map((orderItem) => (
+                      <li key={orderItem.product}>
+                        <div className="imgWrapper">
+                          <img src={orderItem.image} alt={orderItem.name} />
+                        </div>
+                        <div>
+                          <Link to={`/product/${orderItem.product}`}>
+                            {orderItem.name}
+                          </Link>
+                        </div>
+                        <div>
+                          {orderItem.qty} * ${orderItem.price} = $
+                          {orderItem.qty * orderItem.price}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               </ul>
             </div>
-            <div >
+            <div>
               <div>
                 <ul>
                   <li>
