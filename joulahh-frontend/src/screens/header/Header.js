@@ -32,7 +32,7 @@ const Header = () => {
         <Link to="/cart">
           <i className="fa fa-shopping-basket">
             {cartItems.length > 0 && userInfo && (
-              <span className="badge">{cartItems.length}</span>
+              <span >{cartItems.length}</span>
             )}
           </i>
         </Link>

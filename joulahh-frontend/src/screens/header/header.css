@@ -30,18 +30,15 @@
   }
   
   .navLinks > div{
-    margin: 1.5rem .3rem;
+    margin: 0 .3rem;
     flex: 1;
     width: 10rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     height: 100%;
-  
   }
   
-  .navLinks > div > a{
+  .navLinks a{
     width: 100%;
     display: flex;
     align-items: center;
@@ -64,34 +61,35 @@
   .navLinks > div > a >p:hover::after{
     width: 100%;
   }
-  
-  
-  
-  
   .fa-caret-down{
     margin-left: 0.4rem;
   }
   .fa-shopping-basket{
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: bold;
     position: relative;
     color: var(--dark);
   }
-  .cart-badge .badge{
+  .cart-badge{
+    padding-bottom: .5rem;
+  }
+
+  .cart-badge span{      /*badge*/
     position: absolute;
-    top: -6px;
-    left: 15px;
-    background-color: var(--candy);
+    top: -4px;
+    left: 12px;
     font-size: 1.3rem;
     color: var(--dark);
     width: 1.9rem;
     height: 1.9rem;
     border-radius: 50%;
+    border: 1px solid var(--pink);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--candy);
   }
   .user-dropdown-content{  /*ul*/
     position: absolute;
@@ -108,11 +106,13 @@
   }
   .user-dropdown-content > li {
       padding: 1rem .5rem;
-      color: var(--candy);
   }
   
   .user-dropdown-content > li > a {
-    color: var(--gray);
+      font-weight: normal;
+      display: flex;
+      justify-content: flex-end;
+      color: var(--white);
   }
   
   .user-dropdown-content.active{
@@ -133,36 +133,39 @@
     font-size: 1.2rem;
     overflow: hidden;
     padding: 0;
-    color: var(--candy);
+    color: var(--white);
   }
   
   .admin-dropdown-content > li{
     padding: 1rem .5rem;
   }
   .admin-dropdown-content > li:hover, .user-dropdown-content > li:hover{
-    background-color: var(--green);
+    background-color: var(--lighterdark);    
     cursor: pointer;
   }
   .admin-dropdown-content > li > a {
     color: var(--gray);
+    display: flex;
+    justify-content: flex-end;
   }
   .admin-dropdown-content.active{
     display: block;
   }
   .dropDownExit{       /*div*/
     height: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .dropDownExit>li{
     padding: .5rem .5rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: var(--candy);
+    color: var(--white);
   }
   .dropDownExit>li:hover{
     cursor: pointer;
-    color: var(--btnHover);
+    color: var(--candy);
+    font-size: 1.5rem;
   }
 
 /* Mobile */

@@ -73,7 +73,7 @@ const OrderScreen = (props) => {
                   )}
                 </li>
                 <li>
-                  <ح>سفارشات</ح>
+                  <p>سفارشات</p>
                   <ul>
                     {order.orderItems.map((orderItem) => (
                       <li key={orderItem.product}>
