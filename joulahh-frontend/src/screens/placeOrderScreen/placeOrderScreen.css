@@ -5,36 +5,36 @@
   height: 100%;
 }
 .placeOrder-checkoutSteps {
-    flex: .2;
+  flex: 0.2;
   display: flex;
   justify-content: center;
 }
-.recipt-wrapper{
-    flex: 5;
-    display: flex;
-    flex-direction: column;
+.recipt-wrapper {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
 }
 .recipt-wrapper ul {
-    padding: 0;
+  padding: 0;
 }
 .recipt-summary {
-    min-height: 75%;
+  min-height: 75%;
   padding: 2rem;
 }
 
-.recipt-summary > ul > li {
+.recipt-summary li {
   display: flex;
   flex-direction: column;
 }
 
 .recipt-summary > ul > li:nth-of-type(1) > div {
   text-align: right;
+  direction: rtl;
   background-color: var(--candy);
   color: var(--dark);
   padding: 1rem;
   border-radius: 0.3rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,.4);
-    
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 .recipt-summary > ul > li:nth-of-type(1) > div > p:nth-of-type(1) {
   font-size: 1.5rem;
@@ -45,17 +45,18 @@
   font-size: 1.3rem;
 }
 
-.recipt-summary .orderItemsWrapper {
+.orderItemsWrapper {
   height: 100%;
   margin-top: 2rem;
 }
-.recipt-summary .orderItemsWrapper p.title {
+.orderItemsWrapper p.title {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  padding: .5rem;
+  padding: 0.5rem;
+  font-weight: bold;
 }
-.recipt-summary .img-details-wrapper {
+.img-details-wrapper {
   /*ul*/
   display: flex;
   /*flex-wrap: wrap;*/
@@ -63,21 +64,22 @@
   justify-content: space-around;
   height: 100%;
 }
-.imgDetailsLi{   /*li*/
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.imgDetailsLi {
+  /*li*/
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width:800px){
-    .imgDetailsLi{
-        transform: scale(.9);
-    }
+@media (max-width: 800px) {
+  .imgDetailsLi {
+    transform: scale(0.9);
+  }
 }
-.wrapperDiv{
-    box-shadow: 0 2px 10px rgba(0,0,0,.4);
+.wrapperDiv {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
-.recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv {
+.imgDetailsLi .wrapperDiv {
   background-color: var(--dark);
   font-size: 1.2rem;
   display: flex;
@@ -85,8 +87,7 @@
   border-radius: 0.3rem;
 }
 
-
-.recipt-summary .img-details-wrapper .imgDetailsLi a {
+.imgDetailsLi a {
   padding: 0.5rem;
   text-align: center;
   color: var(--candy);
@@ -105,93 +106,90 @@
   object-fit: cover;
 }
 
-
-
 /* price summary section ( the footer ) */
-.price-summary{
-    min-height: 25%;
-    padding: .5rem 2rem;
-    color: var(--dark);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.price-summary {
+  min-height: 25%;
+  padding: 0.5rem 2rem;
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-.price-summary #title{
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: .5rem 0;
+.price-summary #title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
 }
-.price-summary>ul{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 95%;
-    background-color: var(--pink);
-    border-radius: .3rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,.5);
-    position: relative;
-    
+.price-summary > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 95%;
+  background-color: var(--pink);
+  border-radius: 0.3rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
-.placeOrderMsgBox{
+.placeOrderMsgBox {
   background-color: #fff;
   position: absolute;
 }
-.price-summary > ul > li:nth-of-type(2){
-    margin-bottom: 1rem;
+.price-summary > ul > li:nth-of-type(2) {
+  margin-bottom: 1rem;
 }
-.price-summary li{
-    width: 100%;
+.price-summary li {
+  width: 100%;
 }
-.price-summary .recipt{
-    display: flex;
-    justify-content: center;
+.price-summary .recipt {
+  display: flex;
+  justify-content: center;
 }
-.price-summary .recipt > div{
-    width: 10rem;
-    text-align: center;
-    font-size: 1.2rem;
+.price-summary .recipt > div {
+  width: 10rem;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
-.price-summary .recipt >div >div:nth-of-type(1){
-   margin-bottom: .5rem;
+.price-summary .recipt > div > div:nth-of-type(1) {
+  margin-bottom: 0.5rem;
 }
-.price-summary .buttonWrapper{
-    text-align: center;
+.price-summary .buttonWrapper {
+  text-align: center;
 }
-.price-summary button{
-    border: none;
-    border-radius: .3rem;
-    box-shadow: 0 5px 10px rgba(22, 0, 30, .8);
-    outline: none;
-    background-color: var(--dark);
-    padding: 1rem 4rem;
-    font-size: 1.2rem;
-    color: var(--white);
-    font-family: inherit;
-    cursor: pointer;
+.price-summary button {
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0 5px 10px rgba(22, 0, 30, 0.8);
+  outline: none;
+  background-color: var(--dark);
+  padding: 1rem 4rem;
+  font-size: 1.2rem;
+  color: var(--white);
+  font-family: inherit;
+  cursor: pointer;
 }
 .price-summary button:hover,
-.price-summary button:focus{
-    background-color: var(--btnHover);
+.price-summary button:focus {
+  background-color: var(--btnHover);
   color: var(--dark);
   font-weight: bold;
 }
 
 /* responsiveness */
-@media (max-width:500px){
-    .recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv{
-        font-size: .8rem;
-    }
-    .price-summary button{
-        padding: .5rem 2rem;
-        font-size: .7rem;
-    }
+@media (max-width: 500px) {
+  .recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv {
+    font-size: 0.8rem;
+  }
+  .price-summary button {
+    padding: 0.5rem 2rem;
+    font-size: 0.7rem;
+  }
 }
-@media (max-width:350px){
-    .recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv{
-        font-size: .6rem;
-    }
+@media (max-width: 350px) {
+  .recipt-summary .img-details-wrapper .imgDetailsLi .wrapperDiv {
+    font-size: 0.6rem;
+  }
 }

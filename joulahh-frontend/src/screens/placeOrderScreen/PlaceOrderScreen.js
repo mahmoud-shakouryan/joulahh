@@ -9,9 +9,10 @@ import CheckoutSteps from "../../components/checkoutSteps/CheckoutSteps";
 import "./placeOrderScreen.css";
 
 const PlaceOrderScreen = (props) => {
- 
   const cart = useSelector((state) => state.cartReducer);
-  const { loading, success, error, order }= useSelector((state) => state.orderCreate);
+  const { loading, success, error, order } = useSelector(
+    (state) => state.orderCreate
+  );
   const { shippingAddress } = useSelector((state) => state.cartReducer);
 
   const toPrice = (num) => Number(num.toFixed(2)); //5.122323 >> "5.12" >> 5.12
@@ -28,9 +29,6 @@ const PlaceOrderScreen = (props) => {
   };
 
   useEffect(() => {
-    // if (!cart.paymentMethod) {
-    //   return props.history.push("/payment");
-    // }
     if (success) {
       dispatch({ type: actions.ORDER_CREATE_RESET }); //faghat state'e orderCreate ro khali kardim
       return props.history.push(`/order/${order._id}`);
@@ -50,33 +48,26 @@ const PlaceOrderScreen = (props) => {
       </div>
       <div className="recipt-wrapper">
         <div className="recipt-summary">
-          <ul >
+          <ul>
             <li>
               <div>
-                <p>: مشخصات</p>
+                <p>مشخصات :</p>
                 <p>
                   <strong>نام :</strong>
                   <span> {cart.shippingAddress.fullName} </span>
                   <br />
-                  <strong>آدرس :</strong>
-                  <span>
+                  <strong> آدرس :</strong>
+                  <span className="address">
                     {" "}
-                    {cart.shippingAddress.country} , {cart.shippingAddress.city}{" "}
-                    , {cart.shippingAddress.postalCode} ,{" "}
-                    {cart.shippingAddress.address}
+                    {cart.shippingAddress.province} ,{" "}
+                    {cart.shippingAddress.city} , {cart.shippingAddress.address}{" "}
+                    , {cart.shippingAddress.mobileNum} ,{" "}
+                    {cart.shippingAddress.telNum} ,{" "}
+                    {cart.shippingAddress.postalCode}
                   </span>
                 </p>
               </div>
             </li>
-            {/* <li>
-              <div >
-                <h2>Payment</h2>
-                <p>
-                  <strong>Method : </strong>
-                  {cart.paymentMethod}
-                </p>
-              </div>
-            </li> */}
             <li className="orderItemsWrapper">
               <p className="title">اقلام سفارشی</p>
               <ul className="img-details-wrapper">
@@ -105,43 +96,45 @@ const PlaceOrderScreen = (props) => {
         <div className="price-summary">
           <ul>
             <li>
-            <ul>
-            <li>
-              <p id="title">رسید قیمت </p>
+              <ul>
+                <li>
+                  <p id="title">رسید قیمت </p>
+                </li>
+                <li className="recipt">
+                  <div>
+                    <div>
+                      <strong>قیمت کل</strong>
+                    </div>
+                    <div>{cart.totalPrice.toFixed(2)}</div>
+                  </div>
+                  <div>
+                    <div>دستمزد</div>
+                    <div>{cart.taxPrice.toFixed(2)}</div>
+                  </div>
+                  <div>
+                    <div>اقلام</div>
+                    <div>{cart.itemsPrice.toFixed(2)}</div>
+                  </div>
+                  <div>
+                    <div>ارسال پستی</div>
+                    <div>{cart.shippingPrice.toFixed(2)}</div>
+                  </div>
+                </li>
+              </ul>
             </li>
-            <li className="recipt">
-              <div>
-                <div>
-                  <strong>قیمت کل</strong>
-                </div>
-                <div>{cart.totalPrice.toFixed(2)}</div>
-              </div>
-              <div>
-                <div>دستمزد</div>
-                <div>{cart.taxPrice.toFixed(2)}</div>
-              </div>
-              <div>
-                <div>اقلام</div>
-                <div>{cart.itemsPrice.toFixed(2)}</div>
-              </div>
-              <div>
-                <div>ارسال پستی</div>
-                <div>{cart.shippingPrice.toFixed(2)}</div>
-              </div>
-            </li>
-            </ul>
-            </li>
-            <li className='buttonWrapper'>
+            <li className="buttonWrapper">
               <button
                 type="button"
                 onClick={placeOrderHandler}
                 disabled={cart.cartItems.length === 0}
               >
-                ثبت سفارش
+                {loading ? <LoadingBox /> : "ثبت سفارش"}
               </button>
             </li>
-            {loading && <LoadingBox />}
-            <div className='placeOrderMsgBox'>{error && <MessageBox variant="danger">{error}</MessageBox>}</div>
+
+            <div className="placeOrderMsgBox">
+              {error && <MessageBox variant="danger">{error}</MessageBox>}
+            </div>
           </ul>
         </div>
       </div>
