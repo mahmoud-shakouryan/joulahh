@@ -72,7 +72,7 @@ const OrderScreen = (props) => {
                     <div className="msg"><MessageBox variant="danger">پرداخت نشده</MessageBox></div>
                   )}
                 </li>
-                <li>
+                <li className='ordersImgList'>
                   <p>سفارشات</p>
                   <ul>
                     {order.orderItems.map((orderItem) => (

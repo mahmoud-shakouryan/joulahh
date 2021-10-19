@@ -123,12 +123,12 @@ const PlaceOrderScreen = (props) => {
               </ul>
             </li>
             <li className="buttonWrapper">
-              <button
+              <button                                  //click >>> 1- ijade documente order tu db , 2-pak shodane documente cartItems az localStorage , 3-raftan be page'e orderScreen
                 type="button"
                 onClick={placeOrderHandler}
                 disabled={cart.cartItems.length === 0}
               >
-                {loading ? <LoadingBox /> : "ثبت سفارش"}
+                {loading ? <LoadingBox /> : "ثبت سفارش"}                       
               </button>
             </li>
 
