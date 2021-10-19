@@ -11,7 +11,7 @@ import "./orderScreen.css";
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
   const { order, loading, error } = useSelector((state) => state.orderDetails);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailesOrder(orderId));
@@ -29,54 +29,67 @@ const OrderScreen = (props) => {
         </div>
       ) : (
         <div className="orderScreen">
-          <p>
-            <span>{order._id}</span>
-            <span>کد سفارش</span>
-          </p>
           <div className="orderScreenDetails">
-            <div className='orderScreenShipping'>
+            <div className="orderScreenShipping">
               <ul>
-                <li>
+                <li className="shippingDetails">
                   <p> : مشخصات سفارش</p>
                   <p>
+                    <span >
+                      <p className='buyCode'>
+                        <span>{order._id}</span>
+                        <span>کد سفارش</span>
+                      </p>
+                    </span>
                     <span>
                       <strong>: نام </strong>
                       <span>{order.shippingAddress.fullName}</span>
                     </span>
                     <span>
                       <strong>: آدرس</strong>
-                      <span>{order.shippingAddress.address}{" "}
-                      {order.shippingAddress.city}{" "}
-                      {order.shippingAddress.postalCode}{" "}
-                      {order.shippingAddress.country}{" "}</span>
+                      <span>
+                        {order.shippingAddress.address}{" "}
+                        {order.shippingAddress.city}{" "}
+                        {order.shippingAddress.postalCode}{" "}
+                        {order.shippingAddress.country}{" "}
+                      </span>
                     </span>
                   </p>
                   {order.isDelivered ? (
-                    <div className='msg'><MessageBox varian="success">
-                    تحویل داده شده {order.deliveredAt}
-                  </MessageBox></div>
+                    <div className="msg">
+                      <MessageBox varian="success">
+                        تحویل داده شده {order.deliveredAt}
+                      </MessageBox>
+                    </div>
                   ) : (
-                    <div className='msg'><MessageBox variant="danger">تحویل داده نشده</MessageBox></div>
+                    <div className="msg">
+                      <MessageBox variant="danger">تحویل داده نشده</MessageBox>
+                    </div>
                   )}
                 </li>
-                <li>
+                <li className="paymentDetails">
                   <p> : وضعیت پرداخت </p>
-                  <p>
-                    {order.paymentMethod}
-                  </p>
+                  <p>{order.paymentMethod}</p>
                   {order.isPaid ? (
-                    <div className="msg"><MessageBox varian="success">
-                    paid at {order.deliveredAt}
-                  </MessageBox></div>
+                    <div className="msg">
+                      <MessageBox varian="success">
+                        paid at {order.deliveredAt}
+                      </MessageBox>
+                    </div>
                   ) : (
-                    <div className="msg"><MessageBox variant="danger">پرداخت نشده</MessageBox></div>
+                    <div className="msg">
+                      <MessageBox variant="danger">پرداخت نشده</MessageBox>
+                    </div>
                   )}
                 </li>
-                <li className='ordersImgList'>
-                  <p>سفارشات</p>
-                  <ul>
+                <li className="ordersImgList">
+                  <p> : سفارشات</p>
+                  <ul className="ordersImgList__ul">
                     {order.orderItems.map((orderItem) => (
-                      <li key={orderItem.product}>
+                      <li
+                        className="ordersImgList__ul__li"
+                        key={orderItem.product}
+                      >
                         <div className="imgWrapper">
                           <img src={orderItem.image} alt={orderItem.name} />
                         </div>
@@ -95,40 +108,36 @@ const OrderScreen = (props) => {
                 </li>
               </ul>
             </div>
-            <div>
-              <div>
-                <ul>
-                  <li>
-                    <h2>Order Summary</h2>
-                  </li>
-                  <li>
+            <div className="orderSummaryWrapper">
+              <p> : ریزپرداختی‌ها</p>
+              <ul className="orderSummary">
+                <li>
+                  <div>
+                    <div>Items</div>
+                    <div>${order.itemsPrice.toFixed(2)}</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <div>Shipping</div>
+                    <div>${order.shippingPrice.toFixed(2)}</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <div>Tax</div>
+                    <div>${order.taxPrice.toFixed(2)}</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
                     <div>
-                      <div>Items</div>
-                      <div>${order.itemsPrice.toFixed(2)}</div>
+                      <strong>Total</strong>
                     </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div>Shipping</div>
-                      <div>${order.shippingPrice.toFixed(2)}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div>Tax</div>
-                      <div>${order.taxPrice.toFixed(2)}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div>
-                        <strong>Total</strong>
-                      </div>
-                      <div>${order.totalPrice.toFixed(2)}</div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    <div>${order.totalPrice.toFixed(2)}</div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
