@@ -11,7 +11,7 @@ import "./orderScreen.css";
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
   const { order, loading, error } = useSelector((state) => state.orderDetails);
-
+  console.log(order)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailesOrder(orderId));
@@ -33,28 +33,29 @@ const OrderScreen = (props) => {
             <div className="orderScreenShipping">
               <ul>
                 <li className="shippingDetails">
-                  <p> : مشخصات سفارش</p>
-                  <p>
-                    <span >
-                      <p className='buyCode'>
-                        <span>{order._id}</span>
-                        <span>کد سفارش</span>
+                  <strong> : مشخصات سفارش</strong>
+                  <div>
+                    <span className='code'>
+                      <p>   : کد سفارش  </p>
+                      <p>{order._id}</p>
+                    </span>
+                    <span>
+                      <p>: نام </p>
+                      <p>{order.shippingAddress.fullName}</p>
+                    </span>
+                    <span>
+                      <p>: آدرس</p>
+                      <p>
+                        {order.shippingAddress.province}{" "}
+                        {order.shippingAddress.city}{" "}
+                        {order.shippingAddress.address}{" "}
                       </p>
                     </span>
                     <span>
-                      <strong>: نام </strong>
-                      <span>{order.shippingAddress.fullName}</span>
+                      <p> : کدپستی</p>
+                      <p>{order.shippingAddress.postalCode}</p>
                     </span>
-                    <span>
-                      <strong>: آدرس</strong>
-                      <span>
-                        {order.shippingAddress.address}{" "}
-                        {order.shippingAddress.city}{" "}
-                        {order.shippingAddress.postalCode}{" "}
-                        {order.shippingAddress.country}{" "}
-                      </span>
-                    </span>
-                  </p>
+                  </div>
                   {order.isDelivered ? (
                     <div className="msg">
                       <MessageBox varian="success">
@@ -99,7 +100,7 @@ const OrderScreen = (props) => {
                           </Link>
                         </div>
                         <div>
-                          {orderItem.qty} * ${orderItem.price} = $
+                          {orderItem.qty} x {orderItem.price} =
                           {orderItem.qty * orderItem.price}
                         </div>
                       </li>
@@ -109,35 +110,49 @@ const OrderScreen = (props) => {
               </ul>
             </div>
             <div className="orderSummaryWrapper">
-              <p> : ریزپرداختی‌ها</p>
-              <ul className="orderSummary">
-                <li>
-                  <div className='wrapper'>
-                    <div>سبد خرید</div>
-                    <div><span>ت</span>{order.itemsPrice.toFixed(2)}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className='wrapper'>
-                    <div>ارسال</div>
-                    <div><span>ت</span>{order.shippingPrice.toFixed(2)}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className='wrapper'>
-                    <div>مالیات</div>
-                    <div><span>ت</span>{order.taxPrice.toFixed(2)}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className='wrapper'>
-                    <div>
-                      <strong>قیمت کل</strong>
+              <div className="orderSummaryWrapper__div">
+                <p> : ریزپرداختی‌ها</p>
+                <ul className="orderSummary">
+                  <li>
+                    <div className="wrapper">
+                      <div>سبد خرید</div>
+                      <div>
+                        <span>ت</span>
+                        {order.itemsPrice.toFixed(2)}
+                      </div>
                     </div>
-                    <div><span>ت</span>{order.totalPrice.toFixed(2)}</div>
-                  </div>
-                </li>
-              </ul>
+                  </li>
+                  <li>
+                    <div className="wrapper">
+                      <div>ارسال</div>
+                      <div>
+                        <span>ت</span>
+                        {order.shippingPrice.toFixed(2)}
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="wrapper">
+                      <div>مالیات</div>
+                      <div>
+                        <span>ت</span>
+                        {order.taxPrice.toFixed(2)}
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="wrapper">
+                      <div>
+                        <strong>قیمت کل</strong>
+                      </div>
+                      <div>
+                        <span>ت</span>
+                        {order.totalPrice.toFixed(2)}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
