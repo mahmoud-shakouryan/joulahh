@@ -24,22 +24,25 @@
     padding-right: 3rem;
     color: var(--dark);
 }
-.orderScreen > p >span:nth-of-type(1){
-}
+
 .orderScreenDetails{
-    background-color: #fff;
+    background-color: rgb(194, 153, 153);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .orderScreenShipping{ /*div*/
     padding-top: 1rem;
     background-color: rgb(10, 10, 10);
-   
+   flex: 3;
    
 }
 .orderScreenShipping > ul{
-    padding:  0 1.5rem;
+    padding:  .5rem 1.5rem 0 1.5rem;
     display: flex;
     flex-direction: column;
-    background-color: rgb(45, 11, 240);
+    background-color: rgb(126, 109, 228);
+    height: 100%;
 }
 .orderScreenShipping li{
     display: flex;
@@ -49,7 +52,7 @@
     padding: 1rem 1.5rem;
     border-radius: .5rem;
     box-shadow: 0px 2px 10px rgba(0,0,0,.6);
-
+    margin-bottom: 0.5rem;
 }
 .shippingDetails{       /* 1st li of .orderScreenShipping*/
     flex: 1;
@@ -82,9 +85,8 @@ flex-direction: row-reverse;
 
 
 .paymentDetails{        /* 2nd li of .orderScreenShipping*/
-    flex: 2;
-    margin-top: 1rem;
-    background-color: rgb(15, 138, 107);
+    flex: 1;
+    background-color: rgb(138, 15, 15);
     padding-top: 1rem;
     font-size: 1.2rem;
 }
@@ -95,7 +97,7 @@ flex-direction: row-reverse;
 }
 
 .ordersImgList{          /* 3rd li of .orderScreenShipping*/
-    flex: 2;
+    flex: 3;
     background-color: #fff;
 }
 .ordersImgList > p{
@@ -103,6 +105,7 @@ flex-direction: row-reverse;
     font-weight: bold;
 }
 .ordersImgList__ul{
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -114,11 +117,11 @@ flex-direction: row-reverse;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(34, 145, 111) ;
+    background-color: rgb(96, 114, 62) ;
     height: 10rem;
 }
 .ordersImgList__ul__li div:nth-of-type(1){
-    background-color: rgb(112, 99, 99);
+    background-color: rgb(99, 112, 103);
     width: 100%;
 }
 .ordersImgList img{
@@ -130,19 +133,33 @@ flex-direction: row-reverse;
 
 
 .orderSummaryWrapper{
-    background-color: rgb(70, 206, 122);
-    margin: 0 1.5rem;
-    padding: 2rem;
+    flex: 1;
+    background-color: rgb(241, 5, 5);
+    padding:0 2rem;
+    margin: 1rem 1.5rem;
 }
 .orderSummaryWrapper > p{
     text-align: right;
     font-size: 1.2rem;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
-.orderSummary{
-    background-color: #fff;
+.orderSummary{     /*ul*/
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
+    font-size: 1.3rem;
+}
+.orderSummary .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.orderSummary .wrapper > div:nth-of-type(1){
+    margin-bottom: .5rem;
+}
+.orderSummary .wrapper > div:nth-of-type(2){
+    display: flex;
 }

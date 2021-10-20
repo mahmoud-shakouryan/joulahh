@@ -112,29 +112,29 @@ const OrderScreen = (props) => {
               <p> : ریزپرداختی‌ها</p>
               <ul className="orderSummary">
                 <li>
-                  <div>
-                    <div>Items</div>
-                    <div>${order.itemsPrice.toFixed(2)}</div>
+                  <div className='wrapper'>
+                    <div>سبد خرید</div>
+                    <div><span>ت</span>{order.itemsPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div>
-                    <div>Shipping</div>
-                    <div>${order.shippingPrice.toFixed(2)}</div>
+                  <div className='wrapper'>
+                    <div>ارسال</div>
+                    <div><span>ت</span>{order.shippingPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div>
-                    <div>Tax</div>
-                    <div>${order.taxPrice.toFixed(2)}</div>
+                  <div className='wrapper'>
+                    <div>مالیات</div>
+                    <div><span>ت</span>{order.taxPrice.toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
-                  <div>
+                  <div className='wrapper'>
                     <div>
-                      <strong>Total</strong>
+                      <strong>قیمت کل</strong>
                     </div>
-                    <div>${order.totalPrice.toFixed(2)}</div>
+                    <div><span>ت</span>{order.totalPrice.toFixed(2)}</div>
                   </div>
                 </li>
               </ul>
