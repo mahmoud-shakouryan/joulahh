@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from '../store/actions/actionTypes'
-import LoadingBox from "../components/LoadingBox";
+import LoadingBox from "../components/loadingBox/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { detailsUser, updateUserProfile } from "../store/actions/userActions";
 

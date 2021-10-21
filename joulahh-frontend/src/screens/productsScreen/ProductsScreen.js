@@ -1,5 +1,5 @@
 import React, { useEffect} from "react";
-import LoadingBox from "../../components/LoadingBox";
+import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../store/actions/index";

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoadingBox from "../../components/LoadingBox";
+import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
 import { detailesOrder } from "../../store/actions/orderActions";
 import "./orderScreen.css";

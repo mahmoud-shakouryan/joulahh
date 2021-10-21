@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoadingBox from "../../components/LoadingBox";
+import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
 import { createOrder } from "../../store/actions/orderActions";
 import * as actions from "../../store/actions/actionTypes";

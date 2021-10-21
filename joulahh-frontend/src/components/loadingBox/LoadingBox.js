@@ -1,9 +1,9 @@
-import React from 'react'
+import './loadingBox.css';
 
  const LoadingBox = () => {
     return (
         <div className='loading'>
-            <i className='fa fa-spinner fa-spin'></i>
+            <div class="lds-dual-ring"></div>
         </div>
     )
 }

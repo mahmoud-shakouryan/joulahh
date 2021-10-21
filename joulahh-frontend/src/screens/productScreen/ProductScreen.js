@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct } from "../../store/actions/productDetailsAction";
-import LoadingBox from "../../components/LoadingBox";
+import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
 import "./productScreen.css";
 import Rating from "../../components/rating/Rating";
