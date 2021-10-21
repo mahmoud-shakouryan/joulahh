@@ -59,6 +59,7 @@
   background-color: var(--dark);
   cursor: pointer;
   position: relative;
+  padding: 1rem 1.5rem;
 }
 .greeting__btn:hover {
   box-shadow: 0px 2px 10px rgba(0,0,0, 0.6);

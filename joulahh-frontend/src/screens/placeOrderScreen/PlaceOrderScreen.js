@@ -128,7 +128,7 @@ const PlaceOrderScreen = (props) => {
                 onClick={placeOrderHandler}
                 disabled={cart.cartItems.length === 0}
               >
-                {loading ? <LoadingBox /> : "ثبت سفارش"}                       
+                {loading ? <span><LoadingBox /></span> : "ثبت سفارش"}                       
               </button>
             </li>
 

@@ -167,13 +167,18 @@
   background-color: var(--dark);
   width: 15rem;
   height: 4rem;
-  padding: 1rem 4rem;
   font-size: 1.2rem;
   color: var(--white);
   font-family: inherit;
   cursor: pointer;
 }
-
+.price-summary button span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 .price-summary button:hover,
 .price-summary button:focus {
   background-color: var(--btnHover);
