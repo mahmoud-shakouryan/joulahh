@@ -36,6 +36,16 @@
   width: 40%;
   margin: 0 auto;
 }
+@media (max-width:750px){
+  .cartMsgBoxWrapper{
+    width: 60%;
+  }
+}
+@media (max-width:450px){
+  .cartMsgBoxWrapper{
+    width: 85%;
+  }
+}
 .cartMsgBoxWrapper > div{
   background-color: var(--dark);
   display: flex;
