@@ -5,26 +5,32 @@ import * as actions from "../../store/actions/actionTypes";
 import Sidebar from "../sidebar/Sidebar";
 import "./header.css";
 
-const Header = () => {
-  const [userDropDown, setUserDropDown] = useState(false);
-  const [adminDropDown, setAdminDropDown] = useState(false);
+const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDownHandler }) => {
+  console.log('Header.js rendering')
+  // const [userDropDown, setUserDropDown] = useState(false);
+  // const [adminDropDown, setAdminDropDown] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
 
+  console.log('userDrop',userDrop);
+  
   const cartItems = useSelector((state) => state.cartReducer).cartItems;
   const { userInfo } = useSelector((state) => state.userSigninReducer);
+  
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch({ type: actions.SIGNOUT }); //?? ajiibe chera borde boodam ino too userActions ba dispatch amal nakard?
   }; // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
 
-  const userDropDownHandler = () => {
-    setAdminDropDown(false);
-    setUserDropDown(!userDropDown);
-  };
-  const adminDropDownHandler = () => {
-    setUserDropDown(false);
-    setAdminDropDown(!adminDropDown);
-  };
+  // const userDropDownHandler = () => {
+  //   setUserDrop(!userDrop);
+  //   setAdminDropDown(false);
+  //   setUserDropDown(!userDropDown);
+  // };
+  // const adminDropDownHandler = () => {
+  //   setAdminDrop(!adminDrop);
+  //   setUserDropDown(false);
+  //   setAdminDropDown(!adminDropDown);
+  // };
 
   const cartBadge = (
     <div className="cart-badge">
@@ -57,17 +63,17 @@ const Header = () => {
         {cartBadge}
         {userInfo ? (
           <div className="navLinks__userWrapper">
-            <Link to="#" onClick={userDropDownHandler}>
+            <Link to="#" onClick={headerDropDownHandler}>
               <p>تنظیمات کاربر</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={
-                userDropDown
+                 userDrop
                   ? "user-dropdown-content active"
                   : "user-dropdown-content"
               }
             >
-              <div className="dropDownExit" onClick={userDropDownHandler}>
+              <div className="dropDownExit" onClick={()=>setUserDrop(!userDrop)}>
                 <li>X</li>                                         {/*hamaro li kon*/}
               </div>
               <li>
@@ -93,17 +99,17 @@ const Header = () => {
         )}
         {userInfo && userInfo.isAdmin && (
           <div>
-            <Link to="#" onClick={adminDropDownHandler}>
+            <Link to="#" /*onClick={adminDropDownHandler}*/>
               <p>ادمین</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={
-                adminDropDown
+                adminDrop
                   ? "admin-dropdown-content active"
                   : "admin-dropdown-content"
               }
             >
-              <div className="dropDownExit" onClick={adminDropDownHandler}>
+              <div className="dropDownExit" /*onClick={adminDropDownHandler}*/>
                 <li>X</li>
               </div>
               <li>

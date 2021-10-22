@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import PrivateRoute from "./components/PrivateRoute";
@@ -16,10 +16,31 @@ import OrderScreen from "./screens/orderScreen/OrderScreen.jsx";
 
 
 const Main = () => {
+
+  
+    const [adminDrop, setAdminDrop] = useState(false);
+    const [userDrop, setUserDrop] = useState(false);
+
+      console.log('App.js userDrop',userDrop);
+    const dropDownHandler = () => {
+      if(userDrop){
+        setAdminDrop(false);
+      setUserDrop(false);
+      }
+      else{
+        return;
+      }
+    }
+    const headerDropDownHandler = () => {
+      console.log('headerDropDownHandler')
+      setAdminDrop(!adminDrop);
+      setUserDrop(!userDrop);
+    }
+
   return (
     <BrowserRouter>
-      <div className="container">
-        <Header />
+      <div className="container" onClick={dropDownHandler}>
+        <Header adminDrop={adminDrop} setAdminDrop={setAdminDrop} userDrop={userDrop} setUserDrop={setUserDrop} headerDropDownHandler={headerDropDownHandler}/>
         <div className="main">
           <Switch>
             <Route path="/" exact component={HomeScreen} />

@@ -3,7 +3,7 @@ import './loadingBox.css';
  const LoadingBox = () => {
     return (
         <div className='loading'>
-            <div class="loadingRing"></div>
+            <div className="loadingRing"></div>
         </div>
     )
 }

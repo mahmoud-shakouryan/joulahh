@@ -11,7 +11,7 @@ import "./orderScreen.css";
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
   const { order, loading, error } = useSelector((state) => state.orderDetails);
-  console.log(order)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailesOrder(orderId));
