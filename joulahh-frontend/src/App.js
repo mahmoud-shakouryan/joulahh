@@ -15,7 +15,7 @@ import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 import OrderScreen from "./screens/orderScreen/OrderScreen.jsx";
 
 
-const Main = () => {
+const App = () => {
 
   
     const [adminDrop, setAdminDrop] = useState(false);
@@ -64,4 +64,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default App;

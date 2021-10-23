@@ -13,6 +13,7 @@
   justify-content: center;
 }
 .form.shippingForm {
+  background-color: rgb(170, 34, 34);
   flex: 11.5;
   margin: 1rem 0;
 }
@@ -36,9 +37,14 @@
 }
 @media (min-width: 1100px) {
   .form.shippingForm {
-    width: 35%;
+    width: 30%;
   }
   .form.shippingForm button {
     width: 120px;
+  }
+}
+@media (min-width:1200px){
+  .form.shippingForm {
+    width: 25%;
   }
 }
