@@ -144,6 +144,7 @@
     cursor: pointer;
   }
   .admin-dropdown-content > li > a {
+    font-weight: normal;
     color: var(--gray);
     display: flex;
     justify-content: flex-end;

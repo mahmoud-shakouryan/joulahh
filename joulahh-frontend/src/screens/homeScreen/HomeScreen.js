@@ -11,7 +11,7 @@ const HomeScreen = (props) => {
   return (
     <div className="homeScreen">
       <div className="homeScreen__left">
-        <img src="./images/pinkknit.png" alt="knitwear" />
+        <img src="./images/pinkknit.png" alt="knitwear" /><div className='circle'></div>
       </div>
       <div className="homeScreen__right">
         <div className="greeting">

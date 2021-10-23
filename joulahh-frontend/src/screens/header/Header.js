@@ -5,14 +5,9 @@ import * as actions from "../../store/actions/actionTypes";
 import Sidebar from "../sidebar/Sidebar";
 import "./header.css";
 
-const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDownHandler }) => {
-  console.log('Header.js rendering')
-  // const [userDropDown, setUserDropDown] = useState(false);
-  // const [adminDropDown, setAdminDropDown] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false);
-
-  console.log('userDrop',userDrop);
+const Header = ({ adminDrop, userDrop, headerUserDropDownHandler, headerAdminDropDownHandler }) => {
   
+  const [showSidebar, setShowSidebar] = useState(false);
   const cartItems = useSelector((state) => state.cartReducer).cartItems;
   const { userInfo } = useSelector((state) => state.userSigninReducer);
   
@@ -21,16 +16,7 @@ const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDown
     dispatch({ type: actions.SIGNOUT }); //?? ajiibe chera borde boodam ino too userActions ba dispatch amal nakard?
   }; // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
 
-  // const userDropDownHandler = () => {
-  //   setUserDrop(!userDrop);
-  //   setAdminDropDown(false);
-  //   setUserDropDown(!userDropDown);
-  // };
-  // const adminDropDownHandler = () => {
-  //   setAdminDrop(!adminDrop);
-  //   setUserDropDown(false);
-  //   setAdminDropDown(!adminDropDown);
-  // };
+  
 
   const cartBadge = (
     <div className="cart-badge">
@@ -63,7 +49,7 @@ const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDown
         {cartBadge}
         {userInfo ? (
           <div className="navLinks__userWrapper">
-            <Link to="#" onClick={headerDropDownHandler}>
+            <Link to="#" onClick={headerUserDropDownHandler}>
               <p>تنظیمات کاربر</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul
@@ -73,9 +59,6 @@ const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDown
                   : "user-dropdown-content"
               }
             >
-              <div className="dropDownExit" onClick={()=>setUserDrop(!userDrop)}>
-                <li>X</li>                                         {/*hamaro li kon*/}
-              </div>
               <li>
                 <Link to="/profile">پروفایل</Link>
               </li>
@@ -99,7 +82,7 @@ const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDown
         )}
         {userInfo && userInfo.isAdmin && (
           <div>
-            <Link to="#" /*onClick={adminDropDownHandler}*/>
+            <Link to="#" onClick={headerAdminDropDownHandler}>
               <p>ادمین</p><i className="fa fa-caret-down"></i>
             </Link>
             <ul
@@ -109,9 +92,6 @@ const Header = ({ adminDrop, setAdminDrop, userDrop, setUserDrop, headerDropDown
                   : "admin-dropdown-content"
               }
             >
-              <div className="dropDownExit" /*onClick={adminDropDownHandler}*/>
-                <li>X</li>
-              </div>
               <li>
                 <Link to="/dashboard">داشبورد</Link>
               </li>

@@ -14,33 +14,39 @@ import PlaceOrderScreen from "./screens/placeOrderScreen/PlaceOrderScreen";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 import OrderScreen from "./screens/orderScreen/OrderScreen.jsx";
 
-
 const App = () => {
+  const [adminDrop, setAdminDrop] = useState(false);
+  const [userDrop, setUserDrop] = useState(false);
 
-  
-    const [adminDrop, setAdminDrop] = useState(false);
-    const [userDrop, setUserDrop] = useState(false);
-
-      console.log('App.js userDrop',userDrop);
-    const dropDownHandler = () => {
-      if(userDrop){
-        setAdminDrop(false);
+  console.log("App.js userDrop", userDrop);
+  const dropDownQuitHandler = () => {
+    if (userDrop || adminDrop) {
+      setAdminDrop(false);
       setUserDrop(false);
-      }
-      else{
-        return;
-      }
+    } else {
+      return;
     }
-    const headerDropDownHandler = () => {
-      console.log('headerDropDownHandler')
-      setAdminDrop(!adminDrop);
-      setUserDrop(!userDrop);
-    }
+  };
+  const headerUserDropDownHandler = () => {
+    console.log("headerDropDownHandler");
+    setAdminDrop(false);
+    setUserDrop(!userDrop);
+  };
+  const headerAdminDropDownHandler = () => {
+    console.log("headerDropDownHandler");
+    setAdminDrop(!adminDrop);
+    setUserDrop(false);
+  };
 
   return (
     <BrowserRouter>
-      <div className="container" onClick={dropDownHandler}>
-        <Header adminDrop={adminDrop} setAdminDrop={setAdminDrop} userDrop={userDrop} setUserDrop={setUserDrop} headerDropDownHandler={headerDropDownHandler}/>
+      <div className="container" onClick={dropDownQuitHandler}>
+        <Header
+          adminDrop={adminDrop}
+          userDrop={userDrop}
+          headerUserDropDownHandler={headerUserDropDownHandler}
+          headerAdminDropDownHandler={headerAdminDropDownHandler}
+        />
         <div className="main">
           <Switch>
             <Route path="/" exact component={HomeScreen} />
