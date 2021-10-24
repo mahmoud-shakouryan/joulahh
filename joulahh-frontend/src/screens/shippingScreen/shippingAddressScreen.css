@@ -20,7 +20,7 @@
 .form.shippingForm div {
   margin: 1rem 1rem;
 }
-.form.shippingForm input{
+.form.shippingForm input {
   font-size: 1.2rem;
 }
 .form.shippingForm label {
@@ -43,7 +43,7 @@
     width: 120px;
   }
 }
-@media (min-width:1200px){
+@media (min-width: 1200px) {
   .form.shippingForm {
     width: 25%;
   }

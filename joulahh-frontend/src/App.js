@@ -58,7 +58,6 @@ const App = () => {
             <Route path="/signin" component={SigninScreen} />
             <Route path="/register" component={RegisterScreen} />
             <Route path="/shipping" component={ShippingAddressScreen} />
-            {/* <Route path="/payment" component={PaymentMethodScreen} /> */}
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/orderhistory" component={OrderHistoryScreen} />

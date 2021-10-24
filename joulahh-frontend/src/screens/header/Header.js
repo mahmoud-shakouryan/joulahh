@@ -5,18 +5,20 @@ import * as actions from "../../store/actions/actionTypes";
 import Sidebar from "../sidebar/Sidebar";
 import "./header.css";
 
-const Header = ({ adminDrop, userDrop, headerUserDropDownHandler, headerAdminDropDownHandler }) => {
-  
+const Header = ({
+  adminDrop,
+  userDrop,
+  headerUserDropDownHandler,
+  headerAdminDropDownHandler,
+}) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const cartItems = useSelector((state) => state.cartReducer).cartItems;
   const { userInfo } = useSelector((state) => state.userSigninReducer);
-  
+
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch({ type: actions.SIGNOUT }); //?? ajiibe chera borde boodam ino too userActions ba dispatch amal nakard?
   }; // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
-
-  
 
   const cartBadge = (
     <div className="cart-badge">
@@ -24,7 +26,7 @@ const Header = ({ adminDrop, userDrop, headerUserDropDownHandler, headerAdminDro
         <Link to="/cart">
           <i className="fa fa-shopping-basket">
             {cartItems.length > 0 && userInfo && (
-              <span >{cartItems.length}</span>
+              <span>{cartItems.length}</span>
             )}
           </i>
         </Link>
@@ -32,13 +34,15 @@ const Header = ({ adminDrop, userDrop, headerUserDropDownHandler, headerAdminDro
     </div>
   );
 
-  
   return (
-    <div className="header" id='navbar'>
-      <div className="hamMobileOnly" >
-        <i className="fa fa-bars" onClick={()=>setShowSidebar(!showSidebar)}></i>
+    <div className="header" id="navbar">
+      <div className="hamMobileOnly">
+        <i
+          className="fa fa-bars"
+          onClick={() => setShowSidebar(!showSidebar)}
+        ></i>
         <div className="sidebar-wrapper">
-          <Sidebar  showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
+          <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
         </div>
       </div>
       <div className="badgeMobileOnly">{cartBadge}</div>
@@ -50,11 +54,12 @@ const Header = ({ adminDrop, userDrop, headerUserDropDownHandler, headerAdminDro
         {userInfo ? (
           <div className="navLinks__userWrapper">
             <Link to="#" onClick={headerUserDropDownHandler}>
-              <p>تنظیمات کاربر</p><i className="fa fa-caret-down"></i>
+              <p>تنظیمات کاربر</p>
+              <i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={
-                 userDrop
+                userDrop
                   ? "user-dropdown-content active"
                   : "user-dropdown-content"
               }
@@ -83,7 +88,8 @@ const Header = ({ adminDrop, userDrop, headerUserDropDownHandler, headerAdminDro
         {userInfo && userInfo.isAdmin && (
           <div>
             <Link to="#" onClick={headerAdminDropDownHandler}>
-              <p>ادمین</p><i className="fa fa-caret-down"></i>
+              <p>ادمین</p>
+              <i className="fa fa-caret-down"></i>
             </Link>
             <ul
               className={
