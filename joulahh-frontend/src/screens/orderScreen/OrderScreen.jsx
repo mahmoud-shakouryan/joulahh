@@ -35,8 +35,8 @@ const OrderScreen = (props) => {
                 <li className="shippingDetails">
                   <strong> : مشخصات سفارش</strong>
                   <div>
-                    <span className='code'>
-                      <p>   : کد سفارش  </p>
+                    <span className="code">
+                      <p> : کد سفارش </p>
                       <p>{order._id}</p>
                     </span>
                     <span>
