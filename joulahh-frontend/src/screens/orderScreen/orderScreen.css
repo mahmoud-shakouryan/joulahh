@@ -5,6 +5,13 @@
   width: 30%;
   margin: 0 auto;
 }
+.orderScreenMsgBox{
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+}
 .orderScreen {
   height: 100vh;
 }

@@ -30,9 +30,9 @@ export const createOrder = (order) => {
   };
 };
 
-export const  detailesOrder = (orderId) => {
+export const  orderDtls = (orderId) => {
   return async (dispatch, getState) => {
-    dispatch({ type: actions.ORDER_DETAILS_REQUEST, payload: orderId });
+    dispatch({ type: actions.ORDER_DETAILS_REQUEST });
     const {
       userSigninReducer: { userInfo },
     } = getState();
@@ -42,10 +42,11 @@ export const  detailesOrder = (orderId) => {
       });
       dispatch({ type: actions.ORDER_DETAILS_SUCCESS, payload: data });
     } catch (err) {
-      const message =
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : err.message;
+      // const message =
+      //   err.response && err.response.data.message
+      //     ? err.response.data.message
+      //     : err.message;
+      const message = 'سفارش مورد نظر پیدا نشد . لطفا دوباره تلاش کنید '
       dispatch({ type: actions.ORDER_DETAILS_FAIL, payload: message });
     }
   };

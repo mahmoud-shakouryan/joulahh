@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
-import { detailesOrder } from "../../store/actions/orderActions";
+import { orderDtls } from "../../store/actions/orderActions";
 import "./orderScreen.css";
 
 const OrderScreen = (props) => {
@@ -14,7 +14,7 @@ const OrderScreen = (props) => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(detailesOrder(orderId));
+    dispatch(orderDtls(orderId));
   }, [dispatch, orderId]);
 
   return (
