@@ -2,10 +2,7 @@
   font-family: shabnam;
   src: url(./fonts/Shabnam.ttf);
 }
-@font-face {
-  font-family: shabnam_bold;
-  src: url(./fonts/Shabnam-Bold.ttf);
-}
+
 @font-face {
   font-family: shabnam_light;
   src: url(./fonts/Shabnam-Light.ttf);
