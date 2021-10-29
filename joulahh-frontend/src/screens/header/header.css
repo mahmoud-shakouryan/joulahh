@@ -1,3 +1,20 @@
+@keyframes basketHover {
+  0%{
+    transform:rotate(15deg);
+  }
+  25%{
+    transform:rotate(-15deg);
+  }
+  50%{
+    transform:rotate(15deg);
+
+  }
+  75%{
+    transform:rotate(-15deg);
+
+  }
+
+}
 .header {
   position: absolute;
   top: 0;
@@ -71,6 +88,9 @@
   font-weight: normal;
   position: relative;
   color: var(--dark);
+}
+.fa-shopping-basket:hover{
+  animation: basketHover .5s;
 }
 .cart-badge {
   padding-bottom: 0.5rem;
