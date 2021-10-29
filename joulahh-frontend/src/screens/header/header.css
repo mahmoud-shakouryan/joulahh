@@ -68,7 +68,7 @@
 }
 .fa-shopping-basket {
   font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: normal;
   position: relative;
   color: var(--dark);
 }
