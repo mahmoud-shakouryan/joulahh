@@ -18,7 +18,6 @@ const App = () => {
   const [adminDrop, setAdminDrop] = useState(false);
   const [userDrop, setUserDrop] = useState(false);
 
-  console.log("App.js userDrop", userDrop);
   const dropDownQuitHandler = () => {
     if (userDrop || adminDrop) {
       setAdminDrop(false);

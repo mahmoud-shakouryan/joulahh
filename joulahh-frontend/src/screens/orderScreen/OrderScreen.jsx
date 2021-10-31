@@ -10,7 +10,9 @@ import "./orderScreen.css";
 
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
-  const { order, loading, error } = useSelector((state) => state.orderDetails);
+  const orderDetailsState = useSelector((state) => state.orderDetails);
+  const { order, loading, error } = orderDetailsState;
+  console.log(orderDetailsState)
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -70,7 +72,6 @@ const OrderScreen = (props) => {
                 </li>
                 <li className="paymentDetails">
                   <p> : وضعیت پرداخت </p>
-                  <p>{order.paymentMethod}</p>
                   {order.isPaid ? (
                     <div className="msg">
                       <MessageBox varian="success">
@@ -78,8 +79,9 @@ const OrderScreen = (props) => {
                       </MessageBox>
                     </div>
                   ) : (
-                    <div className="msg">
+                    <div className="msg msg-notPaid">
                       <MessageBox variant="danger">پرداخت نشده</MessageBox>
+                      <button>پرداخت کنید</button>
                     </div>
                   )}
                 </li>
