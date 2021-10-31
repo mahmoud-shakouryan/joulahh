@@ -1,19 +1,16 @@
 @keyframes basketHover {
-  0%{
-    transform:rotate(15deg);
+  0% {
+    transform: rotate(15deg);
   }
-  25%{
-    transform:rotate(-15deg);
+  25% {
+    transform: rotate(-20deg);
   }
-  50%{
-    transform:rotate(15deg);
-
+  50% {
+    transform: rotate(15deg);
   }
-  75%{
-    transform:rotate(-15deg);
-
+  75% {
+    transform: rotate(-20deg);
   }
-
 }
 .header {
   position: absolute;
@@ -89,8 +86,8 @@
   position: relative;
   color: var(--dark);
 }
-.fa-shopping-basket:hover{
-  animation: basketHover .5s;
+.fa-shopping-basket:hover {
+  animation: basketHover 0.5s;
 }
 .cart-badge {
   padding-bottom: 0.5rem;
@@ -127,7 +124,7 @@
   font-size: 1.2rem;
   overflow: hidden;
   padding: 0;
-  box-shadow: 0px 5px 10px rgba(0,0,0,.4);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 }
 .user-dropdown-content > li {
   padding: 1rem 0.5rem;
@@ -160,7 +157,7 @@
   overflow: hidden;
   padding: 0;
   color: var(--white);
-  box-shadow: 0px 5px 10px rgba(0,0,0,.4);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .admin-dropdown-content > li {

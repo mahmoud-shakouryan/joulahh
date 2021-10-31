@@ -30,7 +30,7 @@ export const createOrder = (order) => {
   };
 };
 
-export const  orderDtls = (orderId) => {
+export const  orderDetails = (orderId) => {
   return async (dispatch, getState) => {
     dispatch({ type: actions.ORDER_DETAILS_REQUEST });
     const {

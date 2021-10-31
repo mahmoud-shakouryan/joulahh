@@ -1,11 +1,11 @@
 // should fetch order data from backend & show it in the front
-// ?? chera hala hatman bayad az backend begireim?
+// ?? chera hala hatman bayad az backend begirim?
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
-import { orderDtls } from "../../store/actions/orderActions";
+import { orderDetails } from "../../store/actions/orderActions";
 import "./orderScreen.css";
 
 const OrderScreen = (props) => {
@@ -14,7 +14,7 @@ const OrderScreen = (props) => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(orderDtls(orderId));
+    dispatch(orderDetails(orderId));
   }, [dispatch, orderId]);
 
   return (
