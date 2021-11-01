@@ -24,6 +24,8 @@
   text-align: center;
   font-weight: bold;
   color: (--dark);
+  box-shadow: none;
+
 }
 .buyCode {
   display: flex;
@@ -104,9 +106,9 @@
   border: none;
   outline: none;
   border-radius: 0.5rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
   background-color: var(--dark);
   padding: 1rem 2.6rem;
+  box-shadow: .2rem .3rem .3rem rgba(0, 0, 0, 0.5);
   cursor: pointer;
   position: relative;
   font-family: shabnam, Arial, Helvetica, sans-serif;
@@ -139,7 +141,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
-  width: 12rem;
+  width: 15rem;
   overflow: hidden;
 }
 .ordersImgList__ul__li > div {

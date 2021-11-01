@@ -1,20 +1,26 @@
 // should fetch order data from backend & show it in the front
 // ?? chera hala hatman bayad az backend begirim?
+import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
-import { orderDetails } from "../../store/actions/orderActions";
+import { orderDetails, paymentAction } from "../../store/actions/orderActions";
 import "./orderScreen.css";
 
 const OrderScreen = (props) => {
   const orderId = props.match.params.id;
   const orderDetailsState = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetailsState;
-  console.log(orderDetailsState)
-
   const dispatch = useDispatch();
+  console.log('orderDetailsState',orderDetailsState)
+
+  const paymentHandler = () => {
+    // dispatch(paymentAction());
+    const {data} = axios.post('/api/orders/pay',order.totalPrice);
+  }
+
   useEffect(() => {
     dispatch(orderDetails(orderId));
   }, [dispatch, orderId]);
@@ -81,7 +87,7 @@ const OrderScreen = (props) => {
                   ) : (
                     <div className="msg msg-notPaid">
                       <MessageBox variant="danger">پرداخت نشده</MessageBox>
-                      <button>پرداخت کنید</button>
+                      <button onClick={paymentHandler}>پرداخت کنید</button>
                     </div>
                   )}
                 </li>
@@ -102,7 +108,7 @@ const OrderScreen = (props) => {
                           </Link>
                         </div>
                         <div>
-                          {orderItem.qty} x {orderItem.price} =
+                          {orderItem.qty} x {orderItem.price} ={" "}
                           {orderItem.qty * orderItem.price}
                         </div>
                       </li>

@@ -52,6 +52,15 @@ export const  orderDetails = (orderId) => {
   };
 };
 
+//payment 
+// export const paymentAction = () => {
+//   return async dispatch => {
+//     //...
+//   }
+// }
+
+
+
 
 // baraye page'e order history
 export const listOrderMine = () => {

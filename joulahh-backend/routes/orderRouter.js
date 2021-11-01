@@ -39,19 +39,25 @@ orderRouter.get(
 );
 
 
+
+orderRouter.post('/pay',isAuth, expressAsyncHandler(async (req, res, next) => {
+  console.log('/api/orders/pay');
+}))
+
 orderRouter.get(
   "/:id",
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
-      console.log(order)
       res.send(order);
     } else {
       res.status(404).send({ message: "Order Not Found" });               //in kojas in { message: 'order Not Found' } tu front mikhaim namayesh bedim
     }
   })
 );
+
+
 
 
 
