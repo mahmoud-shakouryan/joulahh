@@ -14,6 +14,7 @@ export const isAuth = (req, res, next) => {
         })
     }
     else{
+        console.log('isAuth made this error');
         res.status(401).json({message : 'there is no token and therefore you are not authorized!'});
     }
 }

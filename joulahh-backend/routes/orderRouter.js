@@ -40,9 +40,26 @@ orderRouter.get(
 
 
 
-orderRouter.post('/pay',isAuth, expressAsyncHandler(async (req, res, next) => {
-  console.log('/api/orders/pay');
+orderRouter.post('/pay', expressAsyncHandler(async (req, res, next) => {           //isAuth hatman anjam shavad
+  try {
+    res.send({'message':'router working'})
+    console.log('/api/orders/pay');
+  } catch (error) {
+    console.log('/api/orders/pay error',error);
+  }
 }))
+
+orderRouter.get('/paycallback', expressAsyncHandler(async (req, res)=>{          //baraye oonja ke kar tuye zarin pal tamoom shode va zarinpal miad tuye server tu in routi ke ma behesh elam mikonim.
+  try{
+    res.send({'message':'router working...'});
+
+    console.log('/api/orders/paycallback')
+  }
+  catch(error){
+    console.log('/api/orders/paycallback error',error);
+  }
+}))
+
 
 orderRouter.get(
   "/:id",
