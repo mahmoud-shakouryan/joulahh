@@ -42,8 +42,7 @@ orderRouter.get(
 
 orderRouter.post('/pay', expressAsyncHandler(async (req, res, next) => {           //isAuth hatman anjam shavad
   try {
-    res.send({'message':'router working'})
-    console.log('/api/orders/pay');
+    res.json({'message':'pay router'})
   } catch (error) {
     console.log('/api/orders/pay error',error);
   }
