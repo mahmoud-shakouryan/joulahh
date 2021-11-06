@@ -18,8 +18,8 @@ const OrderScreen = (props) => {
 
   const paymentHandler = () => {
     // dispatch(paymentAction());
-    console.log(order.totalPrice)
-    const {data} = axios.post('/api/orders/pay',order.totalPrice);
+    console.log(order)
+    const {data} = axios.post('/api/orders/pay',order);
   }
 
   useEffect(() => {

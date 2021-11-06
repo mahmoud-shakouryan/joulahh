@@ -39,10 +39,17 @@ orderRouter.get(
 );
 
 
-
-orderRouter.post('/pay', expressAsyncHandler(async (req, res, next) => {           //isAuth hatman anjam shavad
-  try {
-    res.json({'message':'pay router'})
+// to in route dar vaghe ma tooye server hastim va mikhaim az server request post dashte bashim be zarinPal.
+// va hamrahe in request bayad ye payloadi bashe ke zarinPal mikhad.
+orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //isAuth hatman anjam shavad
+  console.log('req.body>>>>',req.body)
+  try {                                                                            
+    const params = {
+      MerchantID:'6cded376-3063-11e9-a98e-005056a205be',
+      Amount:req.body.totalPrice,
+      CallbackURL:'http://localhost:5000/api/orders/paycallback',   //bad az deploy bayad domain inja bashe
+      Description: `${req.body.orderItems.name} خرید`
+    }
   } catch (error) {
     console.log('/api/orders/pay error',error);
   }
