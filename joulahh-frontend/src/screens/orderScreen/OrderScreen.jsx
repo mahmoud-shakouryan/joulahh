@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingBox from "../../components/loadingBox/LoadingBox";
 import MessageBox from "../../components/MessageBox";
-import { orderDetails, paymentAction } from "../../store/actions/orderActions";
+import { orderDetails } from "../../store/actions/orderActions";
 import "./orderScreen.css";
 
 const OrderScreen = (props) => {

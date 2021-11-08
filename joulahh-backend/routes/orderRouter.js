@@ -2,6 +2,7 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
 import { isAuth } from "../util.js";
+import axios from 'axios';
 
 const orderRouter = express.Router();
 
@@ -29,6 +30,7 @@ orderRouter.post(
     }
   })
 );
+
 orderRouter.get(
   '/mine',
   isAuth,
@@ -50,8 +52,10 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
       CallbackURL:'http://localhost:5000/api/orders/paycallback',   //bad az deploy bayad domain inja bashe
       Description: `${req.body.orderItems.name} خرید`
     }
+    const response = await axios.post('https://www.zarinpal.com/pg/rest/webgate/paymentrequest.json', params);
+    console.log(response);
   } catch (error) {
-    console.log('/api/orders/pay error',error);
+    console.log('/api/orders/pay route error',error);
   }
 }))
 
@@ -62,7 +66,7 @@ orderRouter.get('/paycallback', expressAsyncHandler(async (req, res)=>{         
     console.log('/api/orders/paycallback')
   }
   catch(error){
-    console.log('/api/orders/paycallback error',error);
+    console.log('/api/orders/paycallback route error',error);
   }
 }))
 
