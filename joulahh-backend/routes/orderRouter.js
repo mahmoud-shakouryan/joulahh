@@ -44,7 +44,7 @@ orderRouter.get(
 // to in route dar vaghe ma tooye server hastim va mikhaim az server request post dashte bashim be zarinPal.
 // va hamrahe in request bayad ye payloadi bashe ke zarinPal mikhad.
 orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //isAuth hatman anjam shavad
-  console.log('req.body>>>>',req.body)
+  console.log('umad tuye orderRouter /pay >>> req.body>>>>',req.body)
   try {                                                                            
     const params = {
       MerchantID:'6cded376-3063-11e9-a98e-005056a205be',
@@ -54,8 +54,9 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
     }
     const response = await axios.post('https://www.zarinpal.com/pg/rest/webgate/paymentrequest.json', params);
     console.log(response);
+    res.json(response);
   } catch (error) {
-    console.log('/api/orders/pay route error',error);
+    console.log('orderRouter /pay route error >>>',error);
   }
 }))
 
