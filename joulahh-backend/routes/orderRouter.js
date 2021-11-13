@@ -1,6 +1,7 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
+import Payment from '../models/paymentModel.js'
 import { isAuth } from "../util.js";
 import axios from 'axios';
 
@@ -54,7 +55,14 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
     }
     const response = await axios.post('https://www.zarinpal.com/pg/rest/webgate/paymentrequest.json', params);
     console.log(response);
-    res.json(response);
+    if(response.data.status === 100){
+       const newPayment = new Payment({
+         user: req.user.id       //bayad login karde bashe
+       })
+    }
+    else{
+      res.redirect('/order');                     //???? be koja redirect
+    }
   } catch (error) {
     console.log('orderRouter /pay route error >>>',error);
   }
