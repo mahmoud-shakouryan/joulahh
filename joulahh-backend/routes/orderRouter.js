@@ -57,8 +57,11 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
     console.log(response);
     if(response.data.status === 100){
        const newPayment = new Payment({
-         user: req.user.id       //bayad login karde bashe
-       })
+         user: req.user.id,       //bayad login karde bashe
+         amount: req.body.amount,
+         resNumber: response.data.Authority,                    //Authority >>> hamoon linkie ke zarinPal be ma mike
+       });
+
     }
     else{
       res.redirect('/order');                     //???? be koja redirect
