@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const orderRouter = express.Router();
 
+
 orderRouter.post(
   "/",
   isAuth,
@@ -53,7 +54,7 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
       CallbackURL:'http://localhost:5000/api/orders/paycallback',   //bad az deploy bayad domain inja bashe
       Description: `${req.body.orderItems.name} خرید`
     }
-    const response = await axios.post('https://www.zarinpal.com/pg/rest/webgate/paymentrequest.json', params);
+    const response = await axios.post('https://api.zarinpal.com/pg/v4/payment/request.json', params);
     console.log(response);
     if(response.data.status === 100){
        const newPayment = new Payment({
@@ -61,7 +62,8 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
          amount: req.body.amount,
          resNumber: response.data.Authority,                    //Authority >>> hamoon linkie ke zarinPal be ma mike
        });
-
+       await newPayment.save();
+       res.redirect(``)
     }
     else{
       res.redirect('/order');                     //???? be koja redirect
@@ -102,3 +104,5 @@ orderRouter.get(
 
 
 export default orderRouter;
+
+
