@@ -1,19 +1,32 @@
 import express from "express";
+import fs from 'fs';
 // import data from "./data.js";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import userRouter from "./routes/userRouter.js";
 import productRouter from "./routes/productRouter.js";
 import orderRouter from "./routes/orderRouter.js";
-// import path from 'path';
+import helmet from 'helmet';
+import compression from 'compression';
+//import morgan from 'morgan';
+import path from 'path';
 
-dotenv.config();     
+//const __dirname = path.resolve();         //baraye inke modele import taghir karde
+dotenv.config();      
 const app = express();
+app.use(helmet());                         //ruye hameye req ha miad va header haye khasi ro ezafe mikone be hameye res ha ke barmigardoonim.
+app.use(compression());
+
+// marboot be morgan (deployment production configs)
+//const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),{flags:'a'}); //{flags:'a'}>>> baraye inke data ro tuye file overwrite nakone, append kone
+//app.use(morgan('combined',{stream:accessLogStream}));
 app.use(express.json()); 
 app.use(express.urlencoded({extended : true}));
-const MONGODB_URI = "mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/joulahh?retryWrites=true&w=majority";
-
-// const __dirname = path.resolve();         //baraye inke modele import taghir karde
+//const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@joulahhcluster.rxqh9.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/joulahh?retryWrites=true&w=majority`;
+//mahmoud-shakouryan
+//TarYDvaALJVMQ8w
+//joulahh
 // app.use('/images',express.static(path.join(__dirname,'images')));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -35,7 +48,7 @@ app.use((err, req, res, next) => {   //age router'e tooye expressAsyncHandler be
     res.status(500).send({message : err.message})
 })
 
-let port = process.env.PORT || 5000;
+let port = process.env.PORT || 5000;     //oon port hamoonie ke bad az deployment , hosting provider baramoon mizare
 mongoose
   .connect(MONGODB_URI, { useUnifiedTopology: true, useCreateIndex: true, useNewUrlParser: true })
   .then((result) => {

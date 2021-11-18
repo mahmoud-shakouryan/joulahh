@@ -2,7 +2,7 @@
   "name": "joulahh",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "joulahh ecommerce",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch joulahh-backend --exec node --experimental-modules joulahh-backend/server.js"
@@ -23,9 +23,11 @@
   "dependencies": {
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
+    "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.11",
     "mongoose": "^5.13.7"

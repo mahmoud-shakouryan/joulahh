@@ -46,16 +46,17 @@ orderRouter.get(
 // to in route dar vaghe ma tooye server hastim va mikhaim az server request post dashte bashim be zarinPal.
 // va hamrahe in request bayad ye payloadi bashe ke zarinPal mikhad.
 orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //isAuth hatman anjam shavad
-  console.log('umad tuye orderRouter /pay >>> req.body>>>>',req.body)
+  // console.log('umad tuye orderRouter /pay >>> req.body>>>>',req.body)
   try {                                                                            
     const params = {
-      MerchantID:'6cded376-3063-11e9-a98e-005056a205be',
-      Amount:req.body.totalPrice,
-      CallbackURL:'http://localhost:5000/api/orders/paycallback',   //bad az deploy bayad domain inja bashe
-      Description: `${req.body.orderItems.name} خرید`
+      merchant_id:'6cded376-3063-11e9-a98e-005056a205be',
+      amount:req.body.totalPrice,
+      callback_url:'http://localhost:5000/api/orders/paycallback',   //bad az deploy bayad domain inja bashe
+      description: 'purchase test'
     }
     const response = await axios.post('https://api.zarinpal.com/pg/v4/payment/request.json', params);
-    console.log(response);
+    console.log('response.status>>>>>>>>>>>',response.status);
+    console.log('response.data.errors.message>>>>>>>>>>>',response.data.errors.message);
     if(response.data.status === 100){
        const newPayment = new Payment({
          user: req.user.id,       //bayad login karde bashe
@@ -66,7 +67,9 @@ orderRouter.post('/pay', expressAsyncHandler(async (req, res) => {           //i
        res.redirect(``)
     }
     else{
-      res.redirect('/order');                     //???? be koja redirect
+      console.log('umad tu else')
+      
+      res.redirect('/');// shayad beshe kollan goft res.redirect computer'e mabda ro mifrest jaee.ke inja servermoon mabdae ( zarinpal maghsad)       //???? be koja redirect
     }
   } catch (error) {
     console.log('orderRouter /pay route error >>>',error);
