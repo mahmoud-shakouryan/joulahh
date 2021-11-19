@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "joulahh ecommerce",
   "main": "index.js",
+  "engines":{
+    "node":"14.15.3"
+  },
   "scripts": {
     "start": "nodemon --watch joulahh-backend --exec node --experimental-modules joulahh-backend/server.js"
   },
