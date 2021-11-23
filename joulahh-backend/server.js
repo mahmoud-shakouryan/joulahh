@@ -17,9 +17,7 @@ const app = express();
 app.use(helmet());                         //ruye hameye req ha miad va header haye khasi ro ezafe mikone be hameye res ha ke barmigardoonim.
 app.use(compression());
 
-// marboot be morgan (deployment production configs)
-//const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),{flags:'a'}); //{flags:'a'}>>> baraye inke data ro tuye file overwrite nakone, append kone
-//app.use(morgan('combined',{stream:accessLogStream}));
+
 app.use(express.json()); 
 app.use(express.urlencoded({extended : true}));
 //const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@joulahhcluster.rxqh9.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
