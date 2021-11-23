@@ -1,5 +1,4 @@
 import express from "express";
-import fs from 'fs';
 // import data from "./data.js";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
