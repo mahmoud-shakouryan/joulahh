@@ -8,7 +8,7 @@
     "node": "14.15.3"
   },
   "scripts": {
-    "start": "nodemon --watch joulahh-backend --exec node --experimental-modules joulahh-backend/server.js"
+    "start": "nodemon --watch joulahh-backend --exec node --experimental-modules server.js"
   },
   "repository": {
     "type": "git",
