@@ -1,9 +1,9 @@
 {
   "name": "joulahh",
-  "type": "module",
   "version": "1.0.0",
   "description": "joulahh ecommerce",
   "main": "index.js",
+  "type": "module",
   "engines": {
     "node": "14.15.3"
   },
