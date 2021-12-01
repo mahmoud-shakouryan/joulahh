@@ -27,12 +27,10 @@ const App = () => {
     }
   };
   const headerUserDropDownHandler = () => {
-    console.log("headerDropDownHandler");
     setAdminDrop(false);
     setUserDrop(!userDrop);
   };
   const headerAdminDropDownHandler = () => {
-    console.log("headerDropDownHandler");
     setAdminDrop(!adminDrop);
     setUserDrop(false);
   };
