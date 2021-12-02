@@ -5,12 +5,7 @@ import * as actions from "../../store/actions/actionTypes";
 import Sidebar from "../sidebar/Sidebar";
 import "./header.css";
 
-const Header = ({
-  adminDrop,
-  userDrop,
-  headerUserDropDownHandler,
-  headerAdminDropDownHandler,
-}) => {
+const Header = ({adminDrop,userDrop,headerUserDropDownHandler, headerAdminDropDownHandler}) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const cartItems = useSelector((state) => state.cartReducer).cartItems;
   const { userInfo } = useSelector((state) => state.userSigninReducer);
