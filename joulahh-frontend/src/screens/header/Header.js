@@ -12,7 +12,7 @@ const Header = ({adminDrop,userDrop,headerUserDropDownHandler, headerAdminDropDo
 
   const dispatch = useDispatch();
   const signoutHandler = () => {
-    dispatch({ type: actions.SIGNOUT }); //?? ajiibe chera borde boodam ino too userActions ba dispatch amal nakard?
+    dispatch({ type: actions.SIGNOUT }); //ajiibe chera borde boodam ino too userActions ba dispatch amal nakard?
   }; // fek konam chon oonja ba dispatch mineveshtam . return dispatch => ... . dar hali ke oon male karaye async'e.
 
   const cartBadge = (
