@@ -37,7 +37,7 @@ app.use('/api/orders', orderRouter);
 
 
 
-app.use((err, req, res, next) => {   //age router'e tooye expressAsyncHandler be error resid express miare inja va khob maloome ke error ro be front end mifreste
+app.use((err, req, res, next) => {   //age router'e tuye expressAsyncHandler be error resid express miare inja va khob maloome ke error ro be front end mifreste
     res.status(500).send({message : err.message})
 })
 
