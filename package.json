@@ -2,7 +2,7 @@
   "name": "joulahh-clothes-store",
   "version": "1.0.0",
   "description": "joulahh ecommerce",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "engines": {
     "node": "14.15.3"
