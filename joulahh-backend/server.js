@@ -6,8 +6,6 @@ import productRouter from "./routes/productRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 import helmet from 'helmet';
 import compression from 'compression';
-//import morgan from 'morgan';
-import path from 'path';
 
 //const __dirname = path.resolve();         //baraye inke modele import taghir karde
 dotenv.config();      
@@ -20,9 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 //const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@joulahhcluster.rxqh9.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
 const MONGODB_URI = `mongodb+srv://mahmoud-shakouryan:TarYDvaALJVMQ8w@joulahhcluster.rxqh9.mongodb.net/joulahh?retryWrites=true&w=majority`;
-//mahmoud-shakouryan
-//TarYDvaALJVMQ8w
-//joulahh
+
 // app.use('/images',express.static(path.join(__dirname,'images')));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
